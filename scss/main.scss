@@ -35,7 +35,7 @@ a, a:link, a:hover, a:visited {
   .scene_element {
     will-change: opacity;
     animation-name: fadeIn;
-    animation-duration: 850ms;
+    animation-duration: 600ms;
     transition-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
     animation-fill-mode: both;
   }
@@ -250,6 +250,55 @@ a.a-button {
   }
 }
 
+a.t-button {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid rgba(245,169,27,1);
+  background: rgba(250,174,32,0);
+  margin: 0 0;
+  padding: 0 33px;
+  border-radius: 366px;
+  text-align: center;
+  height: 60px;
+  line-height: 58px;
+  transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  will-change: background, transform, border;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-origin: center center;
+  transform: scale(1);
+  &:hover {
+    background: rgba(250,174,32,1);
+    border: 2px solid rgba(245,169,27,0);
+    transform: scale(1.07);
+  }
+  &:active {
+    transform: scale(1);
+    transition: transform 120ms cubic-bezier(0.070, 0.915, 0.265, 1.390);
+  }
+}
+a.t-button > span {
+  backface-visibility: hidden;
+  font-size: 1.09em;
+  letter-spacing: -0.067em;
+  color: #f5a91b;
+  will-change: color;
+  font-weight: 600;
+  transition: color 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+a.t-button.warrow > span:after {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f105';
+  margin-left: 12px;
+  font-size: 0.82em;
+  display: inline-block;
+}
+a.t-button:hover > span {
+  color: #FFFFFF;
+}
+
+
 section.first a.button {
   opacity: 0;
   will-change: opacity;
@@ -360,26 +409,26 @@ section.first a.button {
 .top-menu .cta > a.button, .top-menu .cta > .button-holder {
   margin: 0 0;
 }
-.top-menu a.button {
-  background: rgba(250,174,32,1);
-  .s-inner {
-    .char, .char:after {
-      color: rgba(255,255,255,1)
-    }
-  }
-  &:hover {
-    background: rgba(255,255,255,1);
-    border: 2px solid rgba(250,174,32,1);
-    .s-inner {
-      span.splitting{
-        .char:after {
-          color: rgba(250,174,32,1) !important;
-        }
-      }
-    }
-  }
-  //www
-}
+// .top-menu a.button {
+//   background: rgba(250,174,32,1);
+//   .s-inner {
+//     .char, .char:after {
+//       color: rgba(255,255,255,1)
+//     }
+//   }
+//   &:hover {
+//     background: rgba(255,255,255,1);
+//     border: 2px solid rgba(250,174,32,1);
+//     .s-inner {
+//       span.splitting{
+//         .char:after {
+//           color: rgba(250,174,32,1) !important;
+//         }
+//       }
+//     }
+//   }
+//   //www
+// }
 
 
 .menu-container {

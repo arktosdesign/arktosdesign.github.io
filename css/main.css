@@ -35,8 +35,8 @@ a, a:link, a:hover, a:visited {
   will-change: opacity;
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-  -webkit-animation-duration: 850ms;
-  animation-duration: 850ms;
+  -webkit-animation-duration: 600ms;
+  animation-duration: 600ms;
   -webkit-transition-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
   -o-transition-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
   transition-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
@@ -277,6 +277,71 @@ a.a-button {
   a.a-button:active {
     opacity: 0.6; }
 
+a.t-button {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #f5a91b;
+  background: rgba(250, 174, 32, 0);
+  margin: 0 0;
+  padding: 0 33px;
+  border-radius: 366px;
+  text-align: center;
+  height: 60px;
+  line-height: 58px;
+  -webkit-transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), border 420ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 420ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+  transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), border 420ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 420ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+  -o-transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), transform 420ms cubic-bezier(0.07, 0.915, 0.265, 1.39), border 420ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), transform 420ms cubic-bezier(0.07, 0.915, 0.265, 1.39), border 420ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), transform 420ms cubic-bezier(0.07, 0.915, 0.265, 1.39), border 420ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 420ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+  will-change: background, transform, border;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
+  a.t-button:hover {
+    background: #faae20;
+    border: 2px solid rgba(245, 169, 27, 0);
+    -webkit-transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    transform: scale(1.07); }
+  a.t-button:active {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 120ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+    transition: -webkit-transform 120ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+    -o-transition: transform 120ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+    transition: transform 120ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
+    transition: transform 120ms cubic-bezier(0.07, 0.915, 0.265, 1.39), -webkit-transform 120ms cubic-bezier(0.07, 0.915, 0.265, 1.39); }
+
+a.t-button > span {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-size: 1.09em;
+  letter-spacing: -0.067em;
+  color: #f5a91b;
+  will-change: color;
+  font-weight: 600;
+  -webkit-transition: color 420ms cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: color 420ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: color 420ms cubic-bezier(0.19, 1, 0.22, 1); }
+
+a.t-button.warrow > span:after {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f105';
+  margin-left: 12px;
+  font-size: 0.82em;
+  display: inline-block; }
+
+a.t-button:hover > span {
+  color: #FFFFFF; }
+
 section.first a.button {
   opacity: 0;
   will-change: opacity;
@@ -414,16 +479,6 @@ section.first a.button {
 
 .top-menu .cta > a.button, .top-menu .cta > .button-holder {
   margin: 0 0; }
-
-.top-menu a.button {
-  background: #faae20; }
-  .top-menu a.button .s-inner .char, .top-menu a.button .s-inner .char:after {
-    color: white; }
-  .top-menu a.button:hover {
-    background: white;
-    border: 2px solid #faae20; }
-    .top-menu a.button:hover .s-inner span.splitting .char:after {
-      color: #faae20 !important; }
 
 .menu-container {
   position: relative;

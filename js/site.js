@@ -7,14 +7,14 @@ $(function(){
         prefetch: true,
         cacheLength: 1, // The number of pages to cache
         onStart: {
-          duration: 800,
+          duration: 600,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
           }
         },
         onReady: {
-          duration: 800,
+          duration: 600,
           render: function ($container, $newContent) {
             $container.removeClass('is-exiting');
             $container.html($newContent);
@@ -108,7 +108,7 @@ $(function(){
 
 
 
-    $("a.button").click(function(){navigator.vibrate([20]);});
+    $("a.button, a.a-button").click(function(){navigator.vibrate([20]);});
 
     $(".scroll-down svg").click(function() {
       $([document.documentElement, document.body]).animate({
