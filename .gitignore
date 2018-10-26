@@ -2,5 +2,6 @@
 resources/
 prepros-6.config
 /
+arktos_design/
 *.css.map
 prepros-6.config
