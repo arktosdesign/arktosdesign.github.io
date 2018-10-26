@@ -92,17 +92,17 @@ $(function(){
       });
     });
 
-    if(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
-      $(function() {
-        $.attractHover(
-          '.attract',
-          {
-            proximity: 16,
-            magnetism: 2
-          }
-        );
-      });
-    }
+    // if(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
+    //   $(function() {
+    //     $.attractHover(
+    //       '.attract',
+    //       {
+    //         proximity: 16,
+    //         magnetism: 2
+    //       }
+    //     );
+    //   });
+    // }
 
 
 
@@ -369,7 +369,7 @@ $(function(){
 
     }
   }
-  $(window).on('resize scroll', function() {
+  $(window).on('scroll', function() {
     didScroll = true;
     navShadow();
     checkBb8();
@@ -385,6 +385,18 @@ $(function(){
     }
   });
 
+
+  $(function() {
+    $.attractHover(
+      '.attract',
+      {
+        proximity: 16,
+        magnetism: 2
+      }
+    );
+  });
+
+  
 
 
   setTimeout(function(){
