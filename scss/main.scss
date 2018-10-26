@@ -35,7 +35,7 @@ a, a:link, a:hover, a:visited {
   .scene_element {
     will-change: opacity;
     animation-name: fadeIn;
-    animation-duration: 450ms;
+    animation-duration: 850ms;
     transition-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
     animation-fill-mode: both;
   }
@@ -108,6 +108,147 @@ a, a:link, a:hover, a:visited {
 
 
 
+.button-holder {
+  display: block;
+  margin: 38px 0 0 0;
+  overflow: visible;
+}
+a.button {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid rgba(245,169,27,1);
+  background: rgba(250,174,32,0);
+  margin: 0 0;
+  padding: 0 33px;
+  border-radius: 366px;
+  text-align: center;
+  height: 62px;
+  padding: 17px 33px 13px 33px;
+  transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 1420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  will-change: background, transform, border;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-origin: center center;
+  transform: scale(1);
+
+  .s-inner {
+    backface-visibility: hidden;
+    overflow: hidden;
+    height: 28px;
+    line-height: 24px;
+    padding: 0px 4px 0px 0px;
+    color: rgba(250,174,32,1);
+    * {
+      backface-visibility: hidden;
+    }
+    span.splitting {
+      font-size: 1.328em;
+      font-weight: 600;
+      word-spacing: 0.12em;
+      letter-spacing: -0.058em;
+      .char {
+        will-change: color, transform;
+        transition:
+        color calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
+        transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
+        transition-delay: calc( 60ms * var(--word-index) );
+        &:after {
+          visibility: visible;
+          margin-top: 44px;
+          color: rgba(250,174,32,0);
+          z-index: 2;
+        }
+      }
+    }
+    i {
+      color: rgba(22, 22, 23, 1);
+      font-size: 0.92em;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 1.2em;
+      transform: translateY(-1px);
+      transition: color 180ms ease-out;
+    }
+  }
+  &:hover span.splitting .char:after {
+    color: rgba(255,255,255,1);
+  }
+  &:hover span.splitting .char {
+    transform: translateY(-44px);
+    color: rgba(250,174,32,0);
+  }
+  &:hover {
+    background: rgba(250,174,32,1);
+    border: 2px solid rgba(245,169,27,0);
+    transform: scale(1.07);
+    i {
+      color: rgba(255,255,255,1);
+      transition: color 180ms 180ms ease-out;
+    }
+  }
+  &:active {
+    transform: scale(1);
+    transition: transform 80ms cubic-bezier(0.070, 0.915, 0.265, 1.390);
+  }
+}
+
+
+
+a.a-button {
+  position: relative;
+  display: inline-block;
+  margin: 24px 0;
+  padding: 14px 0px 12px 0px;
+  line-height: 28px;
+  will-change: opacity;
+  transition: opacity 40ms ease-out;
+  .a-inner {
+    overflow: hidden;
+    height: 28px;
+    line-height: 24px;
+    padding: 0px 4px 0px 0px;
+    color: rgba(250,174,32,1);
+    span.splitting {
+      font-size: 1.328em;
+      font-weight: 600;
+      word-spacing: 0.12em;
+      letter-spacing: -0.058em;
+      .char {
+        backface-visibility: hidden;
+        will-change: color, transform;
+        transition:
+        color calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
+        transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
+        transition-delay: calc( 60ms * var(--word-index) );
+        &:after {
+          visibility: visible;
+          margin-top: 44px;
+          color: rgba(250,174,32,0);
+          z-index: 2;
+        }
+      }
+    }
+    i {
+      color: rgba(22, 22, 23, 1);
+      font-size: 0.92em;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 1.2em;
+      transform: translateY(-1px);
+    }
+  }
+  &:hover span.splitting .char:after {
+    color: rgba(250,174,32,1);
+  }
+  &:hover span.splitting .char {
+    transform: translateY(-44px);
+    color: rgba(250,174,32,0);
+  }
+  &:active {
+    opacity: 0.6;
+  }
+}
 
 section.first a.button {
   opacity: 0;
@@ -216,9 +357,31 @@ section.first a.button {
   height: 112px;
   padding: 26px 0 0 0;
 }
-.top-menu .cta > a.button {
+.top-menu .cta > a.button, .top-menu .cta > .button-holder {
   margin: 0 0;
 }
+.top-menu a.button {
+  background: rgba(250,174,32,1);
+  .s-inner {
+    .char, .char:after {
+      color: rgba(255,255,255,1)
+    }
+  }
+  &:hover {
+    background: rgba(255,255,255,1);
+    border: 2px solid rgba(250,174,32,1);
+    .s-inner {
+      span.splitting{
+        .char:after {
+          color: rgba(250,174,32,1) !important;
+        }
+      }
+    }
+  }
+  //www
+}
+
+
 .menu-container {
   position: relative;
   width: 100%;
@@ -332,6 +495,7 @@ section.first a.button {
         stroke-dashoffset: -73;
       }
       &.circ {
+        stroke: #f5a91b;
         stroke-dasharray: 290;
         stroke-dashoffset: -290;
       }
@@ -351,37 +515,6 @@ section.first a.button {
       }
 }
 
-
-
-// .menu-toggle {
-//   position: absolute;
-//   top: 0px;
-//   right: 28px;
-//   width: 66px;
-//   height: 112px;
-//   display: none;
-//   cursor: pointer;
-// }
-// .menu-toggle .bar {
-//   position: absolute;
-//   width: 34px;
-//   height: 4px;
-//   border-radius: 1px;
-//   left: 16px;
-//   background: #161617;
-//   margin-top: -2px;
-// }
-// .menu-toggle .bar.one {
-//   top: 43%;
-// }
-// .menu-toggle .bar.two {
-//   top: 50%;
-// }
-// .menu-toggle .bar.three {
-//   top: 57%;
-// }
-
-
 main {
   position: relative;
   margin: 0 auto 420px auto;
@@ -391,7 +524,6 @@ main {
   z-index: 1;
   background-color: #FFFFFF;
 }
-
 .container {
   position: relative;
   margin: 0 auto;
@@ -400,7 +532,6 @@ main {
   padding: 0 38px;
   height: 100%;
 }
-
 .grid {
 	clear: both;
 	padding: 0px;
@@ -438,16 +569,23 @@ section {
   max-width: 100%;
   height: 100vh;
   min-height: 520px;
-  // padding: 72px 0;
   padding: 38px 0;
   margin: 28px auto;
+  background-color: #FFFFFF;
+  .c-5, .c-7 {
+    padding-left:  calc(2vw + 14px);
+  }
 }
 section.first {
   height: 100vh;
   padding: 38px 0;
   margin: 0 auto;
 }
-
+section.center-cta {
+  .c-12 {
+    padding-left: 0px;
+  }
+}
 section .grid, section .col {
   height: 100%;
 }
@@ -554,63 +692,44 @@ footer {
   max-width: 100%;
   background-color: #161617;
   z-index: 0;
-}
-
-
-
-.button-holder {
-  display: block;
-  margin: 38px 0 0 0;
-  overflow: visible;
-}
-a.button {
-  position: relative;
-  display: inline-block;
-  background: transparent;
-  border: 2px solid rgba(245,169,27,1);
-  background: rgba(250,174,32,0);
-  margin: 0 0;
-  padding: 0 33px;
-  border-radius: 366px;
-  text-align: center;
-  height: 60px;
-  line-height: 58px;
-  transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  will-change: background, transform, border;
-  overflow: hidden;
-  backface-visibility: hidden;
-  transform-origin: center center;
-  transform: scale(1);
-  &:hover {
-    background: rgba(250,174,32,1);
-    border: 2px solid rgba(245,169,27,0);
-    transform: scale(1.07);
+  .button {
+    .char {
+      color: #FFFFFF;
+    }
+    i {
+      color: #FFFFFF !important;
+     }
   }
-  &:active {
-    transform: scale(1);
-    transition: transform 120ms cubic-bezier(0.070, 0.915, 0.265, 1.390);
+  .a-button {
+    .char {
+      color: #FFFFFF;
+    }
+    i {
+      color: #f5a91b !important;
+      transition: color 180ms ease-out;
+     }
+    &:hover {
+      i {
+        color: #FFFFFF !important;
+        transition: color 180ms 180ms ease-out;
+       }
+    }
   }
 }
-a.button > span {
-  backface-visibility: hidden;
-  font-size: 1.09em;
-  letter-spacing: -0.067em;
-  color: #f5a91b;
-  will-change: color;
-  font-weight: 600;
-  transition: color 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-}
-a.button.warrow > span:after {
-  font-family: 'Font Awesome 5 Free';
-  content: '\f105';
-  margin-left: 12px;
-  font-size: 0.82em;
-  display: inline-block;
-}
-a.button:hover > span {
-  color: #FFFFFF;
-}
 
+
+
+// footer a.button > span {
+//   color: #FFFFFF !important;
+// }
+//
+//
+// footer .button-holder {
+//   color: #FFFFFF !important;
+// }
+// footer .s-button {
+//   color: #FFFFFF !important;
+// }
 
 ul.links {
   position: relative;
@@ -972,6 +1091,12 @@ section.center-cta h2 {
 
   section.first {height: auto; padding: 134px 0;}
   section {height: auto; padding: calc(72px + 10vw) 0; margin: 0px auto;}
+
+  section {
+    .c-5, .c-7 {
+      padding-left: 0px;
+    }
+  }
 
   main {
     margin: 0 auto 0 auto;

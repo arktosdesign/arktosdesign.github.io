@@ -7,14 +7,14 @@ $(function(){
         prefetch: true,
         cacheLength: 1, // The number of pages to cache
         onStart: {
-          duration: 900,
+          duration: 800,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
           }
         },
         onReady: {
-          duration: 450,
+          duration: 800,
           render: function ($container, $newContent) {
             $container.removeClass('is-exiting');
             $container.html($newContent);
@@ -31,6 +31,7 @@ $(function(){
 
 (function($) {
   $.fn.onPageLoad = function() {
+
 
      $(".fd, .fp").addClass("faded");
 
@@ -96,7 +97,7 @@ $(function(){
         $.attractHover(
           '.attract',
           {
-            proximity: 20,
+            proximity: 16,
             magnetism: 2
           }
         );
