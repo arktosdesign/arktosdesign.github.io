@@ -1,3 +1,6 @@
 .sass-cache/
+resources/
+prepros-6.config
+/
 *.css.map
 prepros-6.config
