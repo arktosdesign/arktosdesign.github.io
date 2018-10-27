@@ -47,38 +47,7 @@ $(function(){
         once: true
       });
 
-//menu
-  var menuToggle = $(".menu-toggle");
-  var topMenu = $(".top-menu");
 
-  function openMenu() {
-    menuToggle.addClass("toggled");
-    $("body").addClass("no-of");
-    if (topMenu.hasClass("sc-sh")) {
-      topMenu.removeClass("sc-sh");
-    }
-  }
-  function closeMenu() {
-    menuToggle.removeClass("toggled");
-    scrollPosition = $(window).scrollTop();
-    if (scrollPosition >= 3) {
-      setTimeout(function(){
-        topMenu.addClass("sc-sh");
-      }, 350);
-    }
-    if ($("body").hasClass("no-of")) {
-      $("body").removeClass("no-of");
-    }
-
-  }
-  menuToggle.click(function(){
-    if ($(this).hasClass("toggled")) {
-      closeMenu();
-    }
-    else {
-      openMenu();
-    }
-  });
 
 
 // Slide Line
@@ -106,7 +75,9 @@ $(function() {
   });
 });
 
-$("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20]);});
+
+
+$("a.button, a.a-button, .menu-toggle, ul.links li").click(function(){navigator.vibrate([20]);});
 
 
 
@@ -336,11 +307,45 @@ $("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20])
     })
 
 
+    //menu
+      var menuToggle = $(".menu-toggle");
+      var topMenu = $(".top-menu");
+
+      function openMenu() {
+        menuToggle.addClass("toggled");
+        $("body").addClass("no-of");
+        if (topMenu.hasClass("sc-sh")) {
+          topMenu.removeClass("sc-sh");
+        }
+      }
+      function closeMenu() {
+        menuToggle.removeClass("toggled");
+        scrollPosition = $(window).scrollTop();
+        if (scrollPosition > 3) {
+          setTimeout(function(){
+            topMenu.addClass("sc-sh");
+          }, 350);
+        }
+        if ($("body").hasClass("no-of")) {
+          $("body").removeClass("no-of");
+        }
+
+      }
+      menuToggle.click(function(){
+        if ($(this).hasClass("toggled")) {
+          closeMenu();
+        }
+        else {
+          openMenu();
+        }
+      });
+
+
     var pastNav = 3;
     var didScroll;
     var lastScrollTop = 0;
     var delta = 5;
-    var navbarHeight = $('.top-menu').outerHeight();
+    var navbarHeight = topMenu.outerHeight();
     setInterval(function() {
         if (didScroll) {
             hasScrolled();
@@ -352,22 +357,26 @@ $("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20])
         if(Math.abs(lastScrollTop - st) <= delta)
             return;
         if (st > lastScrollTop && st > navbarHeight){
-            $('.top-menu').addClass('is-hidden');
+            topMenu.addClass('is-hidden');
         } else if(st + $(window).height() < $(document).height()) {
-            $('.top-menu').removeClass('is-hidden');
+            topMenu.removeClass('is-hidden');
         }
         lastScrollTop = st;
     }
     function navShadow() {
       if ($(window).scrollTop() > pastNav) {
-          $('.top-menu').addClass('sc-sh');
+          topMenu.addClass('sc-sh');
           $(".scroll-down").addClass("fout");
       }
       else {
-          $('.top-menu').removeClass('sc-sh');
+          topMenu.removeClass('sc-sh');
           $(".scroll-down").removeClass("fout");
       }
     }
+
+
+
+
 
   $.fn.isInViewport = function() {
     var elementTop = $(this).offset().top;
@@ -377,12 +386,12 @@ $("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20])
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
   function checkBb8(){
-    if ($(".bb8-main").isInViewport()) {bbEight.play();}
-    else {bbEight.pause();}
+    if ($(".bb8-main").isInViewport()) {bbEight.play();console.log("bb8 is playing");}
+    else {bbEight.pause();console.log("bb8 is paused");}
   }
   function checkTrigger(){
-    if ($(".tf-main").isInViewport()) {triggerFinger.play();}
-    else {triggerFinger.pause();}
+    if ($(".tf-main").isInViewport()) {triggerFinger.play();console.log("TF is playing");}
+    else {triggerFinger.pause();console.log("TF is paused");}
   }
   function checkLamp(){
     if ($(".lamp-main").isInViewport()) {lampLights.play(); lamp.play();}
@@ -403,16 +412,24 @@ $("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20])
     else {
       $(".footer-an").removeClass("in-f");
     }
-
   }
+
+
+
+
+
+
+
+
+
   $(window).on('scroll', function() {
     didScroll = true;
     navShadow();
+    bringFooter();
+    leftCtaCheck();
     checkBb8();
     checkTrigger();
     checkLamp();
-    leftCtaCheck();
-    bringFooter();
   });
 
   $("a").click(function(){
@@ -421,14 +438,44 @@ $("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20])
     }
   });
 
+  // ScrollOut({
+  //   targets: '.bb8',
+  //   threshold: 0.5,
+  //   onShown: function(element, ctx, scrollingElement) {
+  //     bbEight.play();
+  //     console.log("bb8 is playing");
+  //   },
+  //   onHidden: function(element, ctx, scrollingElement) {
+  //     bbEight.pause();
+  //     console.log("bb8 is paused");
+  //   }
+  // });
+  // ScrollOut({
+  //   targets: '.tf',
+  //   threshold: 0.5,
+  //   onShown: function(element, ctx, scrollingElement) {
+  //     triggerFinger.play();
+  //     console.log("TF is playing");
+  //   },
+  //   onHidden: function(element, ctx, scrollingElement) {
+  //     triggerFinger.pause();
+  //     console.log("TF is paused");
+  //   }
+  // });
+  // ScrollOut({
+  //   targets: '.lamp',
+  //   threshold: 0.5,
+  //   onShown: function(element, ctx, scrollingElement) {
+  //     lampLights.play(); lamp.play();
+  //     console.log("Lamp is playing");
+  //   },
+  //   onHidden: function(element, ctx, scrollingElement) {
+  //     lampLights.pause(); lamp.pause();
+  //     console.log("Lamp is paused");
+  //   }
+  // });
 
 
-
-
-
-  setTimeout(function(){
-    bbEight.restart();
-  }, 1400);
 
 
   };
