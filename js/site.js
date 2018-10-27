@@ -47,6 +47,69 @@ $(function(){
         once: true
       });
 
+//menu
+  var menuToggle = $(".menu-toggle");
+  var topMenu = $(".top-menu");
+
+  function openMenu() {
+    menuToggle.addClass("toggled");
+    $("body").addClass("no-of");
+    if (topMenu.hasClass("sc-sh")) {
+      topMenu.removeClass("sc-sh");
+    }
+  }
+  function closeMenu() {
+    menuToggle.removeClass("toggled");
+    scrollPosition = $(window).scrollTop();
+    if (scrollPosition >= 3) {
+      setTimeout(function(){
+        topMenu.addClass("sc-sh");
+      }, 350);
+    }
+    if ($("body").hasClass("no-of")) {
+      $("body").removeClass("no-of");
+    }
+
+  }
+  menuToggle.click(function(){
+    if ($(this).hasClass("toggled")) {
+      closeMenu();
+    }
+    else {
+      openMenu();
+    }
+  });
+
+
+// Slide Line
+$(function() {
+  'use strict';
+  var leftPos, newWidth, $slideLine;
+  $slideLine = $('#slide-line');
+  $('.main-menu ul li a').click(function() {
+    var $this = $(this);
+    $this.parent().addClass('active').siblings().removeClass('active');
+    $slideLine
+      .data('origLeft', $this.position().left)
+      .data('origWidth', $this.parent().width());
+  });
+  $('.main-menu ul li').find('a').hover(function() {
+    var $thisBar = $(this).find("span");
+    leftPos = $thisBar.position().left;
+    newWidth = $thisBar.parent().width();
+    $slideLine.css({
+      "left": leftPos,
+      "width": newWidth
+    });
+  }, function() {
+    $slideLine.css({'width' : '0'});
+  });
+});
+
+$("a.button, a.a-button, .menu-toggle").click(function(){navigator.vibrate([20]);});
+
+
+
     $(function() {
       var message = "👋🐻";
       var original;
@@ -65,57 +128,30 @@ $(function(){
 
 
 
-
-
-
     $(function() {
-      'use strict';
-      var leftPos, newWidth, $slideLine;
-      $slideLine = $('#slide-line');
-      $('.main-menu ul li a').click(function() {
-        var $this = $(this);
-        $this.parent().addClass('active').siblings().removeClass('active');
-        $slideLine
-          .data('origLeft', $this.position().left)
-          .data('origWidth', $this.parent().width());
-      });
-      $('.main-menu ul li').find('a').hover(function() {
-        var $thisBar = $(this).find("span");
-        leftPos = $thisBar.position().left;
-        newWidth = $thisBar.parent().width();
-        $slideLine.css({
-          "left": leftPos,
-          "width": newWidth
+      var ua = navigator.userAgent;
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+        return false;
+      }
+      else if(/Chrome/i.test(ua)) {
+        $(function() {
+          $.attractHover(
+            '.attract',
+            {
+              proximity: 14,
+              magnetism: 2
+            }
+          );
         });
-      }, function() {
-        $slideLine.css({'width' : '0'});
-      });
+      }
     });
 
-    // if(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
-    //   $(function() {
-    //     $.attractHover(
-    //       '.attract',
-    //       {
-    //         proximity: 16,
-    //         magnetism: 2
-    //       }
-    //     );
-    //   });
-    // }
-
-
-
-
-
-    $("a.button, a.a-button").click(function(){navigator.vibrate([20]);});
 
     $(".scroll-down svg").click(function() {
       $([document.documentElement, document.body]).animate({
         scrollTop: $("#sectionTwo").offset().top
       }, 780);
     });
-
 
     var scrollDown = anime.timeline({autoplay: true, loop: true})
     scrollDown
@@ -163,7 +199,6 @@ $(function(){
         easing: 'linear'
       }
     })
-
     var triggerFinger = anime.timeline({loop: true, autoplay: false})
       triggerFinger
       .add({
@@ -268,6 +303,7 @@ $(function(){
     	delay: function(el, i, l) {return i * 350;},
     	offset: '-=10600'
     })
+
     var lamp = anime.timeline({autoplay: false, loop: true})
     lamp
     .add ({
@@ -299,13 +335,12 @@ $(function(){
       offset: '-=9840'
     })
 
+
     var pastNav = 3;
     var didScroll;
     var lastScrollTop = 0;
     var delta = 5;
     var navbarHeight = $('.top-menu').outerHeight();
-
-
     setInterval(function() {
         if (didScroll) {
             hasScrolled();
@@ -362,12 +397,13 @@ $(function(){
     }
   }
   function bringFooter() {
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
-      $(".sine").addClass("sine-in");
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 180) {
+      $(".footer-an").addClass("in-f");
     }
     else {
-      // $(".sine").addClass("sine-in"); DO NOT INCLUDE
+      $(".footer-an").removeClass("in-f");
     }
+
   }
   $(window).on('scroll', function() {
     didScroll = true;
@@ -386,15 +422,6 @@ $(function(){
   });
 
 
-  $(function() {
-    $.attractHover(
-      '.attract',
-      {
-        proximity: 16,
-        magnetism: 2
-      }
-    );
-  });
 
 
 
@@ -413,6 +440,7 @@ $(function(){
 $(document).ready(function() {
   $('body').onPageLoad();
 });
+
 $(window).on('beforeunload', function(){
   $(window).scrollTop(0);
 });
