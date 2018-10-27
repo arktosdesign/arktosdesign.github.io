@@ -113,22 +113,35 @@ a, a:link, a:hover, a:visited {
   margin: 38px 0 0 0;
   overflow: visible;
 }
-a.button {
+a.button, a.a-button {
   position: relative;
   display: inline-block;
-  background: transparent;
+  text-align: center;
+  .char {
+    backface-visibility: hidden;
+    will-change: color, transform;
+    transition:
+    color calc(140ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
+    transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
+    transition-delay: calc( 60ms * var(--word-index) );
+    &:after {
+      visibility: visible;
+      margin-top: 44px;
+      z-index: 2;
+    }
+  }
+}
+a.button {
   border: 2px solid rgba(245,169,27,1);
   background: rgba(250,174,32,0);
   margin: 0 0;
   padding: 0 33px;
   border-radius: 366px;
-  text-align: center;
   height: 62px;
   padding: 17px 33px 13px 33px;
   transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 1420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
   will-change: background, transform, border;
   overflow: hidden;
-  backface-visibility: hidden;
   transform-origin: center center;
   transform: scale(1);
   .s-inner {
@@ -147,16 +160,8 @@ a.button {
       word-spacing: 0.12em;
       letter-spacing: -0.058em;
       .char {
-        will-change: color, transform;
-        transition:
-        color calc(140ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
-        transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
-        transition-delay: calc( 60ms * var(--word-index) );
         &:after {
-          visibility: visible;
-          margin-top: 44px;
           color: rgba(250,174,32,0);
-          z-index: 2;
         }
       }
     }
@@ -193,13 +198,12 @@ a.button {
   }
 }
 a.a-button {
-  position: relative;
-  display: inline-block;
   margin: 24px 0;
   padding: 14px 0px 12px 0px;
   line-height: 28px;
   will-change: opacity;
   transition: opacity 40ms ease-out;
+  backface-visibility: hidden;
   .a-inner {
     overflow: hidden;
     height: 28px;
@@ -212,17 +216,8 @@ a.a-button {
       word-spacing: 0.12em;
       letter-spacing: -0.058em;
       .char {
-        backface-visibility: hidden;
-        will-change: color, transform;
-        transition:
-        color calc(140ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
-        transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
-        transition-delay: calc( 60ms * var(--word-index) );
         &:after {
-          visibility: visible;
-          margin-top: 44px;
           color: rgba(250,174,32,0);
-          z-index: 2;
         }
       }
     }
@@ -246,6 +241,8 @@ a.a-button {
     opacity: 0.6;
   }
 }
+
+
 a.t-button {
   position: relative;
   display: inline-block;

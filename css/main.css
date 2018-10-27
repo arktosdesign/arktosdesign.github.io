@@ -122,16 +122,33 @@ a, a:link, a:hover, a:visited {
   margin: 38px 0 0 0;
   overflow: visible; }
 
-a.button {
+a.button, a.a-button {
   position: relative;
   display: inline-block;
-  background: transparent;
+  text-align: center; }
+  a.button .char, a.a-button .char {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: color, transform;
+    -webkit-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+    transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+    -o-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+    transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+    transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+    -webkit-transition-delay: calc( 60ms * var(--word-index));
+    -o-transition-delay: calc( 60ms * var(--word-index));
+    transition-delay: calc( 60ms * var(--word-index)); }
+    a.button .char:after, a.a-button .char:after {
+      visibility: visible;
+      margin-top: 44px;
+      z-index: 2; }
+
+a.button {
   border: 2px solid #f5a91b;
   background: rgba(250, 174, 32, 0);
   margin: 0 0;
   padding: 0 33px;
   border-radius: 366px;
-  text-align: center;
   height: 62px;
   padding: 17px 33px 13px 33px;
   -webkit-transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), border 420ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 1420ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
@@ -141,8 +158,6 @@ a.button {
   transition: background 420ms cubic-bezier(0.19, 1, 0.22, 1), transform 1420ms cubic-bezier(0.07, 0.915, 0.265, 1.39), border 420ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 1420ms cubic-bezier(0.07, 0.915, 0.265, 1.39);
   will-change: background, transform, border;
   overflow: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   -webkit-transform-origin: center center;
   -ms-transform-origin: center center;
   transform-origin: center center;
@@ -165,21 +180,8 @@ a.button {
       font-weight: 600;
       word-spacing: 0.12em;
       letter-spacing: -0.058em; }
-      a.button .s-inner span.splitting .char {
-        will-change: color, transform;
-        -webkit-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        -o-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        -webkit-transition-delay: calc( 60ms * var(--word-index));
-        -o-transition-delay: calc( 60ms * var(--word-index));
-        transition-delay: calc( 60ms * var(--word-index)); }
-        a.button .s-inner span.splitting .char:after {
-          visibility: visible;
-          margin-top: 44px;
-          color: rgba(250, 174, 32, 0);
-          z-index: 2; }
+      a.button .s-inner span.splitting .char:after {
+        color: rgba(250, 174, 32, 0); }
     a.button .s-inner i {
       color: #faae20;
       font-size: 0.92em;
@@ -221,15 +223,15 @@ a.button {
     transition: transform 80ms cubic-bezier(0.07, 0.915, 0.265, 1.39), -webkit-transform 80ms cubic-bezier(0.07, 0.915, 0.265, 1.39); }
 
 a.a-button {
-  position: relative;
-  display: inline-block;
   margin: 24px 0;
   padding: 14px 0px 12px 0px;
   line-height: 28px;
   will-change: opacity;
   -webkit-transition: opacity 40ms ease-out;
   -o-transition: opacity 40ms ease-out;
-  transition: opacity 40ms ease-out; }
+  transition: opacity 40ms ease-out;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
   a.a-button .a-inner {
     overflow: hidden;
     height: 28px;
@@ -241,23 +243,8 @@ a.a-button {
       font-weight: 600;
       word-spacing: 0.12em;
       letter-spacing: -0.058em; }
-      a.a-button .a-inner span.splitting .char {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        will-change: color, transform;
-        -webkit-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        -o-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        -webkit-transition-delay: calc( 60ms * var(--word-index));
-        -o-transition-delay: calc( 60ms * var(--word-index));
-        transition-delay: calc( 60ms * var(--word-index)); }
-        a.a-button .a-inner span.splitting .char:after {
-          visibility: visible;
-          margin-top: 44px;
-          color: rgba(250, 174, 32, 0);
-          z-index: 2; }
+      a.a-button .a-inner span.splitting .char:after {
+        color: rgba(250, 174, 32, 0); }
     a.a-button .a-inner i {
       color: #161617;
       font-size: 0.92em;
