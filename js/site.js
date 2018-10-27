@@ -390,7 +390,7 @@ $(function(){
     $.attractHover(
       '.attract',
       {
-        proximity: 2,
+        proximity: 18,
         magnetism: 2
       }
     );
