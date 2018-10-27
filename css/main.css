@@ -167,11 +167,11 @@ a.button {
       letter-spacing: -0.058em; }
       a.button .s-inner span.splitting .char {
         will-change: color, transform;
-        -webkit-transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        -o-transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        -webkit-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        -o-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
         -webkit-transition-delay: calc( 60ms * var(--word-index));
         -o-transition-delay: calc( 60ms * var(--word-index));
         transition-delay: calc( 60ms * var(--word-index)); }
@@ -245,11 +245,11 @@ a.a-button {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         will-change: color, transform;
-        -webkit-transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        -o-transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
-        transition: color calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        -webkit-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        -o-transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
+        transition: color calc(140ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1), -webkit-transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.6, 0, 0, 1);
         -webkit-transition-delay: calc( 60ms * var(--word-index));
         -o-transition-delay: calc( 60ms * var(--word-index));
         transition-delay: calc( 60ms * var(--word-index)); }

@@ -149,8 +149,8 @@ a.button {
       .char {
         will-change: color, transform;
         transition:
-        color calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
-        transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
+        color calc(140ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
+        transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
         transition-delay: calc( 60ms * var(--word-index) );
         &:after {
           visibility: visible;
@@ -192,9 +192,6 @@ a.button {
     transition: transform 80ms cubic-bezier(0.070, 0.915, 0.265, 1.390);
   }
 }
-
-
-
 a.a-button {
   position: relative;
   display: inline-block;
@@ -218,8 +215,8 @@ a.a-button {
         backface-visibility: hidden;
         will-change: color, transform;
         transition:
-        color calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
-        transform calc(230ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
+        color calc(140ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
+        transform calc(180ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
         transition-delay: calc( 60ms * var(--word-index) );
         &:after {
           visibility: visible;
@@ -249,7 +246,6 @@ a.a-button {
     opacity: 0.6;
   }
 }
-
 a.t-button {
   position: relative;
   display: inline-block;
@@ -297,6 +293,7 @@ a.t-button.warrow > span:after {
 a.t-button:hover > span {
   color: #FFFFFF;
 }
+
 
 
 section.first a.button {
