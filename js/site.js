@@ -394,8 +394,8 @@ $("a.button, a.a-button, .menu-toggle, ul.links li").click(function(){navigator.
     else {triggerFinger.pause();console.log("TF is paused");}
   }
   function checkLamp(){
-    if ($(".lamp-main").isInViewport()) {lampLights.play(); lamp.play();}
-    else {lampLights.pause(); lamp.pause();}
+    if ($(".lamp-main").isInViewport()) {lampLights.play(); lamp.play();console.log("lamp is playing");}
+    else {lampLights.pause(); lamp.pause();console.log("lamp is paused");}
   }
   function leftCtaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
@@ -427,9 +427,9 @@ $("a.button, a.a-button, .menu-toggle, ul.links li").click(function(){navigator.
     navShadow();
     bringFooter();
     leftCtaCheck();
-    checkBb8();
-    checkTrigger();
-    checkLamp();
+    // checkBb8();
+    // checkTrigger();
+    // checkLamp();
   });
 
   $("a").click(function(){
@@ -438,45 +438,50 @@ $("a.button, a.a-button, .menu-toggle, ul.links li").click(function(){navigator.
     }
   });
 
-  // ScrollOut({
-  //   targets: '.bb8',
-  //   threshold: 0.5,
-  //   onShown: function(element, ctx, scrollingElement) {
-  //     bbEight.play();
-  //     console.log("bb8 is playing");
-  //   },
-  //   onHidden: function(element, ctx, scrollingElement) {
-  //     bbEight.pause();
-  //     console.log("bb8 is paused");
-  //   }
-  // });
-  // ScrollOut({
-  //   targets: '.tf',
-  //   threshold: 0.5,
-  //   onShown: function(element, ctx, scrollingElement) {
-  //     triggerFinger.play();
-  //     console.log("TF is playing");
-  //   },
-  //   onHidden: function(element, ctx, scrollingElement) {
-  //     triggerFinger.pause();
-  //     console.log("TF is paused");
-  //   }
-  // });
-  // ScrollOut({
-  //   targets: '.lamp',
-  //   threshold: 0.5,
-  //   onShown: function(element, ctx, scrollingElement) {
-  //     lampLights.play(); lamp.play();
-  //     console.log("Lamp is playing");
-  //   },
-  //   onHidden: function(element, ctx, scrollingElement) {
-  //     lampLights.pause(); lamp.pause();
-  //     console.log("Lamp is paused");
-  //   }
-  // });
+  ScrollOut({
+    targets: '.bb8',
+    threshold: 0.5,
+    onShown: function(element, ctx, scrollingElement) {
+      bbEight.play();
+      console.log("bb8 is playing");
+    },
+    onHidden: function(element, ctx, scrollingElement) {
+      bbEight.pause();
+      console.log("bb8 is paused");
+    }
+  });
+  ScrollOut({
+    targets: '.tf',
+    threshold: 0.5,
+    onShown: function(element, ctx, scrollingElement) {
+      triggerFinger.play();
+      console.log("TF is playing");
+    },
+    onHidden: function(element, ctx, scrollingElement) {
+      triggerFinger.pause();
+      console.log("TF is paused");
+    }
+  });
+  ScrollOut({
+    targets: '.lamp',
+    threshold: 0.5,
+    onShown: function(element, ctx, scrollingElement) {
+      lampLights.play(); lamp.play();
+      console.log("Lamp is playing");
+    },
+    onHidden: function(element, ctx, scrollingElement) {
+      lampLights.pause(); lamp.pause();
+      console.log("Lamp is paused");
+    }
+  });
 
 
 
+
+  // if body hasClass About
+  setTimeout(function(){
+    bbEight.play();
+  }, 1400);
 
   };
 }(jQuery));
