@@ -363,10 +363,10 @@ $(function(){
   }
   function bringFooter() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
-      // DO FOOTER STUFF HERE
+      $(".sine").addClass("sine-in");
     }
     else {
-
+      // $(".sine").addClass("sine-in"); DO NOT INCLUDE
     }
   }
   $(window).on('scroll', function() {
@@ -390,13 +390,13 @@ $(function(){
     $.attractHover(
       '.attract',
       {
-        proximity: 16,
+        proximity: 2,
         magnetism: 2
       }
     );
   });
 
-  
+
 
 
   setTimeout(function(){
