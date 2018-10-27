@@ -109,7 +109,7 @@ $("a.button, a.a-button, .menu-toggle, ul.links li").click(function(){navigator.
           $.attractHover(
             '.attract',
             {
-              proximity: 14,
+              proximity: 16,
               magnetism: 2
             }
           );

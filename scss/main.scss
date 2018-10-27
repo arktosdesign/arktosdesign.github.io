@@ -137,6 +137,7 @@ a.button, a.a-button {
     }
   }
 }
+
 a.button {
   border: 2px solid rgba(245,169,27,1);
   background: rgba(250,174,32,0);
@@ -162,6 +163,7 @@ a.button {
     }
     span.splitting {
       font-size: 1.208em;
+      font-size: 1.14em;
       font-weight: 600;
       word-spacing: 0.1em;
       letter-spacing: -0.058em;
@@ -172,7 +174,7 @@ a.button {
       }
     }
     i {
-      color: rgba(250,174,32,1);
+      color: #f5a91b;
       font-size: 0.92em;
       display: inline-block;
       vertical-align: middle;
@@ -191,9 +193,9 @@ a.button {
   &:hover {
     background: rgba(250,174,32,1);
     border: 2px solid rgba(245,169,27,0);
-    transform: scale(1.07);
+    transform: scale(1.08);
     i {
-      color: rgba(255,255,255,1);
+      color: #FFFFFF;
       transition: color 180ms 180ms ease-out;
     }
   }
@@ -227,7 +229,7 @@ a.a-button {
       }
     }
     i {
-      color: rgba(22, 22, 23, 1);
+      color: #161617;
       font-size: 0.92em;
       display: inline-block;
       vertical-align: middle;
@@ -266,10 +268,22 @@ a.t-button {
   backface-visibility: hidden;
   transform-origin: center center;
   transform: scale(1);
+  i {
+    color: #f5a91b;
+    font-size: 0.92em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1.2em;
+    transform: translateY(-1px);
+    transition: color 180ms ease-out;
+  }
   &:hover {
     background: rgba(250,174,32,1);
     border: 2px solid rgba(245,169,27,0);
-    transform: scale(1.07);
+    transform: scale(1.08);
+    i {
+      color: #FFFFFF;
+    }
   }
   &:active {
     transform: scale(1);
@@ -278,7 +292,7 @@ a.t-button {
 }
 a.t-button > span {
   backface-visibility: hidden;
-  font-size: 1.09em;
+  font-size: 1.14em;
   letter-spacing: -0.067em;
   word-spacing: 0.1em;
   color: #f5a91b;
@@ -299,7 +313,7 @@ a.t-button:hover > span {
 
 
 
-section.first a.button {
+section.first a.button, section.first a.t-button {
   opacity: 0;
   will-change: opacity;
   animation-name: fadeIn;
@@ -312,7 +326,7 @@ section.first a.button {
   display: inline-block;
 }
 .attract-hover-easing {
-  transition: transform 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition: transform 0.22s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 
 
@@ -339,7 +353,7 @@ section.first a.button {
     transform: scale(1);
     transition: transform 420ms cubic-bezier(0.070, 0.915, 0.265, 1.390);
     &:hover {
-      transform: scale(1.07);
+      transform: scale(1.08);
       transition: transform 160ms cubic-bezier(0.070, 0.915, 0.265, 1.390);
     }
     &:active {
@@ -841,7 +855,7 @@ a.sl.sc {background: #ff8800;}
 a.sl:hover {
   background: #FFFFFF;
   color: #f5a91b;
-  transform: scale(1.07);
+  transform: scale(1.08);
 }
 
 .img-container {
