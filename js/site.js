@@ -7,14 +7,14 @@ $(function(){
         prefetch: true,
         cacheLength: 2, // The number of pages to cache
         onStart: {
-          duration: 950,
+          duration: 600,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
           },
         },
         onReady: {
-          duration: 650,
+          duration: 300,
           render: function ($container, $newContent) {
             $container.removeClass('is-exiting');
             $container.html($newContent);
@@ -474,7 +474,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
   // if body hasClass About
   setTimeout(function(){
     bbEight.play();
-  }, 1400);
+  }, 1200);
 
   function menuReset() {
     $("body").removeClass("out");

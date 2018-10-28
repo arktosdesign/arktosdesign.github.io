@@ -36,13 +36,14 @@ a, a:link, a:hover, a:visited {
   .scene_element {
     will-change: opacity;
     animation-name: fadeIn;
-    animation-duration: 600ms;
+    animation-duration: 300ms;
     transition-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
     animation-fill-mode: both;
   }
   &.is-exiting {
     cursor: progress;
       .scene_element {
+        animation-duration: 600ms;
         animation-direction: alternate-reverse;
       }
   }
@@ -1345,10 +1346,10 @@ section.center-cta h2 {
 body.out {
     .menu-container {
       opacity: 0 !important;
-      transition: opacity 600ms cubic-bezier(0.600, 0.040, 0.980, 0.335) !important;
+      transition: opacity 180ms cubic-bezier(0.770, 0.000, 0.175, 1.000) !important;
     }
     .logo > a > h1 {
-      transition: color 600ms cubic-bezier(0.770, 0.000, 0.175, 1.000) !important;
+      transition: color 180ms cubic-bezier(0.770, 0.000, 0.175, 1.000) !important;
       color: #161617;
     }
     .menu-toggle {
