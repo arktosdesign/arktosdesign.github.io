@@ -77,22 +77,7 @@ $(function() {
 
 
 
-function removeHash() {
-    var scrollV, scrollH, loc = window.location;
-    if ("pushState" in history)
-        history.pushState("", document.title, loc.pathname + loc.search);
-    else {
-        scrollV = document.body.scrollTop;
-        scrollH = document.body.scrollLeft;
-        loc.hash = "";
-        document.body.scrollTop = scrollV;
-        document.body.scrollLeft = scrollH;
-    }
-}
-window.onhashchange = function(){
-    var hash = location.hash;
-    if(!hash){closeMenu();}
-}
+
 
 
 $(".logo a, a.button, a.a-button, .t-button, .menu-toggle, ul.links li").click(function(){navigator.vibrate([20]);});
@@ -107,7 +92,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       function closeMenu() {
         if ($("body").hasClass("menu-open")) {
           $("body").removeClass("menu-open");
-          removeHash();
         }
       }
       menuToggle.click(function(){
@@ -465,12 +449,17 @@ if($("body").hasClass("home")) {
 });
 
 
+window.onhashchange = function(){
+    var hash = location.hash;
+    if(!hash){closeMenu();}
+}
+
+
   function menuReset() {
     $("body").removeClass("out");
     closeMenu();
   }
   menuReset();
-  // removeHash();
 
 
 
