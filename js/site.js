@@ -7,14 +7,14 @@ $(function(){
         prefetch: true,
         cacheLength: 2, // The number of pages to cache
         onStart: {
-          duration: 600,
+          duration: 950,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
           },
         },
         onReady: {
-          duration: 600,
+          duration: 650,
           render: function ($container, $newContent) {
             $container.removeClass('is-exiting');
             $container.html($newContent);
