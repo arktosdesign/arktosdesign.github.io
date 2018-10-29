@@ -24,6 +24,7 @@ $(function(){
           $container.onPageLoad();
         },
       },
+
       smoothState = $page.smoothState(options).data('smoothState');
 });
 
@@ -80,6 +81,10 @@ $(function() {
 
 
 
+
+
+
+
 $(".logo a, a.button, a.a-button, .t-button, .menu-toggle, ul.links li").click(function(){navigator.vibrate([20]);});
 $("nav a").click(function(){navigator.vibrate([10]);});
 
@@ -87,7 +92,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       var menuToggle = $(".menu-toggle");
       function openMenu() {
         $("body").addClass("menu-open");
-        window.location.hash = 'menu';
+        location.hash = "main-menu";
       }
       function closeMenu() {
         if ($("body").hasClass("menu-open")) {
@@ -106,7 +111,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         if ($("body").hasClass("menu-open")) {
           $("body").addClass("out");
             closeMenu();
-            // $(window).scrollTop(0);
         }
       });
       $("a").click(function(){
@@ -114,6 +118,16 @@ $("nav a").click(function(){navigator.vibrate([10]);});
           $('.top-menu').removeClass('sc-sh');
         }
       });
+
+      $(window).bind('hashchange', function () {
+          if (location.hash == null || location.hash == "") {
+            closeMenu();
+          }
+      });
+
+
+
+
 
     var topMenu = $(".top-menu");
     var pastNav = 3;
@@ -133,8 +147,10 @@ $("nav a").click(function(){navigator.vibrate([10]);});
             return;
         if (st > lastScrollTop && st > navbarHeight){
             topMenu.addClass('is-hidden');
+            $(".logo").addClass("compact");
         } else if(st + $(window).height() < $(document).height()) {
             topMenu.removeClass('is-hidden');
+            $(".logo").removeClass("compact");
         }
         lastScrollTop = st;
     }
@@ -428,31 +444,25 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     navShadow();
     bringFooter();
     leftCtaCheck();
+
     if($("body").hasClass("home")) {
       checkBb8();
       checkTrigger();
       checkLamp();
     }
 
-
   });
 
 
+    //init top anims
 
-
-$(function(){
-if($("body").hasClass("home")) {
-  setTimeout(function(){
-    bbEight.play();
-  }, 800);
-}
-});
-
-
-window.onhashchange = function(){
-    var hash = location.hash;
-    if(!hash){closeMenu();}
-}
+    $(function(){
+    if($("body").hasClass("home")) {
+      setTimeout(function(){
+        bbEight.play();
+      }, 800);
+    }
+    });
 
 
   function menuReset() {
@@ -460,9 +470,6 @@ window.onhashchange = function(){
     closeMenu();
   }
   menuReset();
-
-
-
 
   };
 }(jQuery));

@@ -48,6 +48,10 @@ a, a:link, a:hover, a:visited {
       }
   }
 }
+// Could do with a loading icon in the center of the page (transparent background full width and height)
+// use .loader div and animate exiting
+
+
 
 
 .fd {
@@ -400,9 +404,14 @@ section.first a.button, section.first a.t-button {
   max-width: 1860px;
   height: auto;
 }
+.logo-main {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+}
 .top-menu .logo {
   position: absolute;
-  top: 23px;
+  top: 28px;
   left: 36px;
   display: inline-block;
   margin: 0 0;
@@ -411,15 +420,11 @@ section.first a.button, section.first a.t-button {
   // margin: 0 12px 0 0;
   // float: left;
 }
-.logo-main {
-  position: fixed;
-  top: -9999px;
-  left: -9999px;
-}
+
 .top-menu .logo > a > svg {
   display: block;
   width: 100%;
-  max-width: 228px;
+  max-width: 194px;
 }
 .ak0{fill:url(#SVGID_1_);}
 .ak1{fill:url(#SVGID_2_);}
@@ -470,7 +475,6 @@ section.first a.button, section.first a.t-button {
 .ak44{fill:url(#SVGID_44_);}
 .ak45{fill:url(#SVGID_45_);}
 .ak46{fill:url(#SVGID_46_);}
-
 
 
 .top-menu .cta {
@@ -582,13 +586,15 @@ section.first a.button, section.first a.t-button {
   top: 112px;
   left: 0;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   margin: 0 auto;
-  padding: 28px 0 0 0;
-  height: auto;
+  padding: 18px 0 0 0;
   z-index: 9999 !important;
   background: #161617;
-  height: 100vh;
+  height: calc(100% - 112px);
   visibility: hidden;
+  overflow-y: auto;
   opacity: 0;
 }
 
@@ -1316,7 +1322,6 @@ section.center-cta h2 {
 
   .top-menu {
     transition: top 120ms ease-out, box-shadow 90ms linear;
-
   }
   .top-menu .container {
     padding: 0 0;
@@ -1324,13 +1329,11 @@ section.center-cta h2 {
   .top-menu .cta {display: none;}
 
   .top-menu .logo {
-    top: 30px;
+    top: 33px;
   }
   .top-menu .logo > a > svg {
-    max-width: 182px;
+    max-width: 168px;
   }
-
-
 
 
   .menu-container {
@@ -1346,7 +1349,6 @@ section.center-cta h2 {
     visibility: hidden;
     pointer-events: none;
     background: #161617;
-    overflow-y: auto;
     display: none;
     opacity: 0;
   }
@@ -1447,7 +1449,6 @@ body.out {
             }
         }
       }
-
   }
 
   // body.menu-open.out {
@@ -1611,7 +1612,7 @@ body.out {
   }
   .mob-menu::-webkit-scrollbar-thumb {
     background: #faae20;
-    border: 0px none #ffffff;
+    border: 0px none #161617;
     border-radius: 150px;
   }
   .mob-menu::-webkit-scrollbar-thumb:hover {
@@ -1621,15 +1622,15 @@ body.out {
     background: #c88404;
   }
   .mob-menu::-webkit-scrollbar-track {
-    background: #ffffff;
-    border: 0px none #ffffff;
+    background: #161617;
+    border: 0px none #161617;
     border-radius: 50px;
   }
   .mob-menu::-webkit-scrollbar-track:hover {
-    background: #ffffff;
+    background: #161617;
   }
   .mob-menu::-webkit-scrollbar-track:active {
-    background: #ffffff;
+    background: #161617;
   }
   .mob-menu::-webkit-scrollbar-corner {
     background: transparent;
