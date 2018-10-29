@@ -1966,7 +1966,8 @@ section.center-cta h2 {
     position: relative;
     bottom: auto;
     left: auto;
-    height: auto; }
+    height: auto;
+    padding: 84px 0; }
   .footer-sine {
     bottom: calc(-5px + -1.4vw); }
   footer .right-bg {
