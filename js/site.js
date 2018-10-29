@@ -392,7 +392,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     }
   }
   function bringFooter() {
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 120) {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 130) {
       $(".footer-an").addClass("in-f");
     }
     else {
