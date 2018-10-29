@@ -495,7 +495,7 @@ section.first a.button, section.first a.t-button {
   position: relative;
   width: 100%;
   max-width: 398px;
-  margin: 33px auto 0 auto;
+  margin: 32px auto 0 auto;
   // margin-left: calc(2vw + 14px); ???
   display: inline-block;
   text-align: center;
@@ -777,11 +777,13 @@ section {
   background-color: #FFFFFF;
   .c-5 {
     padding-top: 112px;
-    padding-left:  calc(2vw + 14px);
+    // IMPORTANT INFO /////////////////////////////////////////////
+    padding-left: calc(2vw + 14px); // TAKE THIS OUT WHEN IMAGE IS ON THE RIGHT AND TEXT ON THE LEFT
+    //////////////////////////////////////////////////////////////
   }
   .c-7 {
     padding-top: 24px;
-    padding-left:  calc(2vw + 14px);
+    padding-left: calc(2vw + 14px);
   }
 }
 section.first {

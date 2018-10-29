@@ -640,7 +640,7 @@ section.first a.button, section.first a.t-button {
   position: relative;
   width: 100%;
   max-width: 398px;
-  margin: 33px auto 0 auto;
+  margin: 32px auto 0 auto;
   display: inline-block;
   text-align: center;
   pointer-events: all;
