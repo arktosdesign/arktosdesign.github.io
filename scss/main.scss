@@ -775,7 +775,12 @@ section {
   padding: 38px 0;
   margin: 42px auto;
   background-color: #FFFFFF;
-  .c-5, .c-7 {
+  .c-5 {
+    padding-top: 112px;
+    padding-left:  calc(2vw + 14px);
+  }
+  .c-7 {
+    padding-top: 24px;
     padding-left:  calc(2vw + 14px);
   }
 }
@@ -784,6 +789,7 @@ section.first {
 }
 section.center-cta {
   .c-12 {
+    padding-top: 24px;
     padding-left: 0px;
   }
 }
@@ -1465,13 +1471,15 @@ body.out {
   section.first {
     height: auto;
     padding: 134px 0;
-    padding: calc(24px + 12vw + 8.4vh) 0;
+    padding: calc(34px + 12vw + 8.4vh) 0;
   }
   section {
-    .c-5, .c-7 {
+    .c-5, .c-7, .c-12 {
+      padding-top: 0px;
       padding-left: 0px;
     }
   }
+
 
   main {
     margin: 0 auto 0 auto;

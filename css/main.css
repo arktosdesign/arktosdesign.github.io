@@ -958,13 +958,18 @@ section {
   padding: 38px 0;
   margin: 42px auto;
   background-color: #FFFFFF; }
-  section .c-5, section .c-7 {
+  section .c-5 {
+    padding-top: 112px;
+    padding-left: calc(2vw + 14px); }
+  section .c-7 {
+    padding-top: 24px;
     padding-left: calc(2vw + 14px); }
 
 section.first {
   margin: 0 auto; }
 
 section.center-cta .c-12 {
+  padding-top: 24px;
   padding-left: 0px; }
 
 section .grid, section .col {
@@ -1949,8 +1954,9 @@ section.center-cta h2 {
   section.first {
     height: auto;
     padding: 134px 0;
-    padding: calc(24px + 12vw + 8.4vh) 0; }
-  section .c-5, section .c-7 {
+    padding: calc(34px + 12vw + 8.4vh) 0; }
+  section .c-5, section .c-7, section .c-12 {
+    padding-top: 0px;
     padding-left: 0px; }
   main {
     margin: 0 auto 0 auto; }
