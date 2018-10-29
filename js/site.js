@@ -139,7 +139,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     $(function() {
       var ua = navigator.userAgent;
       if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-        return false;
       }
       else if(/Chrome/i.test(ua)) {
         $(function() {
