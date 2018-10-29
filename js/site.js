@@ -44,7 +44,7 @@ $(function(){
          visibleY: true
        },
         targets: '.ev',
-        threshold: 0.6,
+        threshold: 0.5,
         once: true
       });
 
