@@ -3,11 +3,11 @@ $(function(){
   var $page = $('#main'),
       options = {
         scroll: true,
-        debug: true,
+        debug: false,
         prefetch: true,
         cacheLength: 2, // The number of pages to cache
         onStart: {
-          duration: 600,
+          duration: 300,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
@@ -76,15 +76,6 @@ $(function() {
   });
 });
 
-
-
-
-
-
-
-
-
-
 $(".logo a, a.button, a.a-button, .t-button, .menu-toggle, ul.links li").click(function(){navigator.vibrate([20]);});
 $("nav a").click(function(){navigator.vibrate([10]);});
 
@@ -130,30 +121,8 @@ $("nav a").click(function(){navigator.vibrate([10]);});
 
 
     var topMenu = $(".top-menu");
+
     var pastNav = 3;
-    var didScroll;
-    var lastScrollTop = 0;
-    var delta = 5;
-    var navbarHeight = topMenu.outerHeight();
-    setInterval(function() {
-        if (didScroll) {
-            hasScrolled();
-            didScroll = false;
-        }
-    }, 1);
-    function hasScrolled() {
-        var st = $(this).scrollTop();
-        if(Math.abs(lastScrollTop - st) <= delta)
-            return;
-        if (st > lastScrollTop && st > navbarHeight){
-            topMenu.addClass('is-hidden');
-            $(".logo").addClass("compact");
-        } else if(st + $(window).height() < $(document).height()) {
-            topMenu.removeClass('is-hidden');
-            $(".logo").removeClass("compact");
-        }
-        lastScrollTop = st;
-    }
     function navShadow() {
       if ($(window).scrollTop() > pastNav) {
           topMenu.addClass('sc-sh');
@@ -403,16 +372,16 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
   function checkBb8(){
-    if ($(".bb8-main").isInViewport()) {bbEight.play();console.log("bb8 is playing");}
-    else {bbEight.pause();console.log("bb8 is paused");}
+    if ($(".bb8-main").isInViewport()) {bbEight.play();}
+    else {bbEight.pause();}
   }
   function checkTrigger(){
-    if ($(".tf-main").isInViewport()) {triggerFinger.play();console.log("TF is playing");}
-    else {triggerFinger.pause();console.log("TF is paused");}
+    if ($(".tf-main").isInViewport()) {triggerFinger.play();}
+    else {triggerFinger.pause();}
   }
   function checkLamp(){
-    if ($(".lamp-main").isInViewport()) {lampLights.play(); lamp.play();console.log("lamp is playing");}
-    else {lampLights.pause(); lamp.pause();console.log("lamp is paused");}
+    if ($(".lamp-main").isInViewport()) {lampLights.play(); lamp.play();}
+    else {lampLights.pause(); lamp.pause();}
   }
   function leftCtaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
@@ -423,7 +392,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     }
   }
   function bringFooter() {
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 180) {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 120) {
       $(".footer-an").addClass("in-f");
     }
     else {
@@ -440,12 +409,11 @@ $("nav a").click(function(){navigator.vibrate([10]);});
 
 
   $(window).on('scroll', function() {
-    didScroll = true;
     navShadow();
     bringFooter();
     leftCtaCheck();
 
-    if($("body").hasClass("home")) {
+    if($("main").hasClass("home")) {
       checkBb8();
       checkTrigger();
       checkLamp();
@@ -454,15 +422,55 @@ $("nav a").click(function(){navigator.vibrate([10]);});
   });
 
 
-    //init top anims
+  window.requestAnimFrame = (function() {
+    return  window.requestAnimationFrame       ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame    ||
+        window.oRequestAnimationFrame      ||
+        window.msRequestAnimationFrame     ||
+        function(callback,element){
+          window.setTimeout(callback, 1000 / 60);
+        };
+  })();
+  window.requestTimeout = function(fn, delay) {
+  if( !window.requestAnimationFrame      	&&
+    !window.webkitRequestAnimationFrame &&
+    !(window.mozRequestAnimationFrame && window.mozCancelRequestAnimationFrame) && // Firefox 5 ships without cancel support
+    !window.oRequestAnimationFrame      &&
+    !window.msRequestAnimationFrame)
+      return window.setTimeout(fn, delay);
+  var start = new Date().getTime(),
+    handle = new Object();
+  function loop(){
+    var current = new Date().getTime(),
+      delta = current - start;
+    delta >= delay ? fn.call() : handle.value = requestAnimFrame(loop);
+  };
+  handle.value = requestAnimFrame(loop);
+  return handle;
+  };
+  window.clearRequestTimeout = function(handle) {
+    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+    window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
+    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
+    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+    window.oCancelRequestAnimationFrame	? window.oCancelRequestAnimationFrame(handle.value) :
+    window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
+    clearTimeout(handle);
+  };
 
-    $(function(){
-    if($("body").hasClass("home")) {
-      setTimeout(function(){
+
+
+  //init top anims
+  function landingAnims() {
+    if($("main").hasClass("home")) { // change to about when
         bbEight.play();
-      }, 800);
     }
-    });
+  }
+  function playLandingAnims() {
+    requestTimeout(landingAnims, 1000);
+  }
+  playLandingAnims();
 
 
   function menuReset() {

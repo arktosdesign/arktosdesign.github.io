@@ -33,17 +33,18 @@ a, a:link, a:hover, a:visited {
 
 
 .scene {
+  padding-bottom: 2px;
   .scene_element {
     will-change: opacity;
     animation-name: fadeIn;
-    animation-duration: 900ms;
+    animation-duration: 290ms;
     transition-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
     animation-fill-mode: both;
   }
   &.is-exiting {
     cursor: progress;
       .scene_element {
-        animation-duration: 550ms !important;
+        animation-duration: 290ms;
         animation-direction: alternate-reverse;
       }
   }
@@ -334,9 +335,10 @@ section.first a.button, section.first a.t-button {
 
 
 .scroll-down {
-  position: fixed;
+  position: absolute;
   bottom: 28px;
   left: 0;
+  right: 0;
   width: 100%;
   padding: 0 28px;
   text-align: center;
@@ -391,14 +393,12 @@ section.first a.button, section.first a.t-button {
   // display: none;
   will-change: top, box-shadow;
   transition: top 230ms ease-out, box-shadow 90ms linear;
-  box-shadow: 0px 1px 4px rgba(0,0,0,0);
+  box-shadow: 0px 1px 6px rgba(0,0,0,0);
 }
 .top-menu.sc-sh {
-  box-shadow: 0px 1px 4px rgba(0,0,0,0.16);
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.18);
 }
-.top-menu.is-hidden {
-  top: -116px;
-}
+
 .top-menu .container {
   margin: 0 auto;
   max-width: 1860px;
@@ -483,8 +483,7 @@ section.first a.button, section.first a.t-button {
   right: 38px;
   display: inline-block;
   height: 112px;
-  padding: 26px 0 0 0;
-    // float: right;
+  padding: 26px 0;
 }
 .top-menu .cta > a.button, .top-menu .cta > .button-holder {
   margin: 0 0;
@@ -888,8 +887,8 @@ footer {
   left: 0;
   margin: 0 auto;
   overflow: hidden;
-  padding: 84px 0;
-  height: 460px;
+  padding: 382px 0 84px 0;
+  height: 760px;
   width: 100%;
   max-width: 100%;
   background-color: #161617;
@@ -1288,10 +1287,6 @@ section.center-cta h2 {
 }
 
 @media screen and (max-width: 992px) {
-  .top-menu.is-hidden {
-    // top: -116px;
-    top: 0px;
-  }
   .scroll-down {display: none}
 
 
