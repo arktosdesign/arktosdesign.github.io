@@ -97,8 +97,10 @@ a, a:link, a:hover, a:visited {
 .btn-1 {
   opacity: 0;
   will-change: opacity;
+  visibility: hidden;
 }
 .fiu {
+  visibility: visible;
   animation-name: fadeIn;
   animation-duration: 650ms;
   animation-fill-mode: forwards;
@@ -1195,6 +1197,7 @@ a.sl:hover {
   .left-cta {display: inline-block;}
 }
 @media screen and (max-width: 992px) {
+  .scene {padding-bottom: 0px;}
   .ev {
     h1 .char, h2 .char {
       opacity: 1;

@@ -50,7 +50,6 @@ $(function(){
        $(el).find(".i-bg").addClass("a-run");
 
        if($(el).hasClass("bb8")) {
-         console.log("And BB8 is in view!");
          bbEight.play();
        }
        else if($(el).hasClass("tf")) {
@@ -454,7 +453,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
 
   //init top anims
   function landingAnims() {
-    if($("main").hasClass("home")) { // change to about when
+    if($("main").hasClass("about")) { // change to about when
       bbEight.play();
     }
   }
