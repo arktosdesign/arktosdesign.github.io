@@ -24,30 +24,58 @@ $(function(){
           $container.onPageLoad();
         },
       },
-
       smoothState = $page.smoothState(options).data('smoothState');
 });
-
-
 
 (function($) {
   $.fn.onPageLoad = function() {
 
+    $(".fd, .fp").addClass("faded");
 
-     $(".fd, .fp").addClass("faded");
+    Splitting();
 
-     Splitting();
-
-     ScrollOut({
+    ScrollOut({
+       targets: '.ev',
+       threshold: 0.5,
+       once: true,
        cssProps: {
          viewportY: true,
          visibleY: true
-       },
-        targets: '.ev',
-        threshold: 0.5,
-        once: true
-      });
+       }
+    });
+    ScrollOut({
+      targets: '.g-wrap',
+      threshold: 0.5,
+      onShown: function(el) {
+       $(el).find(".i-bg").addClass("a-run");
 
+       if($(el).hasClass("bb8")) {
+         console.log("And BB8 is in view!");
+         bbEight.play();
+       }
+       else if($(el).hasClass("tf")) {
+         triggerFinger.play();
+       }
+       else if($(el).hasClass("lamp")) {
+         lamp.play();
+         lampLights.play();
+       }
+      },
+      onHidden: function(el) {
+        $(el).find(".i-bg").removeClass("a-run");
+
+        if( $(el).hasClass("bb8") ) {
+          bbEight.pause();
+        }
+        else if($(el).hasClass("tf")) {
+          triggerFinger.pause();
+        }
+        else if($(el).hasClass("lamp")) {
+          lamp.pause();
+          lampLights.pause();
+        }
+      }
+    });
 
 
 
@@ -88,6 +116,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       function closeMenu() {
         if ($("body").hasClass("menu-open")) {
           $("body").removeClass("menu-open");
+          window.location.hash = '';
         }
       }
       menuToggle.click(function(){
@@ -96,6 +125,11 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         }
         else {
           openMenu();
+        }
+      });
+      $(document).keyup(function(e) {
+        if (e.keyCode == 27) {
+          if(window.location.hash) {closeMenu();}
         }
       });
       $(".logo a, .link").click(function(){
@@ -109,16 +143,11 @@ $("nav a").click(function(){navigator.vibrate([10]);});
           $('.top-menu').removeClass('sc-sh');
         }
       });
-
       $(window).bind('hashchange', function () {
-          if (location.hash == null || location.hash == "") {
-            closeMenu();
-          }
+        if (location.hash == null || location.hash == "") {
+          closeMenu();
+        }
       });
-
-
-
-
 
     var topMenu = $(".top-menu");
 
@@ -159,6 +188,8 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         scrollTop: $("#sectionTwo").offset().top
       }, 780);
     });
+
+
 
     var scrollDown = anime.timeline({autoplay: true, loop: true})
     scrollDown
@@ -206,6 +237,82 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         easing: 'linear'
       }
     })
+
+    var bbEight = anime.timeline({autoplay: false, loop: true})
+    bbEight
+    .add({
+      targets: '.bb8-head',
+      rotate: [0,5,-5,3,0],
+      duration: 1900,
+      easing: 'easeInOutCubic',
+      offset: '+=200'
+    })
+    .add({
+      targets: '.bb8-body',
+      rotate: [0,-4,4,-2,0],
+      duration: 1900,
+      easing: 'easeInOutCubic',
+      offset: '-=1870'
+    })
+    .add({
+      targets: '.bb8-main, .bb8-shadow',
+      translateX: [0,-4,4,-4,0],
+      duration: 1900,
+      easing: 'easeInOutCubic',
+      offset: '-=1900'
+    })
+    .add({
+      targets: '.bb8-head',
+      rotate: [0,-28,-28,-25,-28,-25],
+      duration: 6960,
+      easing: [0.380, 0.170, 0.120, 1.030],
+      offset: '+=50'
+    })
+    .add({
+      targets: '.bb8-body',
+      rotate: '-10turn',
+      duration: 10200,
+      easing: [0.300, 0.000, 0.580, 0.9955],
+      offset: '-=5500'
+    })
+    .add({
+      targets: '.bb8-main, .bb8-shadow',
+      translateX: [0,-13],
+      duration: 1400,
+      easing: [0.670, 0.035, 0.720, 0.995],
+      offset: '-=10500'
+    })
+    .add({
+      targets: '.bb8-main, .bb8-shadow',
+      translateX: [-13,0],
+      duration: 2800,
+      easing: [0.670, 0.035, 0.720, 0.995],
+      offset: '-=3300'
+    })
+    .add({
+      targets: '.bb8-head',
+      rotate: [-28,12,0],
+      duration: 6400,
+      easing: [0.645, 0.045, 0.355, 1.000],
+      offset: '-=4700'
+    })
+    .add({
+      targets: '.bb8-head',
+      rotate: [0,4,-4,2,-2,0],
+      duration: 900,
+      easing: [0.645, 0.045, 0.355, 1.000],
+      offset: '+=200'
+    })
+    .add({
+      targets: '.bb8-lines line',
+      strokeDashoffset: -1092,
+      duration: 5100,
+      easing: 'linear',
+      delay: function(el, i, l) {return i * 350;},
+      offset: '-=10600'
+    })
+
+
     var triggerFinger = anime.timeline({loop: true, autoplay: false})
       triggerFinger
       .add({
@@ -227,7 +334,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         easing: 'easeOutQuart',
         delay: function(el, i, l) {return i * 90;},
         offset: '-=3080'
-      })
+      });
       $(".tfp").click(function(e){
     		var pop = $('<div class="pop">')
     			.css({"left": e.pageX + 'px',"top": e.pageY + 'px'})
@@ -236,80 +343,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     		setTimeout(function() {pop.remove();}, 300);
       });
 
-
-    var bbEight = anime.timeline({autoplay: false, loop: true})
-    bbEight
-    .add({
-    	targets: '.bb8-head',
-    	rotate: [0,5,-5,3,0],
-    	duration: 1900,
-    	easing: 'easeInOutCubic',
-    	offset: '+=200'
-    })
-    .add({
-    	targets: '.bb8-body',
-    	rotate: [0,-4,4,-2,0],
-    	duration: 1900,
-    	easing: 'easeInOutCubic',
-    	offset: '-=1870'
-    })
-    .add({
-    	targets: '.bb8-main, .bb8-shadow',
-    	translateX: [0,-4,4,-4,0],
-    	duration: 1900,
-    	easing: 'easeInOutCubic',
-    	offset: '-=1900'
-    })
-    .add({
-    	targets: '.bb8-head',
-    	rotate: [0,-28,-28,-25,-28,-25],
-    	duration: 6960,
-    	easing: [0.380, 0.170, 0.120, 1.030],
-    	offset: '+=50'
-    })
-    .add({
-    	targets: '.bb8-body',
-    	rotate: '-15turn',
-    	duration: 10200,
-    	easing: [0.300, 0.000, 0.580, 0.9955],
-    	offset: '-=5500'
-    })
-    .add({
-    	targets: '.bb8-main, .bb8-shadow',
-    	translateX: [0,-13],
-    	duration: 1400,
-    	easing: [0.670, 0.035, 0.720, 0.995],
-    	offset: '-=10500'
-    })
-    .add({
-    	targets: '.bb8-main, .bb8-shadow',
-    	translateX: [-13,0],
-    	duration: 2800,
-    	easing: [0.670, 0.035, 0.720, 0.995],
-    	offset: '-=3300'
-    })
-    .add({
-    	targets: '.bb8-head',
-    	rotate: [-28,12,0],
-    	duration: 6400,
-    	easing: [0.645, 0.045, 0.355, 1.000],
-    	offset: '-=4700'
-    })
-    .add({
-    	targets: '.bb8-head',
-    	rotate: [0,4,-4,2,-2,0],
-    	duration: 900,
-    	easing: [0.645, 0.045, 0.355, 1.000],
-    	offset: '+=200'
-    })
-    .add({
-    	targets: '.bb8-lines line',
-    	strokeDashoffset: [-95, -1092],
-    	duration: 5100,
-    	easing: 'linear',
-    	delay: function(el, i, l) {return i * 350;},
-    	offset: '-=10600'
-    })
 
     var lamp = anime.timeline({autoplay: false, loop: true})
     lamp
@@ -359,10 +392,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     });
 
 
-
-
-
-
   $.fn.isInViewport = function() {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
@@ -370,18 +399,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     var viewportBottom = viewportTop + $(window).height();
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
-  function checkBb8(){
-    if ($(".bb8-main").isInViewport()) {bbEight.play();}
-    else {bbEight.pause();}
-  }
-  function checkTrigger(){
-    if ($(".tf-main").isInViewport()) {triggerFinger.play();}
-    else {triggerFinger.pause();}
-  }
-  function checkLamp(){
-    if ($(".lamp-main").isInViewport()) {lampLights.play(); lamp.play();}
-    else {lampLights.pause(); lamp.pause();}
-  }
   function leftCtaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
       $(".left-cta").addClass("fadeo");
@@ -398,29 +415,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       $(".footer-an").removeClass("in-f");
     }
   }
-
-
-
-
-
-
-
-
-
-  $(window).on('scroll', function() {
-    navShadow();
-    bringFooter();
-    leftCtaCheck();
-
-    if($("main").hasClass("home")) {
-      checkBb8();
-      checkTrigger();
-      checkLamp();
-    }
-
-  });
-
-
   window.requestAnimFrame = (function() {
     return  window.requestAnimationFrame       ||
         window.webkitRequestAnimationFrame ||
@@ -458,27 +452,33 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     clearTimeout(handle);
   };
 
-
-
   //init top anims
   function landingAnims() {
     if($("main").hasClass("home")) { // change to about when
-        bbEight.play();
+      bbEight.play();
     }
   }
   function playLandingAnims() {
     requestTimeout(landingAnims, 1000);
+    $(".btn-1").addClass("fiu");
   }
-  playLandingAnims();
-
 
   function menuReset() {
-    $("body").removeClass("out");
+    if( $("body").hasClass("out") ) {
+      $(this).removeClass("out");
+    }
     closeMenu();
   }
+  $(window).on('scroll', function() {
+    navShadow();
+    bringFooter();
+    leftCtaCheck();
+  });
+
+  playLandingAnims();
   menuReset();
 
-  };
+};
 }(jQuery));
 
 
