@@ -464,7 +464,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
 
   function menuReset() {
     if( $("body").hasClass("out") ) {
-      $(this).removeClass("out");
+      $("body").removeClass("out");
     }
     closeMenu();
   }
