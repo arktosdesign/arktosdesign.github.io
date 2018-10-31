@@ -47,7 +47,7 @@ $(function(){
       targets: '.g-wrap',
       threshold: 0.5,
       onShown: function(el) {
-       $(el).find(".i-bg").addClass("a-run");
+       // $(el).find(".i-bg").addClass("a-run");
 
        if($(el).hasClass("bb8")) {
          bbEight.play();
@@ -61,7 +61,7 @@ $(function(){
        }
       },
       onHidden: function(el) {
-        $(el).find(".i-bg").removeClass("a-run");
+        // $(el).find(".i-bg").removeClass("a-run");
 
         if( $(el).hasClass("bb8") ) {
           bbEight.pause();
@@ -240,6 +240,26 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       }
     })
 
+
+    var blob = anime.timeline({autoplay: true, loop: true})
+    blob
+    .add({
+      targets: '.blob',
+      duration: 30000,
+      easing: [0.420, 0.000, 0.580, 1.000],
+      d: [
+        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'},
+        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'},
+        {value: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'},
+        {value: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'},
+        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'},
+        {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
+        {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
+        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'}
+      ],
+      delay: function(el, i, l) {return i * 200;},
+    })
+
     var bbEight = anime.timeline({autoplay: false, loop: true})
     bbEight
     .add({
@@ -319,23 +339,23 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       triggerFinger
       .add({
         targets: '.tf-fader',
-        translateY: [0,-77,110,0],
-        duration: 3280,
-        easing: 'easeInQuart',
+        translateY: [0,-66,88,0],
+        duration: 2280,
+        easing: 'easeInQuad',
         delay: function(el, i, l) {return i * 300;}
       })
       .add({
         targets: '.tf-knob',
         rotate: [
-          { value: function() { return anime.random(-0, 260); }},
-          { value: function() { return anime.random(-0, 93); }},
-          { value: function() { return anime.random(-0, 202); }},
+          { value: function() { return anime.random(0, 260); }},
+          { value: function() { return anime.random(0, 93); }},
+          { value: function() { return anime.random(0, 173); }},
           { value: 0},
         ],
-        duration: 3180,
-        easing: 'easeOutQuart',
-        delay: function(el, i, l) {return i * 90;},
-        offset: '-=3080'
+        duration: 2180,
+        easing: 'easeInOutQuad',
+        delay: function(el, i, l) {return i * 100;},
+        offset: '-=2280'
       });
       $(".tfp").click(function(e){
     		var pop = $('<div class="pop">')

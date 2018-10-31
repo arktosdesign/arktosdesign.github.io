@@ -78,7 +78,7 @@ body.no-p {
             animation-name: loading;
             animation-duration: 700ms;
             animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
           }
         }
       }
@@ -141,7 +141,6 @@ body.no-p {
 }
 .btn-1 {
   opacity: 0;
-  will-change: opacity;
   visibility: hidden;
 }
 .fiu {
@@ -364,7 +363,6 @@ a.t-button:hover > span {
   z-index: 5;
   opacity: 1;
   display: none;
-  will-change: opacity;
   transition: opacity 140ms ease-out;
   svg {
     pointer-events: all;
@@ -409,9 +407,7 @@ a.t-button:hover > span {
   background: #FFFFFF;
   z-index: 99998;
   text-align: center;
-  // display: none;
-  will-change: top, box-shadow;
-  transition: top 230ms ease-out, box-shadow 90ms linear;
+  transition: box-shadow 90ms linear;
   box-shadow: 0px 1px 6px rgba(0,0,0,0);
 }
 .top-menu.sc-sh {
@@ -494,9 +490,9 @@ a.t-button:hover > span {
 .ak46{fill:url(#SVGID_46_);}
 .logo .stroke-logo {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 0;
-    width: 77.5px;
+    width: 67.5px;
     visibility: hidden;
     path, circle {
       fill: none;
@@ -504,7 +500,7 @@ a.t-button:hover > span {
       stroke-width: 3;
       stroke-miterlimit: 10;
       stroke-dasharray: 370;
-      stroke-dashoffset: -370;
+      stroke-dashoffset: 370;
     }
 }
 .top-menu .cta {
@@ -531,6 +527,7 @@ a.t-button:hover > span {
   overflow-x: hidden;
   transform: translateY(3px);
 }
+
 .main-menu {
   position: relative;
   width: 100%;
@@ -645,7 +642,6 @@ a.t-button:hover > span {
   text-align: right;
   backface-visibility: hidden;
   transform: translateY(25px);
-  will-change: opacity, transform;
   transition: none;
 }
 .mob-nav > ul > li:last-child {margin-bottom: calc(18px + 1.5vh);}
@@ -776,7 +772,6 @@ main p {
   transform-origin: top -50%;
   color: #161617;
   opacity: 1;
-  will-change: opacity;
   transition: opacity 100ms ease-in;
   h5 {
     font-size: 1.048em;
@@ -785,7 +780,6 @@ main p {
     word-spacing: 0.0828em;
   }
   a {
-    will-change: color;
     transition: color 120ms ease-out;
   }
   a:hover {
@@ -930,46 +924,30 @@ section.last {margin-top: calc(220px + 5vh);}
   margin-top: 48px;
   margin-bottom: 48px;
 }
+
+
 .i-bg {
   position: absolute;
-  bottom: 14px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: 100%;
   display: block;
-  background: rgba(235,92,89,1);
-  background: -moz-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(235,92,89,1)), color-stop(100%, rgba(245,169,27,1)));
-  background: -webkit-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-  background: -o-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-  background: -ms-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-  background: linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb5c59', endColorstr='#f5a91b', GradientType=1 );
-  background-position: left bottom;
-  background-size: 100%;
-  backface-visibility: hidden;
   z-index: 1;
-  animation: transform 40s ease-in-out infinite both alternate;
-  animation-play-state: paused;
-  &.flipped {
-    background: rgba(245,169,27,1);
-    background: -moz-linear-gradient(45deg, rgba(245,169,27,1) 0%, rgba(235,92,89,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(245,169,27,1)), color-stop(100%, rgba(235,92,89,1)));
-    background: -webkit-linear-gradient(45deg, rgba(245,169,27,1) 0%, rgba(235,92,89,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(245,169,27,1) 0%, rgba(235,92,89,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(245,169,27,1) 0%, rgba(235,92,89,1) 100%);
-    background: linear-gradient(45deg, rgba(245,169,27,1) 0%, rgba(235,92,89,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5a91b', endColorstr='#eb5c59', GradientType=1 );
-    background-position: right top;
-    animation-direction: alternate-reverse;
+  svg {
+    width: 100%;
+    height: 100%;
+    .blob {
+      fill:url(#grad);
+    }
   }
 }
-.a-run {
-  animation-play-state: running;
-}
+
+
 .c-ce .i-bg {
   max-width: 66%;
+  bottom: 14px;
   max-height: 880px;
 }
 
@@ -1136,6 +1114,8 @@ a.sl:hover {
   margin-left: -247px;
   z-index: 2;
 }
+
+
 .tf0{opacity:0.95;fill:#FFD2D2;}
 .tf1{fill:#D1CFCF;stroke:#394D70;stroke-width:16;stroke-miterlimit:10;}
 .tf2{fill:#FFFFFF;}
@@ -1160,6 +1140,7 @@ a.sl:hover {
 .tf21{fill:#F7F5F5;}
 .tf22{fill:#3A3838;stroke:#394D70;stroke-width:8;stroke-miterlimit:10;}
 .tf23{fill:#3D3C3C;stroke:#394D70;stroke-width:8;stroke-miterlimit:10;}
+
 .tf-knob.one {transform-origin: 41.1% 18.7%;}
 .tf-knob.two {transform-origin: 46.6% 10.9%;}
 .tf-knob.three {transform-origin: 54.8% 18.6%;}
@@ -1170,11 +1151,9 @@ a.sl:hover {
 .tf-knob.eight {transform-origin: 87.6% 10.9%;}
 .tfp {
   cursor: pointer;
-  will-change: opacity;
   transition: opacity 110ms ease-out;
 }
 .tfp .tf10 {
-  will-change: opacity;
   transition: opacity 240ms ease-out;
 }
 .tfp:hover .tf10 {
@@ -1314,8 +1293,8 @@ a.sl:hover {
   .c-ce .g-wrap {max-width: 100%; margin-top: 24px;}
   .c-ce .i-bg {
     max-width: 644px;
-    height: 348px;
-    max-height: 348px;
+    height: 368px;
+    max-height: 368px;
   }
   .c-ce {
     padding-bottom: 0;
@@ -1332,7 +1311,7 @@ a.sl:hover {
   .top-menu .logo {
     top: 33px;
   }
-  .top-menu .logo > a > svg {
+  .top-menu .logo > a > .main-logo {
     max-width: 168px;
   }
   .menu-container {
@@ -1383,7 +1362,7 @@ a.sl:hover {
     background-position: -25px center;
   }
   .pl {padding-left: 0px;}
-  .pl {padding-right: 0px;}
+  .pr {padding-right: 0px;}
   footer {
     position: relative;
     bottom: auto;
@@ -1448,8 +1427,8 @@ a.sl:hover {
         .stroke-logo {
           visibility: visible;
           path, circle {
-            stroke-dashoffset: 0;
-            transition: stroke-dashoffset 680ms cubic-bezier(0.190, 1.000, 0.220, 1.000)
+            stroke-dashoffset: 740;
+            transition: stroke-dashoffset 640ms cubic-bezier(0.190, 1.000, 0.220, 1.000)
           }
         }
       }
@@ -1540,8 +1519,8 @@ a.sl:hover {
 @media screen and (max-width: 680px) {
   .g-wrap, .c-ce .i-bg {
     max-width: 100%;
-    height: 248px;
-    max-height: 248px;
+    height: 258px;
+    max-height: 258px;
     max-width: 444px;
   }
   .bb8-main {
