@@ -7,7 +7,7 @@ $(function(){
         prefetch: true,
         cacheLength: 2, // The number of pages to cache
         onStart: {
-          duration: 300,
+          duration: 700,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
@@ -135,6 +135,9 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         if ($("body").hasClass("menu-open")) {
           $("body").addClass("out");
             closeMenu();
+        }
+        else {
+          $("body").addClass("no-p");
         }
       });
       $("a").click(function(){
@@ -463,8 +466,12 @@ $("nav a").click(function(){navigator.vibrate([10]);});
   }
 
   function menuReset() {
+    closeMenu();
     if( $("body").hasClass("out") ) {
       $("body").removeClass("out");
+    }
+    else if ( $("body").hasClass("no-p") ){
+      $("body").removeClass("no-p");
     }
     closeMenu();
   }

@@ -20,25 +20,70 @@ a, a:link, a:hover, a:visited {
   text-decoration: none;
   color: inherit;
 }
+body.no-p {
+  .logo, nav, .menu-toggle {pointer-events: none !important; cursor: default !important;}
+}
+
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -50px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  svg {
+    display: block;
+    width: 140px;
+    margin: 0 0;
+    path {
+      fill: none;
+      stroke: #F5A91B;
+      stroke-width: 6;
+      stroke-miterlimit: 10;
+      stroke-dasharray: 264;
+      stroke-dashoffset: 264;
+      transform: translateX(0px);
+      animation: none;
+    }
+  }
+}
+
+
 .scene {
   padding-bottom: 2px;
   .scene_element {
     will-change: opacity;
     animation-name: fadeIn;
-    animation-duration: 290ms;
-    transition-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+    animation-duration: 330ms;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
     animation-fill-mode: both;
   }
   &.is-exiting {
     cursor: progress;
       .scene_element {
-        animation-duration: 290ms;
+        animation-duration: 450ms;
         animation-direction: alternate-reverse;
+        animation-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+      }
+      .loader {
+        opacity: 1;
+        visibility: visible;
+        svg {
+          path {
+            animation-name: loading;
+            animation-duration: 700ms;
+            animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+            animation-fill-mode: forwards;
+          }
+        }
       }
   }
 }
-// Could do with a loading icon in the center of the page (transparent background full width and height)
-// use .loader div and animate exiting
 
 .fd {
   .char {
@@ -113,6 +158,9 @@ a, a:link, a:hover, a:visited {
 .attract-hover-easing {
   transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
+
+
+
 
 .button-holder {
   display: block;
@@ -349,7 +397,7 @@ a.t-button:hover > span {
     }
   }
 }
-.fout {opacity: 0 !important;}
+.fout {opacity: 0 !important; svg{pointer-events: none;}}
 .top-menu {
   position: fixed;
   top: 0;
@@ -392,7 +440,7 @@ a.t-button:hover > span {
   // float: left;
 }
 
-.top-menu .logo > a > svg {
+.top-menu .logo > a > .main-logo {
   display: block;
   width: 100%;
   max-width: 194px;
@@ -444,7 +492,21 @@ a.t-button:hover > span {
 .ak44{fill:url(#SVGID_44_);}
 .ak45{fill:url(#SVGID_45_);}
 .ak46{fill:url(#SVGID_46_);}
-
+.logo .stroke-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 77.5px;
+    visibility: hidden;
+    path, circle {
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 3;
+      stroke-miterlimit: 10;
+      stroke-dasharray: 370;
+      stroke-dashoffset: -370;
+    }
+}
 .top-menu .cta {
   position: absolute;
   top: 27px;
@@ -1186,7 +1248,7 @@ a.sl:hover {
 
 
 
-
+@keyframes loading {0% {transform: translateX(0px);stroke-dashoffset: 264;}100% {transform: translateX(-57px);stroke-dashoffset: -264;}}
 @keyframes fadeInUp {0% {opacity: 0; transform: translateY(25px);} 100% {opacity: 1; transform: translateY(0px);}}
 @keyframes fadeIn {0% {opacity: 0;} 100% {opacity: 1;}}
 @keyframes cppop{0%{stroke-dashoffset: -10;}50%{stroke-dashoffset: 0;}100%{stroke-dashoffset: 10;}}
@@ -1380,6 +1442,16 @@ a.sl:hover {
       .top-menu {
         background: #161617;
         box-shadow: none;
+        .main-logo {
+          .lg-tx {opacity: 0;}
+        }
+        .stroke-logo {
+          visibility: visible;
+          path, circle {
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 680ms cubic-bezier(0.190, 1.000, 0.220, 1.000)
+          }
+        }
       }
       .mob-menu {
           visibility: visible;
@@ -1399,12 +1471,13 @@ a.sl:hover {
                 svg {
                   path {
                     stroke-dashoffset: 0;
-                    transition: stroke-dashoffset 828ms 340ms cubic-bezier(0.270, 0.115, 0.680, 0.530);
+                    transition: stroke-dashoffset 828ms 380ms cubic-bezier(0.270, 0.115, 0.680, 0.530);
                   }
                 }
               }
         }
       }
+
       .ak23 {fill: #FFFFFF;}
       .menu-toggle {
           .hb {
@@ -1437,7 +1510,7 @@ a.sl:hover {
       }
       .ak23 {fill: #161617;}
       .menu-toggle {
-        pointer-events: none;
+        pointer-events: none !important;
           .hb {
             transform: rotate(0deg);
               .st {
