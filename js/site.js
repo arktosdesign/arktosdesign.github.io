@@ -32,8 +32,6 @@ $(function(){
 
     $(".fd, .fp").addClass("faded");
 
-    Splitting();
-
     ScrollOut({
        targets: '.ev',
        threshold: 0.5,
@@ -47,35 +45,36 @@ $(function(){
       targets: '.g-wrap',
       threshold: 0.5,
       onShown: function(el) {
-       // $(el).find(".i-bg").addClass("a-run");
-
        if($(el).hasClass("bb8")) {
          bbEight.play();
+         blobOne.play();
        }
        else if($(el).hasClass("tf")) {
          triggerFinger.play();
+         blobTwo.play();
        }
        else if($(el).hasClass("lamp")) {
          lamp.play();
          lampLights.play();
+         blobThree.play();
        }
       },
       onHidden: function(el) {
-        // $(el).find(".i-bg").removeClass("a-run");
-
         if( $(el).hasClass("bb8") ) {
           bbEight.pause();
+          blobOne.pause();
         }
         else if($(el).hasClass("tf")) {
           triggerFinger.pause();
+          blobTwo.pause();
         }
         else if($(el).hasClass("lamp")) {
           lamp.pause();
           lampLights.pause();
+          blobThree.pause();
         }
       }
     });
-
 
 
 // Slide Line
@@ -241,10 +240,11 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     })
 
 
-    var blob = anime.timeline({autoplay: true, loop: true})
-    blob
-    .add({
-      targets: '.blob',
+
+    var blobOne = anime({
+      autoplay: false,
+      loop: true,
+      targets: '.blob-one',
       duration: 30000,
       easing: [0.420, 0.000, 0.580, 1.000],
       d: [
@@ -256,6 +256,40 @@ $("nav a").click(function(){navigator.vibrate([10]);});
         {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
         {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
         {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'}
+      ]
+    })
+    var blobTwo = anime({
+      autoplay: false,
+      loop: true,
+      targets: '.blob-two',
+      duration: 30000,
+      easing: [0.420, 0.000, 0.580, 1.000],
+      d: [
+        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'},
+        {value: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'},
+        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'},
+        {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
+        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'},
+        {value: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'},
+        {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
+        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}
+      ]
+    })
+    var blobThree = anime({
+      autoplay: false,
+      loop: true,
+      targets: '.blob-three',
+      duration: 30000,
+      easing: [0.420, 0.000, 0.580, 1.000],
+      d: [
+        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'},
+        {value: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'},
+        {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
+        {value: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'},
+        {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
+        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'},
+        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'},
+        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}
       ]
     })
 
@@ -333,12 +367,11 @@ $("nav a").click(function(){navigator.vibrate([10]);});
       offset: '-=10600'
     })
 
-
     var triggerFinger = anime.timeline({loop: true, autoplay: false})
       triggerFinger
       .add({
         targets: '.tf-fader',
-        translateY: [0,-66,88,0],
+        translateY: [0,-20,30,0],
         duration: 2280,
         easing: 'easeInQuad',
         delay: function(el, i, l) {return i * 300;}
@@ -364,32 +397,31 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     		setTimeout(function() {pop.remove();}, 300);
       });
 
-
-    var lamp = anime.timeline({autoplay: false, loop: true})
-    lamp
-    .add ({
+    var lamp = anime({
+      loop: true,
+      autoplay: false,
       targets: '.lamp-s',
-      translateY: [0,-80,0],
-      translateX: [0,-3,0],
+      translateY: [0,-36,0],
+      translateX: [0,-0.9,0],
       scale: [1,1.1,1],
       rotate: [0,-4,4,-4,0],
       duration: 13000,
       easing: [0.455, 0.030, 0.515, 0.955],
-      delay: function(el, i, l) {return i * 160;},
+      delay: function(el, i, l) {return i * 180;},
     })
     var lampLights = anime.timeline({autoplay: false, loop: true})
     .add ({
       targets: '.lamp-bl-2',
       opacity: [0.15,0.25,0.06,0.15],
-      scaleX: [1,1.3,1],
+      scaleX: [1,1.8,1],
       rotate: [0,5,0],
       duration: 10000,
       easing: 'easeInOutQuart'
     })
     .add ({
       targets: '.lamp-bl-1',
-      opacity: [0.1,0.02,0.02,0.1],
-      scaleX: [1,1.9,1],
+      opacity: [0.1,0,0,0.1],
+      scaleX: [1,2.1,1],
       rotate: [0,-5,0],
       duration: 10000,
       easing: 'easeInOutQuart',
@@ -397,7 +429,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     })
 
     $(function() {
-      var message = "👋🐻";
+      var message = "👋🐻 Arktos Design";
       var original;
       $(window).focus(function() {
         if (original) {
@@ -463,7 +495,7 @@ $("nav a").click(function(){navigator.vibrate([10]);});
   handle.value = requestAnimFrame(loop);
   return handle;
   };
-  window.clearRequestTimeout = function(handle) {
+    window.clearRequestTimeout = function(handle) {
     window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
     window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
     window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
@@ -473,10 +505,20 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     clearTimeout(handle);
   };
 
+  $(window).on('scroll', function() {
+    navShadow();
+    bringFooter();
+    leftCtaCheck();
+  });
+
   //init top anims
   function landingAnims() {
-    if($("main").hasClass("about")) { // change to about when
+    if($("main").hasClass("home")) {
+      blobOne.play();
+    }
+    else if($("main").hasClass("about")) {
       bbEight.play();
+      blobOne.play();
     }
   }
   function playLandingAnims() {
@@ -485,7 +527,6 @@ $("nav a").click(function(){navigator.vibrate([10]);});
   }
 
   function menuReset() {
-    closeMenu();
     if( $("body").hasClass("out") ) {
       $("body").removeClass("out");
     }
@@ -494,11 +535,8 @@ $("nav a").click(function(){navigator.vibrate([10]);});
     }
     closeMenu();
   }
-  $(window).on('scroll', function() {
-    navShadow();
-    bringFooter();
-    leftCtaCheck();
-  });
+
+  Splitting();
 
   playLandingAnims();
   menuReset();
