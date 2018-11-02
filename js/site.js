@@ -102,8 +102,16 @@ $(function() {
   });
 });
 
-$(".logo a, a.button, a.a-button, .t-button, .menu-toggle, ul.links li").click(function(){navigator.vibrate([20]);});
-$("nav a").click(function(){navigator.vibrate([10]);});
+navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+if (navigator.vibrate) {
+  $(".logo a, a.button, a.a-button, .t-button, .menu-toggle, ul.links li").click(function(){
+    navigator.vibrate(20);
+  });
+  $("nav a").click(function(){
+    navigator.vibrate(10);
+  });
+}
+
 
     //menu
       var menuToggle = $(".menu-toggle");
