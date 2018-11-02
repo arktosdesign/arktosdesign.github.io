@@ -452,12 +452,12 @@ $(function() {
     var viewportBottom = viewportTop + $(window).height();
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
-  function leftCtaCheck() {
+  function ctaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
-      $(".left-cta").addClass("fadeo");
+      $(".left-cta, .right-cta").addClass("fadeo");
     }
     else {
-      $(".left-cta").removeClass("fadeo");
+      $(".left-cta, .right-cta").removeClass("fadeo");
     }
   }
   function bringFooter() {
@@ -515,12 +515,14 @@ $(function() {
     });
   }
 
-  var rellax = new Rellax('.rellax');
+  if ($("div").hasClass("rellax")) {
+      var rellax = new Rellax('.rellax');
+  }
 
   $(window).on('scroll', function() {
     navShadow();
     bringFooter();
-    leftCtaCheck();
+    ctaCheck();
   });
 
   //init top anims
@@ -562,6 +564,6 @@ $(document).ready(function() {
   $('body').onPageLoad();
 });
 
-$(window).on('beforeunload', function(){
-  $(window).scrollTop(0);
-});
+// $(window).on('beforeunload', function(){
+//   $(window).scrollTop(0);
+// });
