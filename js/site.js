@@ -214,7 +214,7 @@ $(function() {
 
     $(".scroll-down svg").click(function() {
       $([document.documentElement, document.body]).animate({
-        scrollTop: $("#sectionTwo").offset().top
+        scrollTop: $("#sectionTwo").offset().top -228
       }, 780);
     });
 
