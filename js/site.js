@@ -58,6 +58,11 @@ $(function(){
          lampLights.play();
          blobThree.play();
        }
+       else if($(el).hasClass("bwave")) {
+         blobOne.play();
+         bearWave.play();
+         bearStars.play();
+       }
       },
       onHidden: function(el) {
         if( $(el).hasClass("bb8") ) {
@@ -72,6 +77,11 @@ $(function(){
           lamp.pause();
           lampLights.pause();
           blobThree.pause();
+        }
+        else if($(el).hasClass("bwave")) {
+          blobOne.pause();
+          bearWave.pause();
+          bearStars.pause();
         }
       }
     });
@@ -166,22 +176,40 @@ $(function() {
 
 
 
-    $(function() {
-      var ua = navigator.userAgent;
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-      }
-      else if(/Chrome/i.test(ua)) {
-        $(function() {
-          $.attractHover(
-            '.attract',
-            {
-              proximity: 16,
-              magnetism: 2
-            }
-          );
-        });
-      }
-    });
+
+
+
+    var isChromium = window.chrome;
+    var winNav = window.navigator;
+    var vendorName = winNav.vendor;
+    var isOpera = typeof window.opr !== "undefined";
+    var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+    var isIOSChrome = winNav.userAgent.match("CriOS");
+
+    if (isIOSChrome) {} else if(
+      isChromium !== null &&
+      typeof isChromium !== "undefined" &&
+      vendorName === "Google Inc." &&
+      isOpera === false &&
+      isIEedge === false
+    ) {
+      $(function() {
+        $.attractHover(
+          '.attract',
+          {
+            proximity: 16,
+            magnetism: 2
+          }
+        );
+      });
+    } else {
+
+    }
+
+
+
+
+
 
 
     $(".scroll-down svg").click(function() {
@@ -410,6 +438,7 @@ $(function() {
       delay: function(el, i, l) {return i * 180;},
     })
     var lampLights = anime.timeline({autoplay: false, loop: true})
+    lampLights
     .add ({
       targets: '.lamp-bl-2',
       opacity: [0.15,0.25,0.06,0.15],
@@ -426,7 +455,68 @@ $(function() {
       duration: 10000,
       easing: 'easeInOutQuart',
       offset: '-=9840'
+    });
+
+    var bearStars = anime({
+      autoplay: false,
+      loop: true,
+      targets: '.bw13',
+      opacity: [
+        { value: 1},
+        { value: function() { return anime.random(0.2, 0.6); }},
+        { value: 1},
+      ],
+      easing: 'linear',
+      duration: 700,
+      delay: function(el, i, l) {return i * 120;},
+    });
+
+    var bearWave = anime.timeline({autoplay: false, loop: true})
+    bearWave
+    .add({
+      targets: '.bArm',
+      rotate: [0,-7,7,-4,3,-5,4,-6,6,-4,4,-3,1,0],
+      easing: 'easeInOutCubic',
+      duration: 2400,
     })
+    .add({
+      targets: '.bArm',
+      translateX: {
+        value: [0,420],
+        duration: 1800,
+        easing: 'easeInCubic'
+      },
+      rotate: {
+        value: [0,-22],
+        duration: 1100,
+        easing: 'easeInOutCubic',
+        delay: 300
+      },
+      offset: '+=200'
+    })
+    .add({
+      targets: '.bArm',
+      translateX: {
+        value: [420,0],
+        duration: 1800,
+        easing: 'easeOutCubic'
+      },
+      rotate: {
+        value: [-22,0],
+        duration: 900,
+        easing: 'easeInOutCubic',
+        delay: 350
+      },
+      offset: '+=1200'
+    })
+    .add({
+      targets: 'bArm',
+      translateX: [0,0],
+      duration: 1200,
+      easing: 'linear'
+    })
+
+
 
     $(function() {
       var message = "👋🐻 Arktos Design";
@@ -532,6 +622,11 @@ $(function() {
     }
     else if($("main").hasClass("about")) {
       bbEight.play();
+      blobOne.play();
+    }
+    else if($("main").hasClass("contact")) {
+      bearWave.play();
+      bearStars.play();
       blobOne.play();
     }
   }

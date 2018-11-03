@@ -976,7 +976,7 @@ section.mission {
   }
   .container {
     height: 100%;
-    padding: 248px 28px;
+    padding: 228px 28px;
     text-align: center;
       aside {
         position: relative;
@@ -1405,6 +1405,62 @@ a.sl:hover {
 .lm14{opacity:0.3;fill:#FFFFFF;}
 .lamp-s, .lamp-bl-1, .lamp-bl-2 {transform-origin: 50% 50%;}
 
+// Bear Wave
+
+.bwave-main {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 100%;
+  max-width: 242px;
+  margin-left: -153px;
+  z-index: 2;
+  circle {fill: #000000;}
+}
+.bwb {fill: #1fa2da}
+.bw0{opacity:0.95;fill:#FFD2D2;}
+.bw1{fill:#394D70;fill:url(#sky);}
+.bw2{fill:#30A56A;}
+.bw3{fill:url(#bw_1_);}
+.bw4{fill:url(#bw_2_);}
+.bw5{fill:url(#bw_3_);}
+.bw6{fill:#1AE5BE;}
+.bw7{fill:url(#bw_4_);}
+.bw8{fill:url(#bw_5_);}
+.bw9{fill:url(#bw_6_);}
+.bw10{fill:url(#bw_7_);}
+.bw11{opacity:0.4;fill:#161617;}
+.bw12{fill:#FFFAE6;}
+.bw13{fill:#FFFFFF; transform-origin: 50% 50%;}
+.bw14{fill:#161617;}
+.bw15{fill:#070707;}
+.bw16{fill:#6D6D6D;}
+.bw17{fill:#2F3344;}
+.bw18{fill:url(#bw_8_);}
+.bw19{fill: #C1D1D1;}
+.bw20{opacity:0.07;}
+.bw21{stroke:#FFFFFF;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;}
+.bw22{opacity:0.15;}
+.bw23{opacity:0.1;fill:#161617;}
+.bw24{opacity:0.1;}
+.bw25{opacity:0.1;}
+.bw26{fill:url(#bw_9_);}
+.bw27{fill:url(#bw_10_);}
+.bw28{opacity:0.08;fill:#FFFFFF;}
+.bw29{fill:url(#bw_11_);}
+.bw30{fill:url(#bw_12_);}
+.bw31{fill:url(#bw_13_);}
+.bw32{fill:url(#bw_14_);}
+.bw33{fill:url(#bw_15_);}
+.bw34{fill:url(#bw_16_);}
+.bw35{fill:url(#bw_17_);}
+.bw36{fill:url(#bw_18_);}
+.bw37{fill:url(#bw_19_);}
+.bw38{fill:url(#bw_20_);}
+.bArm {
+  transform-origin: 95% 92%;
+}
+
 .center {
   text-align: center;
 }
@@ -1539,7 +1595,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     font-size: 1.398em;
   }
   main h4 {
-    font-size: 1.328em;
+    font-size: 1.228em;
   }
   main p {
     font-size: 0.982em;
@@ -1619,6 +1675,11 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     display: block;
     margin: 0 auto;
   }
+  .bwave-main {
+    max-width: 196px;
+  }
+
+
   body.menu-open {
       overflow-y: hidden;
       background: #161617;
@@ -1740,6 +1801,10 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
   }
   .lamp-main {
     width: 468px;
+  }
+  .bwave-main {
+    max-width: 138px;
+    margin-left: -118px;
   }
 }
 @media (min-height: 720px) and (min-width: 992px) {
