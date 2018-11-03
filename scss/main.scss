@@ -1462,6 +1462,30 @@ a.sl:hover {
   transform-origin: 95% 92%;
 }
 
+.header-links li {
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+}
+.header-links li:nth-child(1) {
+  transition-delay: 300ms;
+}
+.header-links li:nth-child(2) {
+  transition-delay: 370ms;
+}
+.header-links li:nth-child(3) {
+  transition-delay: 440ms;
+}
+.header-links li:nth-child(4) {
+  transition-delay: 510ms;
+}
+.header-links li:nth-child(5) {
+  transition-delay: 580ms;
+}
+.uiu li {
+  opacity: 1;
+}
+
+
 .center {
   text-align: center;
 }
@@ -1677,7 +1701,8 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     margin: 0 auto;
   }
   .bwave-main {
-    max-width: 196px;
+    max-width: 200px;
+    margin-left: -188px;
   }
 
 
@@ -1804,7 +1829,8 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     width: 468px;
   }
   .bwave-main {
-    max-width: 138px;
+    max-width: 144px;
+    bottom: 0px;
     margin-left: -118px;
   }
 }

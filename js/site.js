@@ -628,10 +628,11 @@ $(function() {
       bearWave.play();
       bearStars.play();
       blobOne.play();
+      $(".header-links").addClass("uiu");
     }
   }
   function playLandingAnims() {
-    requestTimeout(landingAnims, 700);
+    requestTimeout(landingAnims, 800);
     $(".btn-1").addClass("fiu");
   }
 
