@@ -48,40 +48,48 @@ $(function(){
        if($(el).hasClass("bb8")) {
          bbEight.play();
          blobOne.play();
+         console.log("bb8 >");
        }
        else if($(el).hasClass("tf")) {
          triggerFinger.play();
          blobTwo.play();
+         console.log("tf >");
        }
        else if($(el).hasClass("lamp")) {
          lamp.play();
          lampLights.play();
          blobThree.play();
+         console.log("lamp >");
        }
        else if($(el).hasClass("bwave")) {
          blobOne.play();
          bearWave.play();
          bearStars.play();
+         console.log("bwave >");
        }
       },
       onHidden: function(el) {
         if( $(el).hasClass("bb8") ) {
           bbEight.pause();
           blobOne.pause();
+          console.log("bb8 <");
         }
         else if($(el).hasClass("tf")) {
           triggerFinger.pause();
           blobTwo.pause();
+          console.log("tf <");
         }
         else if($(el).hasClass("lamp")) {
           lamp.pause();
           lampLights.pause();
           blobThree.pause();
+          console.log("lamp <");
         }
         else if($(el).hasClass("bwave")) {
           blobOne.pause();
           bearWave.pause();
           bearStars.pause();
+          console.log("bwave <");
         }
       }
     });
@@ -554,7 +562,7 @@ $(function() {
     }
   }
   function bringFooter() {
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 120) {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 138 {
       $(".footer-an").addClass("in-f");
     }
     else {
@@ -635,7 +643,7 @@ $(function() {
     }
   }
   function playLandingAnims() {
-    requestTimeout(landingAnims, 800);
+    requestTimeout(landingAnims, 900);
     $(".btn-1").addClass("fiu");
   }
 
@@ -663,6 +671,6 @@ $(document).ready(function() {
   $('body').onPageLoad();
 });
 
-// $(window).on('beforeunload', function(){
-//   $(window).scrollTop(0);
-// });
+$(window).on('beforeunload', function(){
+  $(window).scrollTop(0);
+});
