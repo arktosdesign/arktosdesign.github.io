@@ -490,8 +490,6 @@ a.t-button:hover > span {
   margin: 0 0;
   padding: 0 0;
   z-index: 99999;
-  // margin: 0 12px 0 0;
-  // float: left;
 }
 
 .top-menu .logo > a > .main-logo {
@@ -640,6 +638,8 @@ a.t-button:hover > span {
 .main-menu ul > li > a > span {
   display: inline-block;
 }
+
+
 #slide-line {
   position: absolute;
   bottom: 4px;
@@ -898,7 +898,7 @@ main h3 {
   font-weight: 400;
   line-height: 1.05;
   font-size: 1.748em;
-  letter-spacing: -0.0708em;
+  letter-spacing: -0.0688em;
 }
 main h4 {
   margin: 0 0;
@@ -1539,23 +1539,25 @@ section.featured-work {
     }
 }
 .col.work-tile {
-  h3 {color: #161617; margin: 28px 0 0 0;}
+  h3 {color: #161617; margin: 28px 0 0 0; font-weight: 600;}
   p { margin: 8px 0 0 0;}
   h3, p {opacity: 1; transition: opacity 220ms ease-in-out;}
+  overflow-x: hidden;
   .sine-link {
     display: block;
-    margin: 28px 0;
-    width: 100%;
-    max-width: 100%;
+    margin: 18px 0 0 0;
+    width: 792px;
+    height: 42px;
     path {
       fill: none;
       stroke: #f5a91b;
-      stroke: #EB5C59;
+      // stroke: #EB5C59;
       stroke-width: 6;
       stroke-miterlimit: 10;
       stroke-dasharray: 1040;
       stroke-dashoffset: 1040;
       transition: stroke-dashoffset 728ms 0ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+      transition: stroke-dashoffset 928ms 0ms linear;
     }
   }
   cursor: pointer;
@@ -1722,7 +1724,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     font-size: 2.302em;
   }
   main h3 {
-    font-size: 1.398em;
+    font-size: 1.498em;
   }
   main h4 {
     font-size: 1.228em;
