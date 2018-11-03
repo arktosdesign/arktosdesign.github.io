@@ -96,27 +96,53 @@ $(function(){
 
 
 // Slide Line
+// $(function() {
+//   'use strict';
+//   var leftPos, newWidth, $slideLine;
+//   $slideLine = $('#slide-line');
+//   $('.main-menu ul li a').click(function() {
+//     var $this = $(this);
+//     $this.parent().addClass('active').siblings().removeClass('active');
+//     $slideLine
+//       .data('origLeft', $this.position().left)
+//       .data('origWidth', $this.parent().width());
+//   });
+//   $('.main-menu ul li').find('a').hover(function() {
+//     var $thisBar = $(this).find("span");
+//     leftPos = $thisBar.position().left;
+//     newWidth = $thisBar.parent().width();
+//     $slideLine.css({
+//       "left": leftPos,
+//       "width": newWidth
+//     });
+//   }, function() {
+//     $slideLine.css({'width' : '0'});
+//   });
+// });
+
+
 $(function() {
   'use strict';
-  var leftPos, newWidth, $slideLine;
-  $slideLine = $('#slide-line');
+  var $sineLine;
+  var $sineLine = $(".snl");
   $('.main-menu ul li a').click(function() {
     var $this = $(this);
     $this.parent().addClass('active').siblings().removeClass('active');
-    $slideLine
-      .data('origLeft', $this.position().left)
-      .data('origWidth', $this.parent().width());
+    $sineLine.css({'stroke-dasharray' : '0 390', 'stroke-dashoffset ' : '0'});
   });
   $('.main-menu ul li').find('a').hover(function() {
-    var $thisBar = $(this).find("span");
-    leftPos = $thisBar.position().left;
-    newWidth = $thisBar.parent().width();
-    $slideLine.css({
-      "left": leftPos,
-      "width": newWidth
-    });
+    if ($(this).hasClass("about-page")) {
+      $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '0'});
+    }
+    else if ($(this).hasClass("work-page")) {
+      $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '-129'});
+    }
+    else if ($(this).hasClass("contact-page")) {
+      $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '-266'});
+    }
+
   }, function() {
-    $slideLine.css({'width' : '0'});
+    $sineLine.css({'stroke-dasharray' : '0 390', 'stroke-dashoffset ' : '0'});
   });
 });
 

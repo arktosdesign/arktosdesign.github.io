@@ -648,8 +648,50 @@ a.t-button:hover > span {
   height: 2px;
   pointer-events: none;
   background-color: #f5a91b;
+  display: none;
   transition: left 220ms cubic-bezier(0.410, 0.050, 0.175, 1.000), width 360ms cubic-bezier(0.410, 0.050, 0.175, 1.000);
 }
+#sine-nav-line {
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+  width: calc(100% - 24px);
+  height: 12px;
+  pointer-events: none;
+  svg {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 374px;
+    height: 8px;
+    path {
+      fill: none;
+      stroke:#F5A91B;
+      stroke-width:3;
+      stroke-miterlimit:10;
+      // NORMAL // stroke-dasharray: 0 390;
+               // stroke-dashoffset: 0;
+      // ABOUT // stroke-dasharray: 116 390;
+               // stroke-dashoffset: 0;
+      // WORK //  stroke-dasharray: 116 390;
+            //    stroke-dashoffset: -129;
+    // CONTACT // stroke-dasharray: 116 390;
+              // stroke-dashoffset: -266;
+              stroke-dasharray: 0 390;
+              stroke-dashoffset: 0;
+              transition:
+              stroke-dasharray 448ms cubic-bezier(0.600, 0.570, 0.160, 1),
+              stroke-dashoffset 448ms cubic-bezier(0.600, 0.570, 0.160, 1);
+              transition:
+              stroke-dasharray 448ms cubic-bezier(0.600, 0.570, 0.160, 1.325),
+              stroke-dashoffset 448ms cubic-bezier(0.600, 0.570, 0.160, 1.325);
+              // transition:
+              // stroke-dasharray 248ms cubic-bezier(0.390, 0.575, 0.565, 1.000),
+              // stroke-dashoffset 248ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    }
+  }
+}
+
 .main-menu ul:after {
   visibility: hidden;
   display: block;
@@ -1546,7 +1588,7 @@ section.featured-work {
   .sine-link {
     display: block;
     margin: 18px 0 0 0;
-    width: 792px;
+    width: 788px;
     height: 42px;
     path {
       fill: none;
