@@ -185,8 +185,11 @@ $(function() {
     var isOpera = typeof window.opr !== "undefined";
     var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
     var isIOSChrome = winNav.userAgent.match("CriOS");
-
-    if (isIOSChrome) {} else if(
+    var ua = navigator.userAgent;
+    if (isIOSChrome) {}
+    else if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+      }
+    else if(
       isChromium !== null &&
       typeof isChromium !== "undefined" &&
       vendorName === "Google Inc." &&
