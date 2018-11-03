@@ -184,47 +184,6 @@ $(function() {
       }
     }
 
-
-
-
-
-
-    var isChromium = window.chrome;
-    var winNav = window.navigator;
-    var vendorName = winNav.vendor;
-    var isOpera = typeof window.opr !== "undefined";
-    var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
-    var isIOSChrome = winNav.userAgent.match("CriOS");
-    var ua = navigator.userAgent;
-    if (isIOSChrome) {}
-    else if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-      }
-    else if(
-      isChromium !== null &&
-      typeof isChromium !== "undefined" &&
-      vendorName === "Google Inc." &&
-      isOpera === false &&
-      isIEedge === false
-    ) {
-      $(function() {
-        $.attractHover(
-          '.attract',
-          {
-            proximity: 16,
-            magnetism: 2
-          }
-        );
-      });
-    } else {
-
-    }
-
-
-
-
-
-
-
     $(".scroll-down svg").click(function() {
       $([document.documentElement, document.body]).animate({
         scrollTop: $("#sectionTwo").offset().top -208
