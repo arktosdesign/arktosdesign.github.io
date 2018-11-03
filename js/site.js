@@ -631,7 +631,7 @@ $(function() {
     }
   }
   function playLandingAnims() {
-    requestTimeout(landingAnims, 1000);
+    requestTimeout(landingAnims, 700);
     $(".btn-1").addClass("fiu");
   }
 
