@@ -1665,16 +1665,16 @@ section.featured-work {
       width: 100%;
       height: 100%;
       background: rgba(22,22,23,0);
-      background: -moz-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
-      background: -webkit-gradient(left top, left bottom, color-stop(10%, rgba(22,22,23,0)), color-stop(90%, rgba(22,22,23,0.8)));
-      background: -webkit-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
-      background: -o-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
-      background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
-      background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
+      background: -moz-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
+      background: -webkit-gradient(left top, left bottom, color-stop(10%, rgba(22,22,23,0)), color-stop(90%, rgba(22,22,23,0.5)));
+      background: -webkit-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
+      background: -o-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
+      background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
+      background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#161617', endColorstr='#161617', GradientType=0 );
       .ev {
         position: absolute;
-        bottom: -44px;
+        bottom: -40px;
         left: 0;
         width: 100%;
         padding: 34px 42px;
@@ -1719,10 +1719,10 @@ section.featured-work {
       }
       &:hover .ev {
         bottom: 0px;
-        transition: bottom 320ms 220ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition: bottom 300ms 220ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
         h5 {
           opacity: 1;
-          transition: opacity 340ms 280ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          transition: opacity 320ms 260ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
       }
     }
@@ -2096,9 +2096,9 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     }
     .work-item {
       margin: 0 auto 28px auto;
-      height: calc(288px + 2vw + 2vh) !important;
+      height: calc(388px + 2vw + 2vh) !important;
       &.fands {animation-delay: 1000ms;}
-      &.daytanner {animation-delay: 1280ms;}
+      &.daytanner {animation-delay: 1280ms; background-position: -120px center;}
       &.partsplus {animation-delay: 1560ms;}
       &.tecno {animation-delay: 1840ms;}
       .wi-overlay {
