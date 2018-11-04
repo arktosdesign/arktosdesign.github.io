@@ -489,6 +489,17 @@ $(function() {
     })
 
 
+    $(".work-item").mouseover(function(){
+      $(this).find(".video-holder").addClass("video-in");
+      $(this).find("#video").get(0).play().currentTime = 0;
+
+    });
+    $(".work-item").mouseout(function(){
+      $(this).find(".video-holder").removeClass("video-in");
+      $(this).find("#video").get(0).pause();
+    });
+
+
 
     $(function() {
       var message = "👋🐻 Arktos Design";

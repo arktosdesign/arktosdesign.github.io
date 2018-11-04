@@ -1629,6 +1629,7 @@ section.featured-work {
     opacity: 0;
     animation: fadeInUp 980ms cubic-bezier(0.175, 0.885, 0.310, 1.470);
     animation-fill-mode: forwards;
+    cursor: pointer;
     &.fands {
       background: url('../img/frankshove-feature.jpg');
       background-size: cover;
@@ -1664,24 +1665,38 @@ section.featured-work {
       width: 100%;
       height: 100%;
       background: rgba(22,22,23,0);
-      background: -moz-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.65) 90%);
-      background: -webkit-gradient(left top, left bottom, color-stop(10%, rgba(22,22,23,0)), color-stop(90%, rgba(22,22,23,0.65)));
-      background: -webkit-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.65) 90%);
-      background: -o-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.65) 90%);
-      background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.65) 90%);
-      background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.65) 90%);
+      background: -moz-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
+      background: -webkit-gradient(left top, left bottom, color-stop(10%, rgba(22,22,23,0)), color-stop(90%, rgba(22,22,23,0.8)));
+      background: -webkit-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
+      background: -o-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
+      background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
+      background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.8) 90%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#161617', endColorstr='#161617', GradientType=0 );
       .ev {
         position: absolute;
-        bottom: 0;
+        bottom: -44px;
         left: 0;
         width: 100%;
         padding: 34px 42px;
+        backface-visibility: hidden;
+        transition: bottom 240ms 0ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
         h2 {
           color: #FFFFFF;
-          // color: #F5A91B;
           font-weight: 600;
           margin: 0 0;
+          margin-top: 0px;
+          transition: margin 460ms ease-out;
+        }
+        h5 {
+          opacity: 0;
+          transition: opacity 240ms 0ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          margin: 24px 0 0 0;
+          color: #FFFFFF;
+          font-size: 0.76em;
+          text-transform: uppercase;
+          font-weight: 400;
+          letter-spacing: 0.198em;
+          .orange {color: #F5A91B;}
         }
         p {
           color: #FFFFFF;
@@ -1702,7 +1717,16 @@ section.featured-work {
           animation-delay: 600ms;
         }
       }
+      &:hover .ev {
+        bottom: 0px;
+        transition: bottom 320ms 220ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        h5 {
+          opacity: 1;
+          transition: opacity 340ms 280ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+      }
     }
+
   }
   .bottom-cta {
     margin: 0 0;
@@ -1761,6 +1785,42 @@ footer, .bottom-cta {
        }
     }
   }
+}
+.video-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transform-origin: center center;
+  transition: opacity 480ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 480ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  transform: scale(1.08);
+  backface-visibility: hidden;
+}
+.video-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 960ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 980ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+.video-holder video {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(1%, -64%); }
+  video::-webkit-media-controls {
+    display: none; }
+
+  video::-webkit-media-controls {
+    display: none !important; }
+    video::-webkit-media-controls-overlay-play-button {
+  display: none;
 }
 
 
@@ -1901,10 +1961,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     opacity: 0;
   }
   .menu-toggle {display: block;}
-  .main-menu {
-    display: none;
-  }
-  #sine-nav-line {
+  .main-menu, #sine-nav-line, .video-holder, .video-holder video {
     display: none;
   }
   main {
