@@ -184,9 +184,9 @@ $(function() {
       }
     }
 
-    $(".scroll-down svg").click(function() {
+    $(".scroll-down svg, .scrollDown").click(function() {
       $([document.documentElement, document.body]).animate({
-        scrollTop: $("#sectionTwo").offset().top -208
+        scrollTop: $("#sectionTwo").offset().top -177
       }, 780);
     });
 
@@ -506,14 +506,17 @@ $(function() {
       });
     });
 
+var workWrap = $(".fmo");
+var workThresh = 1420;
+  function workCheck() {
+      if ($(window).scrollTop() > workThresh) {
+        workWrap.hide();
+      }
+      else {
+        workWrap.show();
+      }
 
-  $.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-  };
+  }
   function ctaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
       $(".left-cta, .right-cta").addClass("fadeo");
@@ -530,6 +533,13 @@ $(function() {
       $(".footer-an").removeClass("in-f");
     }
   }
+  $(window).on('scroll', function() {
+    navShadow();
+    bringFooter();
+    ctaCheck();
+    workCheck();
+  });
+
   window.requestAnimFrame = (function() {
     return  window.requestAnimationFrame       ||
         window.webkitRequestAnimationFrame ||
@@ -577,15 +587,11 @@ $(function() {
     });
   }
 
-  if ($("div").hasClass("rellax")) {
-      var rellax = new Rellax('.rellax');
-  }
 
-  $(window).on('scroll', function() {
-    navShadow();
-    bringFooter();
-    ctaCheck();
-  });
+
+
+
+
 
   //init top anims
   function landingAnims() {
@@ -605,7 +611,7 @@ $(function() {
   }
   function playLandingAnims() {
     requestTimeout(landingAnims, 900);
-    $(".btn-1").addClass("fiu");
+    $(".btn-1, .for-header svg").addClass("fiu");
   }
 
   function menuReset() {
@@ -623,6 +629,9 @@ $(function() {
   playLandingAnims();
   menuReset();
 
+
+    var rellax = new Rellax('.rellax');
+
 };
 }(jQuery));
 
@@ -632,6 +641,6 @@ $(document).ready(function() {
   $('body').onPageLoad();
 });
 
-// $(window).on('beforeunload', function(){
-//   $(window).scrollTop(0);
-// });
+$(window).on('beforeunload', function(){
+  $(window).scrollTop(0);
+});
