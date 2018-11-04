@@ -1647,7 +1647,7 @@ section.featured-work {
       background: url('../img/partsplus-feature.jpg');
       background-size: cover;
       background-position: center center;
-      height: calc(630px + 2vw + 2vh);
+      height: calc(720px + 2vw + 2vh);
       animation-delay: 1280ms;
     }
     &.tecno {
@@ -1807,21 +1807,28 @@ footer, .bottom-cta {
 
 .video-holder video {
   position: absolute;
+  width: auto;
+  height: auto;
+}
+
+.fands > .video-holder video {
   top: 50%;
   right: 0%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(1%, -64%); }
-  video::-webkit-media-controls {
-    display: none; }
-
-  video::-webkit-media-controls {
-    display: none !important; }
-    video::-webkit-media-controls-overlay-play-button {
-  display: none;
+  transform: translate(1%, -64%);
 }
+.partsplus > .video-holder video {
+  top: 0%;
+  left: 50%;
+  min-width: 100.5%;
+  max-width: 100.5%;
+  min-height: 100%;
+  transform: translate(-50%, 0%);
+}
+video::-webkit-media-controls {display: none;}
+video::-webkit-media-controls {display: none !important;}
+video::-webkit-media-controls-overlay-play-button {display: none;}
 
 
 .fiu {
