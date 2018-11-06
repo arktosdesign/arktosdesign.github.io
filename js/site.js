@@ -586,7 +586,6 @@ $(function() {
     navShadow();
     bringFooter();
     ctaCheck();
-    workCheck();
   });
 
   Splitting();
