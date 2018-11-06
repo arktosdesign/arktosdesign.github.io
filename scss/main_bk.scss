@@ -56,7 +56,7 @@ body.no-p {
 .scene {
   padding-bottom: 2px;
   .scene_element {
-    // will-change: opacity;
+    will-change: opacity;
     animation-name: fadeIn;
     animation-duration: 330ms;
     animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
@@ -126,19 +126,19 @@ body.no-p {
     opacity: 0;
     // animation: fadeInUp 0.66s cubic-bezier(0,.75,0,1) 0s both;
     animation: fadeInUp 0.66s cubic-bezier(0,.65,0,1) both;
-    animation-delay: calc(50ms + 98ms * var(--word-index) );
+    animation-delay: calc(100ms + 98ms * var(--word-index) );
   }
 }
 .fp {
   .word {
     opacity: 0;
     animation: fadeIn 0.66s cubic-bezier(0.190, 1.000, 0.220, 1.000) both;
-    animation-delay: calc(400ms + 25ms * var(--word-index) );
+    animation-delay: calc(500ms + 25ms * var(--word-index) );
   }
 }
 .fd, .fp {
   opacity: 0;
-  // will-change: opacity;
+  will-change: opacity;
   transition: opacity 0ms linear;
 }
 .faded {
@@ -150,28 +150,28 @@ body.no-p {
   }
   &[data-scroll="in"] h1, &[data-scroll="in"] h2 {
     .word {
-      // will-change: transform, opacity;
+      will-change: transform, opacity;
       animation: fadeInUp 0.66s cubic-bezier(0,.65,0,1) both;
-      animation-delay: calc(50ms + 98ms * var(--word-index));
+      animation-delay: calc(200ms + 98ms * var(--word-index));
     }
   }
 
   h3, p, .button-holder {
-    // will-change: opacity, transform;
+    will-change: opacity, transform;
     transition: opacity 650ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 650ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
   }
-  p {transition-delay: 400ms;}
-  h3 {transition-delay: 700ms;}
+  p {transition-delay: 650ms;}
+  h3 {transition-delay: 1150ms;}
 
-  .button-holder {transition-delay: 600ms;}
-  .delay {transition-delay: 1200ms;}
+  .button-holder {transition-delay: 850ms;}
+  .delay {transition-delay: 1250ms;}
 
   &[data-scroll="out"] h3, &[data-scroll="out"] h4, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder {
     opacity: 0;
     transform: translateY(25px);
   }
   &[data-scroll="in"] h4 {
-      // will-change: transform, opacity;
+      will-change: transform, opacity;
       animation: fadeInUp 480ms ease-out both;
       animation-delay: 100ms;
   }
@@ -183,8 +183,8 @@ body.no-p {
     transform 630ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
   &[data-scroll="in"] .wiper {
-    transform: scaleX(0);
-    transition: transform 630ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    width: 0%;
+    transition: width 630ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
   }
 }
 
@@ -210,7 +210,7 @@ a.button, a.a-button {
   backface-visibility: hidden;
   .char {
     backface-visibility: hidden;
-    // will-change: color, transform;
+    will-change: color, transform;
     transition:
     color calc(120ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
     transform calc(160ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
@@ -232,7 +232,7 @@ a.button {
   height: 62px;
   padding: 17px 33px 13px 33px;
   transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 1420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  // will-change: background, transform, border;
+  will-change: background, transform, border;
   overflow: hidden;
   transform-origin: center center;
   transform: scale(1);
@@ -292,7 +292,7 @@ a.a-button {
   margin: 24px 0;
   padding: 14px 0px 12px 0px;
   line-height: 28px;
-  // will-change: opacity;
+  will-change: opacity;
   transition: opacity 40ms ease-out;
   backface-visibility: hidden;
   .a-inner {
@@ -344,7 +344,7 @@ a.t-button {
   height: 60px;
   line-height: 58px;
   transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  // will-change: background, transform, border;
+  will-change: background, transform, border;
   overflow: hidden;
   backface-visibility: hidden;
   transform-origin: center center;
@@ -376,7 +376,7 @@ a.t-button > span {
   letter-spacing: -0.067em;
   word-spacing: 0.1em;
   color: #f5a91b;
-  // will-change: color;
+  will-change: color;
   font-weight: 600;
   transition: color 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
@@ -809,21 +809,7 @@ a.t-button:hover > span {
       }
   }
 }
-.left-cta, .right-cta {
-  position: fixed;
-  text-align: center;
-  z-index: 49;
-  display: none;
-  opacity: 1;
-  color: #161617;
-  transition: opacity 100ms ease-in;
-  a {
-    transition: color 120ms ease-out;
-  }
-  a:hover {
-    color: #f5a91b
-  }
-}
+
 .left-cta {
   top: calc(50% + 8px);
   left: -92px;
@@ -871,14 +857,28 @@ a.t-button:hover > span {
   display: block;
   padding: 6px 2px;
 }
+.left-cta, .right-cta {
+  position: fixed;
+  text-align: center;
+  z-index: 49;
+  display: none;
+  opacity: 1;
+  color: #161617;
+  transition: opacity 100ms ease-in;
+  a {
+    transition: color 120ms ease-out;
+  }
+  a:hover {
+    color: #f5a91b
+  }
+}
 
-.svg-hidden {visibility: hidden}
 
 main {
   position: relative;
   margin: 0 auto 460px auto;
   width: 100%;
-  // height: 100%;
+  height: 100%;
   padding: 0;
   z-index: 1;
   background-color: #FFFFFF;
@@ -895,7 +895,7 @@ main:after {
   background: url('../img/sine2.svg');
   background-size: cover;
   background-position: center center;
-  // background-position: no-repeat;
+  background-position: no-repeat;
 }
 main h1 {
   color: #161617;
@@ -1047,14 +1047,14 @@ section.mission {
     background: url('../img/bg-mission-top.svg');
     background-size: cover;
     background-position: center center;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
   }
   &.bottom {
     bottom: -5px;
     background: url('../img/bg-mission-bottom.svg');
     background-size: cover;
     background-position: center center;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
   }
 }
   &:before, &:after {
@@ -1072,14 +1072,14 @@ section.mission {
     background: url('../img/bg-mission-top.svg');
     background-size: cover;
     background-position: center center;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
   }
   &:after {
     bottom: -25px;
     background: url('../img/bg-mission-bottom.svg');
     background-size: cover;
     background-position: center center;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
   }
 }
 
@@ -1226,7 +1226,7 @@ footer {
     opacity: 0;
     backface-visibility: hidden;
     transform: translateY(25px);
-    // will-change: opacity, transform;
+    will-change: opacity, transform;
     transition: opacity 300ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 300ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
   }
   .in-f, .btn-in {
@@ -1514,33 +1514,30 @@ a.sl:hover {
   width: 100%;
   height: 100%;
   opacity: 0;
-  // will-change: opacity, transform;
+  will-change: opacity, transform;
 }
 .wiper {
   position: absolute;
   top: 0;
-  right: -1%;
-  width: 101%;
-  transform: scaleX(1);
-  transform-origin: 100% 0%;
+  right: 0%;
+  width: 100%;
   height: 100%;
   background: #FFFFFF;
-  // background: red;
-  // will-change: width;
+  will-change: width;
 }
 
 .img-container.ft-frankandshove .lzl {
   background: url('../img/frankshove-feature.jpg');
   background-size: cover;
   background-position: center center;
-  // background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 .img-container.ft-partsplus .lzl {
   background: url('../img/partsplus-feature.jpg');
   background-size: cover;
   background-position: center center;
-  // background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 
@@ -1675,7 +1672,7 @@ section.featured-work {
       background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
       background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#161617', endColorstr='#161617', GradientType=0 );
-      .caption {
+      .ev {
         position: absolute;
         bottom: -40px;
         left: 0;
@@ -1687,8 +1684,8 @@ section.featured-work {
           color: #FFFFFF;
           font-weight: 600;
           margin: 0 0;
-          opacity: 1;
           margin-top: 0px;
+          transition: margin 460ms ease-out;
         }
         h5 {
           opacity: 0;
@@ -1705,8 +1702,22 @@ section.featured-work {
           color: #FFFFFF;
           margin: 0 0;
         }
+        h2, p {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        &[data-scroll="in"] h2, &[data-scroll="in"] p {
+          animation: fadeInUp 980ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+          animation-fill-mode: forwards;
+        }
+        &[data-scroll="in"] h2 {
+          animation-delay: 400ms;
+        }
+        &[data-scroll="in"] p {
+          animation-delay: 600ms;
+        }
       }
-      &:hover .caption {
+      &:hover .ev {
         bottom: 0px;
         transition: bottom 300ms 220ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
         h5 {
@@ -1722,8 +1733,17 @@ section.featured-work {
     width: 77%;
     padding: 24px 42px 64px 42px;
     background: #161617;
+    opacity: 0;
+    transform: translateY(35px);
+    backface-visibility: hidden;
+    transition: opacity 540ms 600ms ease-out, transform 540ms 600ms ease-out;
     &.for-up {display: block}
     &.for-down {display: none}
+    &.ev {
+      h3, p, .button-holder {
+        opacity: 1;
+        transform: translateY(0px);
+      }
       h3 {margin: 0; color: #f5a91b;}
       p {margin: 4px 0 0 0; color: #FFFFFF;}
       .button-holder {
@@ -1737,7 +1757,9 @@ section.featured-work {
         height: 46px;
         padding: 0 0;
         a {height: 46px; margin: 0 0;}
+      }
     }
+    &[data-scroll="in"] {opacity: 1;transform: translateY(0px);}
   }
 
 }
@@ -1776,10 +1798,8 @@ footer, .bottom-cta {
   transition: opacity 480ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 480ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
   transform: scale(1.08);
   backface-visibility: hidden;
-  visibility: hidden;
 }
 .video-in {
-  visibility: visible;
   opacity: 1;
   transform: scale(1);
   transition: opacity 960ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 980ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
@@ -1849,7 +1869,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       opacity: 1;
       animation: none !important;
     }
-    &[data-scroll="out"] h3, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder {
+    &[data-scroll="out"] h3, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder, .bottom-cta[data-scroll="out"] {
       opacity: 1;
       transform: translateY(0px);
     }
@@ -2082,7 +2102,6 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       margin-top: -48px;
     }
     .work-item {
-      font-size: 90%;
       margin: 0 auto 28px auto;
       height: calc(288px + 2vw + 2vh) !important;
       &.fands {animation-delay: 1000ms;}
@@ -2090,14 +2109,16 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       &.partsplus {animation-delay: 1560ms; margin-top: -28px;}
       &.tecno {animation-delay: 1840ms;}
       .wi-overlay {
-        .caption {
-            bottom: 0px;
-            padding: 22px;
-            h5 {opacity: 1; margin-top: 12px;}
+        .ev {
+          padding: 22px;
+          &[data-scroll="in"] h2, &[data-scroll="in"] p, h2, p {
+            opacity: 1;
+            transform: translateY(0);
+            animation: none;
           }
         }
       }
-
+  }
   .bottom-cta {
     width: 100%;
     &.for-up {display: none;}

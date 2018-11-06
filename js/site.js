@@ -5,7 +5,7 @@ $(function(){
         scroll: true,
         debug: false,
         prefetch: true,
-        cacheLength: 2, // The number of pages to cache
+        cacheLength: 4, // The number of pages to cache
         onStart: {
           duration: 700,
           render: function ($container) {
@@ -489,6 +489,10 @@ $(function() {
     })
 
 
+
+
+
+
     $(".work-item").mouseover(function(){
       $(this).find(".video-holder").addClass("video-in");
       $(this).find("#video").get(0).play().currentTime = 0;
@@ -498,8 +502,6 @@ $(function() {
       $(this).find(".video-holder").removeClass("video-in");
       $(this).find("#video").get(0).pause();
     });
-
-
 
     $(function() {
       var message = "👋🐻 Arktos Design";
@@ -517,17 +519,6 @@ $(function() {
       });
     });
 
-var workWrap = $(".fmo");
-var workThresh = 1420;
-  function workCheck() {
-      if ($(window).scrollTop() > workThresh) {
-        workWrap.hide();
-      }
-      else {
-        workWrap.show();
-      }
-
-  }
   function ctaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
       $(".left-cta, .right-cta").addClass("fadeo");
@@ -544,13 +535,6 @@ var workThresh = 1420;
       $(".footer-an").removeClass("in-f");
     }
   }
-  $(window).on('scroll', function() {
-    navShadow();
-    bringFooter();
-    ctaCheck();
-    workCheck();
-  });
-
   window.requestAnimFrame = (function() {
     return  window.requestAnimationFrame       ||
         window.webkitRequestAnimationFrame ||
@@ -598,11 +582,15 @@ var workThresh = 1420;
     });
   }
 
+  $(window).on('scroll', function() {
+    navShadow();
+    bringFooter();
+    ctaCheck();
+    workCheck();
+  });
 
-
-
-
-
+  Splitting();
+  var rellax = new Rellax('.rellax');
 
   //init top anims
   function landingAnims() {
@@ -635,13 +623,8 @@ var workThresh = 1420;
     closeMenu();
   }
 
-  Splitting();
-
   playLandingAnims();
   menuReset();
-
-
-    var rellax = new Rellax('.rellax');
 
 };
 }(jQuery));
@@ -652,6 +635,6 @@ $(document).ready(function() {
   $('body').onPageLoad();
 });
 
-$(window).on('beforeunload', function(){
-  $(window).scrollTop(0);
-});
+// $(window).on('beforeunload', function(){
+//   $(window).scrollTop(0);
+// });
