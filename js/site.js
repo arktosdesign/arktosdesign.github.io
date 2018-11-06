@@ -589,8 +589,12 @@ $(function() {
   });
 
   Splitting();
-  var rellax = new Rellax('.rellax');
 
+  $(function(){
+    if($("div").hasClass("rellax")) {
+      var rellax = new Rellax('.rellax');
+    }
+  });
   //init top anims
   function landingAnims() {
     if($("main").hasClass("home")) {
