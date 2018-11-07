@@ -1854,7 +1854,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       transform: translateY(0px);
     }
     &[data-scroll="out"] .wiper {
-      width: 0%;
+      transform: scaleX(0);
     }
     &[data-scroll="out"] .lzl {
       transform: translateX(-50%) scale(1);
