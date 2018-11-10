@@ -150,7 +150,7 @@ body.no-p {
   }
   &[data-scroll="in"] h1, &[data-scroll="in"] h2 {
     .word {
-      // will-change: transform, opacity;
+      will-change: transform, opacity;
       animation: fadeInUp 0.66s cubic-bezier(0,.65,0,1) both;
       animation-delay: calc(50ms + 98ms * var(--word-index));
     }
@@ -160,10 +160,10 @@ body.no-p {
     // will-change: opacity, transform;
     transition: opacity 650ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 650ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
   }
-  p {transition-delay: 400ms;}
+  p {transition-delay: 500ms;}
   h3 {transition-delay: 700ms;}
 
-  .button-holder {transition-delay: 600ms;}
+  .button-holder {transition-delay: 650ms;}
   .delay {transition-delay: 1200ms;}
 
   &[data-scroll="out"] h3, &[data-scroll="out"] h4, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder {
@@ -184,7 +184,7 @@ body.no-p {
   }
   &[data-scroll="in"] .wiper {
     transform: scaleX(0);
-    transition: transform 630ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    transition: transform 730ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
   }
 }
 
@@ -210,7 +210,7 @@ a.button, a.a-button {
   backface-visibility: hidden;
   .char {
     backface-visibility: hidden;
-    // will-change: color, transform;
+    will-change: color, transform;
     transition:
     color calc(120ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000),
     transform calc(160ms * calc( var(--word-total))) cubic-bezier(0.600, 0.000, 0.000, 1.000);
@@ -232,7 +232,7 @@ a.button {
   height: 62px;
   padding: 17px 33px 13px 33px;
   transition: background 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 1420ms cubic-bezier(0.070, 0.915, 0.265, 1.390), border 420ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  // will-change: background, transform, border;
+  will-change: background, transform, border;
   overflow: hidden;
   transform-origin: center center;
   transform: scale(1);
@@ -658,11 +658,11 @@ a.t-button:hover > span {
               stroke-dasharray: 0 390;
               stroke-dashoffset: 0;
               transition:
-              stroke-dasharray 488ms cubic-bezier(0.600, 0.570, 0.160, 1),
-              stroke-dashoffset 488ms cubic-bezier(0.600, 0.570, 0.160, 1);
+              stroke-dasharray 468ms cubic-bezier(0.600, 0.570, 0.160, 1),
+              stroke-dashoffset 468ms cubic-bezier(0.600, 0.570, 0.160, 1);
               transition:
-              stroke-dasharray 488ms cubic-bezier(0.600, 0.570, 0.160, 1.325),
-              stroke-dashoffset 488ms cubic-bezier(0.600, 0.570, 0.160, 1.325);
+              stroke-dasharray 468ms cubic-bezier(0.600, 0.570, 0.160, 1.325),
+              stroke-dashoffset 468ms cubic-bezier(0.600, 0.570, 0.160, 1.325);
               // transition:
               // stroke-dasharray 248ms cubic-bezier(0.390, 0.575, 0.565, 1.000),
               // stroke-dashoffset 248ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
@@ -1365,14 +1365,14 @@ a.sl:hover {
 .tf19{fill:#423F3F;}
 .tf20{fill:#F7F5F5;}
 .tf21{fill:#3A3838;stroke:#394D70;stroke-width:1.9221;stroke-miterlimit:10;}
-.tf-knob.one {transform-origin: 41.1% 18.7%;}
-.tf-knob.two {transform-origin: 46.6% 10.9%;}
-.tf-knob.three {transform-origin: 54.8% 18.6%;}
-.tf-knob.four {transform-origin: 60.2% 10.9%;}
-.tf-knob.five {transform-origin: 68.4% 18.8%;}
-.tf-knob.six {transform-origin: 73.9% 10.9%;}
-.tf-knob.seven {transform-origin: 82.1% 18.6%;}
-.tf-knob.eight {transform-origin: 87.6% 10.9%;}
+// .tf-knob.one {transform-origin: 41.1% 18.7%;}
+// .tf-knob.two {transform-origin: 46.6% 10.9%;}
+// .tf-knob.three {transform-origin: 54.8% 18.6%;}
+// .tf-knob.four {transform-origin: 60.2% 10.9%;}
+// .tf-knob.five {transform-origin: 68.4% 18.8%;}
+// .tf-knob.six {transform-origin: 73.9% 10.9%;}
+// .tf-knob.seven {transform-origin: 82.1% 18.6%;}
+// .tf-knob.eight {transform-origin: 87.6% 10.9%;}
 .tfp {cursor: pointer; transition: opacity 110ms ease-out;}
 .tfp .tf10 {transition: opacity 240ms ease-out;}
 .tfp:hover .tf10 {opacity: 0;}
@@ -1514,7 +1514,7 @@ a.sl:hover {
   width: 100%;
   height: 100%;
   opacity: 0;
-  // will-change: opacity, transform;
+  will-change: opacity, transform;
 }
 .wiper {
   position: absolute;
@@ -1525,22 +1525,20 @@ a.sl:hover {
   transform-origin: 100% 0%;
   height: 100%;
   background: #FFFFFF;
-  // background: red;
-  // will-change: width;
 }
 
 .img-container.ft-frankandshove .lzl {
   background: url('../img/frankshove-feature.jpg');
   background-size: cover;
   background-position: center center;
-  // background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 .img-container.ft-partsplus .lzl {
   background: url('../img/partsplus-feature.jpg');
   background-size: cover;
   background-position: center center;
-  // background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 
@@ -1577,7 +1575,7 @@ section.featured-work {
   cursor: pointer;
 }
 .col.work-tile:hover {
-  .lzl {transform: translateX(-50%) scale(1.08); transition: transform 580ms cubic-bezier(0.540, 0.160, 0.150, 0.860);}
+  .lzl {transform: translateX(-50%) scale(1.07); transition: transform 528ms cubic-bezier(0.540, 0.160, 0.150, 0.860);}
   h3, p {opacity: 0.7;}
   .sine-link {
     path {
@@ -1668,12 +1666,12 @@ section.featured-work {
       width: 100%;
       height: 77%;
       background: rgba(22,22,23,0);
-      background: -moz-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
-      background: -webkit-gradient(left top, left bottom, color-stop(10%, rgba(22,22,23,0)), color-stop(90%, rgba(22,22,23,0.5)));
-      background: -webkit-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
-      background: -o-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
-      background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
-      background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.5) 90%);
+      background: -moz-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.6) 90%);
+      background: -webkit-gradient(left top, left bottom, color-stop(10%, rgba(22,22,23,0)), color-stop(90%, rgba(22,22,23,0.6)));
+      background: -webkit-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.6) 90%);
+      background: -o-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.6) 90%);
+      background: -ms-linear-gradient(top, rgba(22,22,23,0) 10%, rgba(22,22,23,0.6) 90%);
+      background: linear-gradient(to bottom, rgba(22,22,23,0) 10%, rgba(22,22,23,0.6) 90%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#161617', endColorstr='#161617', GradientType=0 );
       .caption {
         position: absolute;
@@ -1782,7 +1780,7 @@ footer, .bottom-cta {
   visibility: visible;
   opacity: 1;
   transform: scale(1);
-  transition: opacity 960ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 980ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  transition: opacity 840ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 820ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 }
 
 .video-holder video {
@@ -2084,7 +2082,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     .work-item {
       font-size: 90%;
       margin: 0 auto 28px auto;
-      height: calc(288px + 2vw + 2vh) !important;
+      height: calc(308px + 2vw + 2vh) !important;
       &.fands {animation-delay: 1000ms;}
       &.daytanner {animation-delay: 1280ms; background-position: -120px center;}
       &.partsplus {animation-delay: 1560ms; margin-top: -28px;}

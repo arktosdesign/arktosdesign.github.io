@@ -32,97 +32,29 @@ $(function(){
 
     $(".fd, .fp").addClass("faded");
 
-    ScrollOut({
-       targets: '.ev',
-       threshold: 0.5,
-       once: true,
-       cssProps: {
-         viewportY: true,
-         visibleY: true
-       }
+    $(function() {
+      'use strict';
+      var $sineLine;
+      var $sineLine = $(".snl");
+      $('.main-menu ul li a').click(function() {
+        var $this = $(this);
+        $this.parent().addClass('active').siblings().removeClass('active');
+        $sineLine.css({'stroke-dasharray' : '0 390', 'stroke-dashoffset ' : '0'});
+      });
+      $('.main-menu ul li').find('a').hover(function() {
+        if ($(this).hasClass("about-page")) {
+          $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '0'});
+        }
+        else if ($(this).hasClass("work-page")) {
+          $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '-129'});
+        }
+        else if ($(this).hasClass("contact-page")) {
+          $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '-266'});
+        }
+      }, function() {
+        $sineLine.css({'stroke-dasharray' : '0 390', 'stroke-dashoffset ' : '0'});
+      });
     });
-    ScrollOut({
-      targets: '.g-wrap',
-      threshold: 0.5,
-      onShown: function(el) {
-       if($(el).hasClass("bb8")) {
-         bbEight.play();
-         blobOne.play();
-         console.log("bb8 >");
-       }
-       else if($(el).hasClass("tf")) {
-         triggerFinger.play();
-         blobTwo.play();
-         console.log("tf >");
-       }
-       else if($(el).hasClass("lamp")) {
-         lamp.play();
-         lampLights.play();
-         blobThree.play();
-         console.log("lamp >");
-       }
-       else if($(el).hasClass("bwave")) {
-         blobOne.play();
-         bearWave.play();
-         bearStars.play();
-         console.log("bwave >");
-       }
-      },
-      onHidden: function(el) {
-        if( $(el).hasClass("bb8") ) {
-          bbEight.pause();
-          blobOne.pause();
-          console.log("bb8 <");
-        }
-        else if($(el).hasClass("tf")) {
-          triggerFinger.pause();
-          blobTwo.pause();
-          console.log("tf <");
-        }
-        else if($(el).hasClass("lamp")) {
-          lamp.pause();
-          lampLights.pause();
-          blobThree.pause();
-          console.log("lamp <");
-        }
-        else if($(el).hasClass("bwave")) {
-          blobOne.pause();
-          bearWave.pause();
-          bearStars.pause();
-          console.log("bwave <");
-        }
-      }
-    });
-
-
-
-
-
-$(function() {
-  'use strict';
-  var $sineLine;
-  var $sineLine = $(".snl");
-  $('.main-menu ul li a').click(function() {
-    var $this = $(this);
-    $this.parent().addClass('active').siblings().removeClass('active');
-    $sineLine.css({'stroke-dasharray' : '0 390', 'stroke-dashoffset ' : '0'});
-  });
-  $('.main-menu ul li').find('a').hover(function() {
-    if ($(this).hasClass("about-page")) {
-      $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '0'});
-    }
-    else if ($(this).hasClass("work-page")) {
-      $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '-129'});
-    }
-    else if ($(this).hasClass("contact-page")) {
-      $sineLine.css({'stroke-dasharray' : '116 390', 'stroke-dashoffset' : '-266'});
-    }
-  }, function() {
-    $sineLine.css({'stroke-dasharray' : '0 390', 'stroke-dashoffset ' : '0'});
-  });
-});
-
-
 
 
     //menu
@@ -171,7 +103,6 @@ $(function() {
       });
 
     var topMenu = $(".top-menu");
-
     var pastNav = 3;
     function navShadow() {
       if ($(window).scrollTop() > pastNav) {
@@ -184,114 +115,11 @@ $(function() {
       }
     }
 
-    $(".scroll-down svg, .scrollDown").click(function() {
-      $([document.documentElement, document.body]).animate({
-        scrollTop: $("#sectionTwo").offset().top -177
-      }, 780);
-    });
 
 
 
-    var scrollDown = anime.timeline({autoplay: true, loop: true})
-    scrollDown
-    .add({
-      targets: '.scroll-down .scroll-circ',
-      opacity: {
-        value: [1,0],
-        duration: 1300,
-        easing: 'easeInOutQuart'
-      },
-      translateY: {
-        value: [0,14],
-        duration: 1300,
-        easing: 'easeInOutQuint'
-      },
-      scale: {
-        value: [1,0.2],
-        duration: 1600,
-        easing: 'easeInOutQuint'
-      }
-    })
-    .add({
-      targets: '.scroll-down .scroll-lines',
-      strokeDashoffset: [0,-36],
-      duration: 1500,
-      offset: '-=1400',
-      easing: [0.645, 0.045, 0.020, 0.995]
-    })
-    .add({
-      targets: '.scroll-down .scroll-circ',
-      offset: '-=700',
-      opacity: {
-        value: [0,1],
-        duration: 700,
-        easing: 'easeInOutQuart'
-      },
-      translateY: {
-        value: [14,0],
-        duration: 0,
-        easing: 'linear'
-      },
-      scale: {
-        value: [0.2,1],
-        duration: 0,
-        easing: 'linear'
-      }
-    })
 
 
-
-    var blobOne = anime({
-      autoplay: false,
-      loop: true,
-      targets: '.blob-one',
-      duration: 30000,
-      easing: [0.420, 0.000, 0.580, 1.000],
-      d: [
-        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'},
-        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'},
-        {value: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'},
-        {value: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'},
-        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'},
-        {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
-        {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
-        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'}
-      ]
-    })
-    var blobTwo = anime({
-      autoplay: false,
-      loop: true,
-      targets: '.blob-two',
-      duration: 30000,
-      easing: [0.420, 0.000, 0.580, 1.000],
-      d: [
-        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'},
-        {value: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'},
-        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'},
-        {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
-        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'},
-        {value: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'},
-        {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
-        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}
-      ]
-    })
-    var blobThree = anime({
-      autoplay: false,
-      loop: true,
-      targets: '.blob-three',
-      duration: 30000,
-      easing: [0.420, 0.000, 0.580, 1.000],
-      d: [
-        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'},
-        {value: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'},
-        {value: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'},
-        {value: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'},
-        {value: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'},
-        {value: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'},
-        {value: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'},
-        {value: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}
-      ]
-    })
 
     var bbEight = anime.timeline({autoplay: false, loop: true})
     bbEight
@@ -367,68 +195,6 @@ $(function() {
       offset: '-=10600'
     })
 
-    var triggerFinger = anime.timeline({loop: true, autoplay: false})
-      triggerFinger
-      .add({
-        targets: '.tf-fader',
-        translateY: [0,-20,30,0],
-        duration: 2280,
-        easing: 'easeInQuad',
-        delay: function(el, i, l) {return i * 300;}
-      })
-      .add({
-        targets: '.tf-knob',
-        rotate: [
-          { value: function() { return anime.random(0, 260); }},
-          { value: function() { return anime.random(0, 93); }},
-          { value: function() { return anime.random(0, 173); }},
-          { value: 0},
-        ],
-        duration: 2180,
-        easing: 'easeInOutQuad',
-        delay: function(el, i, l) {return i * 100;},
-        offset: '-=2280'
-      });
-      $(".tfp").click(function(e){
-    		var pop = $('<div class="pop">')
-    			.css({"left": e.pageX + 'px',"top": e.pageY + 'px'})
-          .append($('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 114 114.7" style="enable-background:new 0 0 114 114.7;" xml:space="preserve"><line class="fcb-stroke" x1="57" y1="0" x2="57" y2="8.9"/><line class="fcb-stroke" x1="57" y1="114.7" x2="57" y2="105.8"/><line class="fcb-stroke" x1="16.8" y1="97.6" x2="23.1" y2="91.3"/><line class="fcb-stroke" x1="98.6" y1="95.5" x2="92.3" y2="89.2"/><line class="fcb-stroke" x1="16.8" y1="16.4" x2="23.1" y2="22.7"/><line class="fcb-stroke" x1="100.7" y1="19.8" x2="94.4" y2="26.2"/><line class="fcb-stroke" x1="0" y1="57" x2="8.9" y2="57"/><line class="fcb-stroke" x1="114" y1="57" x2="105.1" y2="57"/></svg>'))
-    			.appendTo(document.body);
-    		setTimeout(function() {pop.remove();}, 300);
-      });
-
-    var lamp = anime({
-      loop: true,
-      autoplay: false,
-      targets: '.lamp-s',
-      translateY: [0,-36,0],
-      translateX: [0,-0.9,0],
-      scale: [1,1.1,1],
-      rotate: [0,-4,4,-4,0],
-      duration: 13000,
-      easing: [0.455, 0.030, 0.515, 0.955],
-      delay: function(el, i, l) {return i * 180;},
-    })
-    var lampLights = anime.timeline({autoplay: false, loop: true})
-    lampLights
-    .add ({
-      targets: '.lamp-bl-2',
-      opacity: [0.15,0.25,0.06,0.15],
-      scaleX: [1,1.8,1],
-      rotate: [0,5,0],
-      duration: 10000,
-      easing: 'easeInOutQuart'
-    })
-    .add ({
-      targets: '.lamp-bl-1',
-      opacity: [0.1,0,0,0.1],
-      scaleX: [1,2.1,1],
-      rotate: [0,-5,0],
-      duration: 10000,
-      easing: 'easeInOutQuart',
-      offset: '-=9840'
-    });
-
     var bearStars = anime({
       autoplay: false,
       loop: true,
@@ -490,6 +256,90 @@ $(function() {
 
 
 
+var scrollCirc = $(".scroll-circ"),
+    scrollLines = $(".scroll-lines");
+    scrollDown = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: false});
+    scrollDown
+    .to(scrollCirc, 1, {autoAlpha: 0, y: 14, scale: 0.2, transformOrigin: '50% 50%', ease:Power2.easeInOut})
+    .to(scrollLines, 1, {strokeDashoffset: -36, ease:Power2.easeInOut}, '-=1')
+    .to(scrollCirc, 0, {autoAlpha: 0, y: 0, scale: 1, transformOrigin: '50% 50%', ease:Power2.easeInOut})
+    .to(scrollCirc, 0.3, {autoAlpha: 1, ease:Power0.easeNone});
+    scrollDown.play();
+    $(".scroll-down svg, .scrollDown").click(function() {
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#sectionTwo").offset().top -177
+      }, 780);
+    });
+
+  var ease = CustomEase.create("custom", "M0,0,C0.2,0,0.354,0.276,0.507,0.512,0.653,0.737,0.798,1,1,1");
+  var blobOnePath = $(".blob-one"),
+      blobOne = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: true, paused: true});
+      blobOne
+      .to(blobOnePath, 4.5, { attr:{d: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}, ease: ease})
+      .to(blobOnePath, 4.5, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: ease})
+      .to(blobOnePath, 4.5, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: ease})
+      .to(blobOnePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease})
+      .to(blobOnePath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease});
+
+  var blobTwoPath = $(".blob-two"),
+      blobTwo = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: true, paused: true});
+      blobTwo
+      .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: ease})
+      .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}, ease: ease})
+      .to(blobTwoPath, 4.5, { attr:{d: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'}, ease: ease})
+      .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: ease})
+      .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease});
+
+  var blobThreePath = $(".blob-three"),
+      blobThree = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: true, paused: true});
+      blobThree
+      .to(blobThreePath, 4.5, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: ease})
+      .to(blobThreePath, 4.5, { attr:{d: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'}, ease: ease})
+      .to(blobThreePath, 4.5, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: ease})
+      .to(blobThreePath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease})
+      .to(blobThreePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease});
+
+  var tfKnob = $(".tf-knob"),
+      tfFader = $(".tf-fader"),
+      triggerFinger = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
+
+      triggerFinger
+      .staggerTo(tfFader, 0.9, {y: -20, ease:Power1.easeIn}, 0.22)
+      .staggerTo(tfFader, 0.9, {y: 26, ease:Power1.easeIn})
+      .staggerTo(tfFader, 0.9, {y: 0, ease:Power1.easeIn}, 0.12)
+      .staggerTo(tfKnob, 0.6, {rotation: 93, transformOrigin: '85% 15%', ease:Power3.easeInOut}, 0.12, '-=3')
+      .staggerTo(tfKnob, 0.8, {rotation: 220, transformOrigin: '85% 15%', ease:Power3.easeInOut}, 0.1);
+
+      $(".tfp").click(function(e){
+        var pop = $('<div class="pop">')
+          .css({"left": e.pageX + 'px',"top": e.pageY + 'px'})
+          .append($('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 114 114.7" style="enable-background:new 0 0 114 114.7;" xml:space="preserve"><line class="fcb-stroke" x1="57" y1="0" x2="57" y2="8.9"/><line class="fcb-stroke" x1="57" y1="114.7" x2="57" y2="105.8"/><line class="fcb-stroke" x1="16.8" y1="97.6" x2="23.1" y2="91.3"/><line class="fcb-stroke" x1="98.6" y1="95.5" x2="92.3" y2="89.2"/><line class="fcb-stroke" x1="16.8" y1="16.4" x2="23.1" y2="22.7"/><line class="fcb-stroke" x1="100.7" y1="19.8" x2="94.4" y2="26.2"/><line class="fcb-stroke" x1="0" y1="57" x2="8.9" y2="57"/><line class="fcb-stroke" x1="114" y1="57" x2="105.1" y2="57"/></svg>'))
+          .appendTo(document.body);
+        setTimeout(function() {pop.remove();}, 300);
+      });
+
+  var lampS = $(".lamp-s"),
+      lampBgOne = $(".lamp-bl-1"),
+      lampBgTwo = $(".lamp-bl-2"),
+      lamp = new TimelineMax({paused: true, repeat: -1, repeatDelay: 0});
+      lamp
+      .staggerTo(lampS, 5, {y: -36, x: -0.9, scale: 1.1, rotation: -4, transformOrigin: '50% 50%', ease: Power4.easeInOut}, 0.08)
+      .staggerTo(lampS, 6, {y: 0, x: 0, scale: 1, rotation: 4, transformOrigin: '50% 50%', ease: Power4.easeInOut}, 0.08)
+      .to(lampBgTwo, 4, {opacity: 0.15, scaleX: 1.8, rotation: 5, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=10')
+      .to(lampBgOne, 4, {opacity: 0, scaleX: 2, rotation: -5, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=10.3')
+      .to(lampBgTwo, 4, {opacity: 0.25, scaleX: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=5')
+      .to(lampBgOne, 4, {opacity: 0.15, scaleX: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=5');
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -519,6 +369,10 @@ $(function() {
       });
     });
 
+
+
+
+
   function ctaCheck() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
       $(".left-cta, .right-cta").addClass("fadeo");
@@ -535,42 +389,10 @@ $(function() {
       $(".footer-an").removeClass("in-f");
     }
   }
-  window.requestAnimFrame = (function() {
-    return  window.requestAnimationFrame       ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame    ||
-        window.oRequestAnimationFrame      ||
-        window.msRequestAnimationFrame     ||
-        function(callback,element){
-          window.setTimeout(callback, 1000 / 60);
-        };
-  })();
-  window.requestTimeout = function(fn, delay) {
-  if( !window.requestAnimationFrame      	&&
-    !window.webkitRequestAnimationFrame &&
-    !(window.mozRequestAnimationFrame && window.mozCancelRequestAnimationFrame) && // Firefox 5 ships without cancel support
-    !window.oRequestAnimationFrame      &&
-    !window.msRequestAnimationFrame)
-      return window.setTimeout(fn, delay);
-  var start = new Date().getTime(),
-    handle = new Object();
-  function loop(){
-    var current = new Date().getTime(),
-      delta = current - start;
-    delta >= delay ? fn.call() : handle.value = requestAnimFrame(loop);
-  };
-  handle.value = requestAnimFrame(loop);
-  return handle;
-  };
-    window.clearRequestTimeout = function(handle) {
-    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
-    window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
-    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
-    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
-    window.oCancelRequestAnimationFrame	? window.oCancelRequestAnimationFrame(handle.value) :
-    window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
-    clearTimeout(handle);
-  };
+
+
+ window.requestAnimFrame=(function(){return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback,element){window.setTimeout(callback, 1000 / 60);};})(); window.requestTimeout=function(fn, delay){if( !window.requestAnimationFrame && !window.webkitRequestAnimationFrame && !(window.mozRequestAnimationFrame && window.mozCancelRequestAnimationFrame) && !window.oRequestAnimationFrame && !window.msRequestAnimationFrame) return window.setTimeout(fn, delay); var start=new Date().getTime(), handle=new Object(); function loop(){var current=new Date().getTime(), delta=current - start; delta >=delay ? fn.call() : handle.value=requestAnimFrame(loop);}; handle.value=requestAnimFrame(loop); return handle;}; window.clearRequestTimeout=function(handle){window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) : window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) : window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) : window.oCancelRequestAnimationFrame? window.oCancelRequestAnimationFrame(handle.value) : window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) : clearTimeout(handle);};
+
 
   navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
   if (navigator.vibrate) {
@@ -589,6 +411,68 @@ $(function() {
   });
 
   Splitting();
+
+  ScrollOut({
+     targets: '.ev',
+     threshold: 0.5,
+     once: true,
+     cssProps: {
+       viewportY: true,
+       visibleY: true
+     }
+  });
+  ScrollOut({
+    targets: '.g-wrap',
+    threshold: 0.5,
+    onShown: function(el) {
+     if($(el).hasClass("bb8")) {
+       bbEight.play();
+       blobOne.play();
+       console.log("bb8 >");
+     }
+     else if($(el).hasClass("tf")) {
+       triggerFinger.play();
+       blobTwo.play();
+       console.log("tf >");
+     }
+     else if($(el).hasClass("lamp")) {
+       lamp.play();
+       blobThree.play();
+       console.log("lamp >");
+     }
+     else if($(el).hasClass("bwave")) {
+       blobOne.play();
+       bearWave.play();
+       bearStars.play();
+       console.log("bwave >");
+     }
+    },
+    onHidden: function(el) {
+      if( $(el).hasClass("bb8") ) {
+        bbEight.pause();
+        blobOne.pause();
+        console.log("bb8 <");
+      }
+      else if($(el).hasClass("tf")) {
+        triggerFinger.pause();
+        blobTwo.pause();
+        console.log("tf <");
+      }
+      else if($(el).hasClass("lamp")) {
+        lamp.pause();
+        blobThree.pause();
+        console.log("lamp <");
+      }
+      else if($(el).hasClass("bwave")) {
+        blobOne.pause();
+        bearWave.pause();
+        bearStars.pause();
+        console.log("bwave <");
+      }
+    }
+  });
+
+
 
   $(function(){
     if($("div").hasClass("rellax")) {
@@ -638,6 +522,7 @@ $(document).ready(function() {
   $('body').onPageLoad();
 });
 
-// $(window).on('beforeunload', function(){
-//   $(window).scrollTop(0);
-// });
+$(window).on('beforeunload', function(){
+  $(window).scrollTop(0);
+
+});
