@@ -116,143 +116,64 @@ $(function(){
     }
 
 
-
-
-
-
-
-    var bbEight = anime.timeline({autoplay: false, loop: true})
-    bbEight
-    .add({
-      targets: '.bb8-head',
-      rotate: [0,5,-5,3,0],
-      duration: 1900,
-      easing: 'easeInOutCubic',
-      offset: '+=200'
-    })
-    .add({
-      targets: '.bb8-body',
-      rotate: [0,-4,4,-2,0],
-      duration: 1900,
-      easing: 'easeInOutCubic',
-      offset: '-=1870'
-    })
-    .add({
-      targets: '.bb8-main, .bb8-shadow',
-      translateX: [0,-4,4,-4,0],
-      duration: 1900,
-      easing: 'easeInOutCubic',
-      offset: '-=1900'
-    })
-    .add({
-      targets: '.bb8-head',
-      rotate: [0,-28,-28,-25,-28,-25],
-      duration: 6960,
-      easing: [0.380, 0.170, 0.120, 1.030],
-      offset: '+=50'
-    })
-    .add({
-      targets: '.bb8-body',
-      rotate: '-10turn',
-      duration: 10200,
-      easing: [0.300, 0.000, 0.580, 0.9955],
-      offset: '-=5500'
-    })
-    .add({
-      targets: '.bb8-main, .bb8-shadow',
-      translateX: [0,-13],
-      duration: 1400,
-      easing: [0.670, 0.035, 0.720, 0.995],
-      offset: '-=10500'
-    })
-    .add({
-      targets: '.bb8-main, .bb8-shadow',
-      translateX: [-13,0],
-      duration: 2800,
-      easing: [0.670, 0.035, 0.720, 0.995],
-      offset: '-=3300'
-    })
-    .add({
-      targets: '.bb8-head',
-      rotate: [-28,12,0],
-      duration: 6400,
-      easing: [0.645, 0.045, 0.355, 1.000],
-      offset: '-=4700'
-    })
-    .add({
-      targets: '.bb8-head',
-      rotate: [0,4,-4,2,-2,0],
-      duration: 900,
-      easing: [0.645, 0.045, 0.355, 1.000],
-      offset: '+=200'
-    })
-    .add({
-      targets: '.bb8-lines line',
-      strokeDashoffset: -1092,
-      duration: 5100,
-      easing: 'linear',
-      delay: function(el, i, l) {return i * 350;},
-      offset: '-=10600'
-    })
-
-    var bearStars = anime({
-      autoplay: false,
-      loop: true,
-      targets: '.bw13',
-      opacity: [
-        { value: 1},
-        { value: function() { return anime.random(0.2, 0.6); }},
-        { value: 1},
-      ],
-      easing: 'linear',
-      duration: 700,
-      delay: function(el, i, l) {return i * 120;},
-    });
-
-    var bearWave = anime.timeline({autoplay: false, loop: true})
-    bearWave
-    .add({
-      targets: '.bArm',
-      rotate: [0,-7,7,-4,3,-5,4,-6,6,-4,4,-3,1,0],
-      easing: 'easeInOutCubic',
-      duration: 2400,
-    })
-    .add({
-      targets: '.bArm',
-      translateX: {
-        value: [0,420],
-        duration: 1800,
-        easing: 'easeInCubic'
-      },
-      rotate: {
-        value: [0,-22],
-        duration: 1100,
-        easing: 'easeInOutCubic',
-        delay: 300
-      },
-      offset: '+=200'
-    })
-    .add({
-      targets: '.bArm',
-      translateX: {
-        value: [420,0],
-        duration: 1800,
-        easing: 'easeOutCubic'
-      },
-      rotate: {
-        value: [-22,0],
-        duration: 900,
-        easing: 'easeInOutCubic',
-        delay: 350
-      },
-      offset: '+=1200'
-    })
-    .add({
-      targets: 'bArm',
-      translateX: [0,0],
-      duration: 1200,
-      easing: 'linear'
-    })
+    // var bearStars = anime({
+    //   autoplay: false,
+    //   loop: true,
+    //   targets: '.bw13',
+    //   opacity: [
+    //     { value: 1},
+    //     { value: function() { return anime.random(0.2, 0.6); }},
+    //     { value: 1},
+    //   ],
+    //   easing: 'linear',
+    //   duration: 700,
+    //   delay: function(el, i, l) {return i * 120;},
+    // });
+    //
+    // var bearWave = anime.timeline({autoplay: false, loop: true})
+    // bearWave
+    // .add({
+    //   targets: '.bArm',
+    //   rotate: [0,-7,7,-4,3,-5,4,-6,6,-4,4,-3,1,0],
+    //   easing: 'easeInOutCubic',
+    //   duration: 2400,
+    // })
+    // .add({
+    //   targets: '.bArm',
+    //   translateX: {
+    //     value: [0,420],
+    //     duration: 1800,
+    //     easing: 'easeInCubic'
+    //   },
+    //   rotate: {
+    //     value: [0,-22],
+    //     duration: 1100,
+    //     easing: 'easeInOutCubic',
+    //     delay: 300
+    //   },
+    //   offset: '+=200'
+    // })
+    // .add({
+    //   targets: '.bArm',
+    //   translateX: {
+    //     value: [420,0],
+    //     duration: 1800,
+    //     easing: 'easeOutCubic'
+    //   },
+    //   rotate: {
+    //     value: [-22,0],
+    //     duration: 900,
+    //     easing: 'easeInOutCubic',
+    //     delay: 350
+    //   },
+    //   offset: '+=1200'
+    // })
+    // .add({
+    //   targets: 'bArm',
+    //   translateX: [0,0],
+    //   duration: 1200,
+    //   easing: 'linear'
+    // })
 
 
 
@@ -323,21 +244,76 @@ var scrollCirc = $(".scroll-circ"),
       lampBgTwo = $(".lamp-bl-2"),
       lamp = new TimelineMax({paused: true, repeat: -1, repeatDelay: 0});
       lamp
-      .staggerTo(lampS, 5, {y: -36, x: -0.9, scale: 1.1, rotation: -4, transformOrigin: '50% 50%', ease: Power4.easeInOut}, 0.08)
-      .staggerTo(lampS, 6, {y: 0, x: 0, scale: 1, rotation: 4, transformOrigin: '50% 50%', ease: Power4.easeInOut}, 0.08)
+      .staggerTo(lampS, 5, {y: -36, x: -0.9, scale: 1.1, rotation: -4.2, transformOrigin: '50% 50%', ease: Power4.easeInOut}, 0.08)
+      .staggerTo(lampS, 6, {y: 0, x: 0, scale: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power4.easeInOut}, 0.08)
       .to(lampBgTwo, 4, {opacity: 0.15, scaleX: 1.8, rotation: 5, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=10')
       .to(lampBgOne, 4, {opacity: 0, scaleX: 2, rotation: -5, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=10.3')
-      .to(lampBgTwo, 4, {opacity: 0.25, scaleX: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=5')
-      .to(lampBgOne, 4, {opacity: 0.15, scaleX: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=5');
+      .to(lampBgTwo, 4, {opacity: 0.15, scaleX: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=5')
+      .to(lampBgOne, 4, {opacity: 0.1, scaleX: 1, rotation: 0, transformOrigin: '50% 50%', ease: Power3.easeInOut}, '-=5');
+
+  var bb8Head = $(".bb8-head"),
+      bb8Body = $(".bb8-body"),
+      bb8Main = $(".bb8-main"),
+      bb8Shadow = $(".bb8-shadow"),
+      bb8Lines = $(".bb8-lines line"),
+      bbEight = new TimelineMax({paused: true, repeat: -1, repeatDelay: 1, delay: 1.2});
+      TweenMax.set(bb8Head, {rotation: 0, transformOrigin: '32% 163%'});
+      TweenMax.set(bb8Body, {rotation: 0, transformOrigin: '50% 50%'});
+      bbEight
+      .to(bb8Head, 0.3, {rotation: 5, ease: Power1.easeInOut})
+      .to(bb8Head, 0.3, {rotation: -5, ease: Power1.easeInOut})
+      .to(bb8Head, 0.3, {rotation: 4, ease: Power1.easeInOut})
+      .to(bb8Head, 0.3, {rotation: 0, ease: Power1.easeInOut})
+      .to(bb8Body, 0.3, {rotation: -4, ease: Power1.easeInOut}, '-=1.2')
+      .to(bb8Body, 0.3, {rotation: 4, ease: Power1.easeInOut}, '-=0.9')
+      .to(bb8Body, 0.3, {rotation: -2, ease: Power1.easeInOut}, '-=0.6')
+      .to(bb8Body, 0.3, {rotation: 0, ease: Power1.easeInOut}, '-=0.3')
+      .to([bb8Main, bb8Shadow], 0.3, {x: -4, ease: Power1.easeInOut}, '-=1.2')
+      .to([bb8Main, bb8Shadow], 0.3, {x: 4, ease: Power1.easeInOut}, '-=0.9')
+      .to([bb8Main, bb8Shadow], 0.3, {x: -3, ease: Power1.easeInOut}, '-=0.6')
+      .to([bb8Main, bb8Shadow], 0.3, {x: 0, ease: Power1.easeInOut}, '-=0.3')
+      .to(bb8Head, 1, {rotation: -30, ease: Power1.easeInOut}, '+=1')
+      .to([bb8Main, bb8Shadow], 1.4, {x: -13, ease: Power2.easeInOut}, '-=0.6')
+      .to(bb8Body, 13, {rotation: -5400, ease: Power1.easeInOut}, '-=1.2')
+      .staggerTo(bb8Lines, 6, {strokeDashoffset: -1092, ease: Power0.easeNone}, 0.18, '-=10')
+      .to(bb8Head, 1.2, {rotation: -20, ease:Power1.easeInOut}, '-=10.6')
+      .to(bb8Head, 1.2, {rotation: -29, ease:Power1.easeInOut}, '-=9')
+      .to(bb8Head, 1.2, {rotation: -22, ease:Power1.easeInOut}, '-=7.3')
+      .to(bb8Head, 1.2, {rotation: -29, ease:Power1.easeInOut}, '-=5.6')
+      .to(bb8Head, 3, {rotation: 20, ease:Power1.easeInOut}, '-=4.2')
+      .to(bb8Head, 1, {rotation: 0, ease:Power1.easeInOut}, '-=1.1')
+      .to([bb8Main, bb8Shadow], 2, {x: 0, ease: Power2.easeInOut}, '-=3.3')
+      .to(bb8Head, 0.2, {rotation: 7, ease: Power1.easeInOut}, '+=0.9')
+      .to(bb8Head, 0.2, {rotation: -7, ease: Power1.easeInOut})
+      .to(bb8Head, 0.2, {rotation: 5, ease: Power1.easeInOut})
+      .to(bb8Head, 0.2, {rotation: 0, ease: Power1.easeInOut});
 
 
-
-
-
-
-
-
-
+      var bearArm = $(".bArm"),
+          bearStar = $(".bw13"),
+          bearTwinkle = new TimelineMax({paused: true, repeat: -1, delay: 1, repeatDelay: 0}),
+          bearWave = new TimelineMax({paused: true, repeat: -1, delay: 1, repeatDelay: 0.8});
+          TweenMax.set(bearArm, {transformOrigin: '95% 92%'});
+          bearTwinkle
+          .staggerTo(bearStar, 0.6, {opacity: 0, ease: Power0.easeNone}, 0.062)
+          .staggerTo(bearStar, 0.6, {opacity: 1, ease: Power0.easeNone}, 0.062, '-=0.9');
+          bearWave
+          .to(bearArm, 0.2, {rotation: -7, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: 7, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: 4, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: -6, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: 6, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: -7, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: 4, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: 6, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
+          .to(bearArm, 0.2, {rotation: 0, ease:Power1.easeInOut})
+          .to(bearArm, 1, {x: 420, ease:Power1.easeInOut}, '+=0.6')
+          .to(bearArm, 0.6, {rotation: -22, ease:Power1.easeInOut}, '-=1')
+          .to(bearArm, 1.2, {x: 0, ease:Power0.easeNone}, '+=1.7')
+          .to(bearArm, 0.6, {rotation: 0, ease:Power0.easeNone}, '-=0.6');
 
 
 
@@ -442,8 +418,8 @@ var scrollCirc = $(".scroll-circ"),
      }
      else if($(el).hasClass("bwave")) {
        blobOne.play();
+       bearTwinkle.play();
        bearWave.play();
-       bearStars.play();
        console.log("bwave >");
      }
     },
@@ -465,8 +441,8 @@ var scrollCirc = $(".scroll-circ"),
       }
       else if($(el).hasClass("bwave")) {
         blobOne.pause();
+        bearTwinkle.pause();
         bearWave.pause();
-        bearStars.pause();
         console.log("bwave <");
       }
     }
@@ -489,8 +465,8 @@ var scrollCirc = $(".scroll-circ"),
       blobOne.play();
     }
     else if($("main").hasClass("contact")) {
+      bearTwinkle.play();
       bearWave.play();
-      bearStars.play();
       blobOne.play();
       $(".header-links").addClass("uiu");
     }
