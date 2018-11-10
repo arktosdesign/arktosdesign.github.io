@@ -32,6 +32,67 @@ $(function(){
 
     $(".fd, .fp").addClass("faded");
 
+    ScrollOut({
+       targets: '.ev',
+       threshold: 0.5,
+       once: true,
+       cssProps: {
+         viewportY: true,
+         visibleY: true
+       }
+    });
+    ScrollOut({
+      targets: '.g-wrap',
+      threshold: 0.5,
+      onShown: function(el) {
+       if($(el).hasClass("bb8")) {
+         bbEight.play();
+         blobOne.play();
+         console.log("bb8 >");
+       }
+       else if($(el).hasClass("tf")) {
+         triggerFinger.play();
+         blobTwo.play();
+         console.log("tf >");
+       }
+       else if($(el).hasClass("lamp")) {
+         lamp.play();
+         blobThree.play();
+         console.log("lamp >");
+       }
+       else if($(el).hasClass("bwave")) {
+         blobOne.play();
+         bearTwinkle.play();
+         bearWave.play();
+         console.log("bwave >");
+       }
+      },
+      onHidden: function(el) {
+        if( $(el).hasClass("bb8") ) {
+          bbEight.pause();
+          blobOne.pause();
+          console.log("bb8 <");
+        }
+        else if($(el).hasClass("tf")) {
+          triggerFinger.pause();
+          blobTwo.pause();
+          console.log("tf <");
+        }
+        else if($(el).hasClass("lamp")) {
+          lamp.pause();
+          blobThree.pause();
+          console.log("lamp <");
+        }
+        else if($(el).hasClass("bwave")) {
+          blobOne.pause();
+          bearTwinkle.pause();
+          bearWave.pause();
+          console.log("bwave <");
+        }
+      }
+    });
+
+
     $(function() {
       'use strict';
       var $sineLine;
@@ -116,70 +177,9 @@ $(function(){
     }
 
 
-    // var bearStars = anime({
-    //   autoplay: false,
-    //   loop: true,
-    //   targets: '.bw13',
-    //   opacity: [
-    //     { value: 1},
-    //     { value: function() { return anime.random(0.2, 0.6); }},
-    //     { value: 1},
-    //   ],
-    //   easing: 'linear',
-    //   duration: 700,
-    //   delay: function(el, i, l) {return i * 120;},
-    // });
-    //
-    // var bearWave = anime.timeline({autoplay: false, loop: true})
-    // bearWave
-    // .add({
-    //   targets: '.bArm',
-    //   rotate: [0,-7,7,-4,3,-5,4,-6,6,-4,4,-3,1,0],
-    //   easing: 'easeInOutCubic',
-    //   duration: 2400,
-    // })
-    // .add({
-    //   targets: '.bArm',
-    //   translateX: {
-    //     value: [0,420],
-    //     duration: 1800,
-    //     easing: 'easeInCubic'
-    //   },
-    //   rotate: {
-    //     value: [0,-22],
-    //     duration: 1100,
-    //     easing: 'easeInOutCubic',
-    //     delay: 300
-    //   },
-    //   offset: '+=200'
-    // })
-    // .add({
-    //   targets: '.bArm',
-    //   translateX: {
-    //     value: [420,0],
-    //     duration: 1800,
-    //     easing: 'easeOutCubic'
-    //   },
-    //   rotate: {
-    //     value: [-22,0],
-    //     duration: 900,
-    //     easing: 'easeInOutCubic',
-    //     delay: 350
-    //   },
-    //   offset: '+=1200'
-    // })
-    // .add({
-    //   targets: 'bArm',
-    //   translateX: [0,0],
-    //   duration: 1200,
-    //   easing: 'linear'
-    // })
-
-
-
 var scrollCirc = $(".scroll-circ"),
     scrollLines = $(".scroll-lines");
-    scrollDown = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: false});
+    scrollDown = new TimelineMax({repeat: -1, repeatDelay: 0.1});
     scrollDown
     .to(scrollCirc, 1, {autoAlpha: 0, y: 14, scale: 0.2, transformOrigin: '50% 50%', ease:Power2.easeInOut})
     .to(scrollLines, 1, {strokeDashoffset: -36, ease:Power2.easeInOut}, '-=1')
@@ -322,12 +322,12 @@ var scrollCirc = $(".scroll-circ"),
     $(".work-item").mouseover(function(){
       $(this).find(".video-holder").addClass("video-in");
       $(this).find("#video").get(0).play().currentTime = 0;
-
     });
     $(".work-item").mouseout(function(){
       $(this).find(".video-holder").removeClass("video-in");
       $(this).find("#video").get(0).pause();
     });
+
 
     $(function() {
       var message = "👋🐻 Arktos Design";
@@ -388,67 +388,6 @@ var scrollCirc = $(".scroll-circ"),
 
   Splitting();
 
-  ScrollOut({
-     targets: '.ev',
-     threshold: 0.5,
-     once: true,
-     cssProps: {
-       viewportY: true,
-       visibleY: true
-     }
-  });
-  ScrollOut({
-    targets: '.g-wrap',
-    threshold: 0.5,
-    onShown: function(el) {
-     if($(el).hasClass("bb8")) {
-       bbEight.play();
-       blobOne.play();
-       console.log("bb8 >");
-     }
-     else if($(el).hasClass("tf")) {
-       triggerFinger.play();
-       blobTwo.play();
-       console.log("tf >");
-     }
-     else if($(el).hasClass("lamp")) {
-       lamp.play();
-       blobThree.play();
-       console.log("lamp >");
-     }
-     else if($(el).hasClass("bwave")) {
-       blobOne.play();
-       bearTwinkle.play();
-       bearWave.play();
-       console.log("bwave >");
-     }
-    },
-    onHidden: function(el) {
-      if( $(el).hasClass("bb8") ) {
-        bbEight.pause();
-        blobOne.pause();
-        console.log("bb8 <");
-      }
-      else if($(el).hasClass("tf")) {
-        triggerFinger.pause();
-        blobTwo.pause();
-        console.log("tf <");
-      }
-      else if($(el).hasClass("lamp")) {
-        lamp.pause();
-        blobThree.pause();
-        console.log("lamp <");
-      }
-      else if($(el).hasClass("bwave")) {
-        blobOne.pause();
-        bearTwinkle.pause();
-        bearWave.pause();
-        console.log("bwave <");
-      }
-    }
-  });
-
-
 
   $(function(){
     if($("div").hasClass("rellax")) {
@@ -500,5 +439,4 @@ $(document).ready(function() {
 
 $(window).on('beforeunload', function(){
   $(window).scrollTop(0);
-
 });
