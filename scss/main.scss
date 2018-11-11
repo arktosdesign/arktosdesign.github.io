@@ -1891,6 +1891,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
   .fd, .fp {
     opacity: 0;
   }
+  .scale-wrap {transform: translateX(-50%) !important; opacity: 1 !important;}
   .wiper {transform: scaleX(0) !important;}
   .faded {opacity: 1;}
   .grid {margin: 0 0;}
@@ -2124,7 +2125,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       &.tecno {animation-delay: 1840ms;}
       .wi-overlay {
         .caption {
-            bottom: 0px;
+            transform: translateY(0px);
             padding: 22px;
             h5 {opacity: 1; margin-top: 12px;}
           }
