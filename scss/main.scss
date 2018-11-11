@@ -1666,7 +1666,8 @@ section.featured-work {
       background: url('../img/frankshove-feature.jpg');
       background-size: cover;
       background-position: center center;
-      height: calc(480px + 2vw + 2vh);
+      // height: calc(480px + 2vw + 2vh);
+      height: 505px;
       animation-delay: 1000ms;
     }
     &.daytanner {
@@ -1674,19 +1675,22 @@ section.featured-work {
       background-size: cover;
       background-position: center center;
       height: calc(360px + 2vw + 2vh);
+      height: 366px;
     }
     &.partsplus {
       background: url('../img/partsplus-feature.jpg');
       background-size: cover;
       background-position: center center;
       height: calc(720px + 2vw + 2vh);
+      height: 690px;
       animation-delay: 1280ms;
     }
     &.tecno {
       background: url('../img/tecno-cover.jpg');
       background-size: cover;
       background-position: left top;
-      height: calc(470px + 2vw + 2vh);
+      // height: calc(470px + 2vw + 2vh);
+      height: 508px;
       animation-delay: 1440ms;
     }
     &:last-child {margin-bottom: 0px;}
@@ -1717,6 +1721,7 @@ section.featured-work {
           color: #FFFFFF;
           font-weight: 600;
           margin: 0 0;
+          font-size: 2.28em;
           opacity: 1;
           margin-top: 0px;
         }
@@ -1733,7 +1738,8 @@ section.featured-work {
         }
         p {
           color: #FFFFFF;
-          margin: 0 0;
+          margin: 8px 0 0 0;
+          font-size: 0.98em;
         }
       }
 
@@ -1829,12 +1835,14 @@ footer, .bottom-cta {
   transform: translate(1%, -64%);
 }
 .partsplus > .video-holder video, .daytanner > .video-holder video {
-  top: 0%;
+  top: 50%;
   left: 50%;
-  min-width: 100.5%;
-  max-width: 100.5%;
+  min-width: 100%;
   min-height: 100%;
-  transform: translate(-50%, 0%);
+  transform: translate(-50%, -33%);
+}
+.daytanner > .video-holder video {
+  transform: translate(-50%, -38%);
 }
 .tecno > .video-holder video {
   top: 0%;
@@ -2124,7 +2132,8 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     .work-item {
       font-size: 90%;
       margin: 0 auto 28px auto;
-      height: calc(308px + 2vw + 2vh) !important;
+      // height: calc(308px + 2vw + 2vh) !important;
+      height: 373px !important;
       &.fands {animation-delay: 1000ms;}
       &.daytanner {animation-delay: 1280ms; background-position: -120px center;}
       &.partsplus {animation-delay: 1560ms; margin-top: -28px;}
