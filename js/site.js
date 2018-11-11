@@ -126,8 +126,6 @@ $(function(){
 
 
 
-
-
 var scrollCirc = $(".scroll-circ"),
     scrollLines = $(".scroll-lines");
     scrollDown = new TimelineMax({repeat: -1, repeatDelay: 0.1});
@@ -240,31 +238,32 @@ var scrollCirc = $(".scroll-circ"),
       .to(bb8Head, 0.2, {rotation: 0, ease: Power1.easeInOut});
 
 
-      var bearArm = $(".bArm"),
-          bearStar = $(".bw13"),
-          bearTwinkle = new TimelineMax({paused: true, repeat: -1, delay: 1.7, repeatDelay: 0}),
-          bearWave = new TimelineMax({paused: true, repeat: -1, delay: 1.7, repeatDelay: 0.8});
-          TweenMax.set(bearArm, {transformOrigin: '95% 92%'});
-          bearTwinkle
-          .staggerTo(bearStar, 0.6, {opacity: 0, ease: Power0.easeNone}, 0.062)
-          .staggerTo(bearStar, 0.6, {opacity: 1, ease: Power0.easeNone}, 0.062, '-=0.9');
-          bearWave
-          .to(bearArm, 0.2, {rotation: -7, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: 7, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: 4, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: -6, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: 6, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: -7, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: 4, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: 6, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
-          .to(bearArm, 0.2, {rotation: 0, ease:Power1.easeInOut})
-          .to(bearArm, 1, {x: 420, ease:Power1.easeInOut}, '+=0.6')
-          .to(bearArm, 0.6, {rotation: -22, ease:Power1.easeInOut}, '-=1')
-          .to(bearArm, 1.2, {x: 0, ease:Power0.easeNone}, '+=1.7')
-          .to(bearArm, 0.6, {rotation: 0, ease:Power0.easeNone}, '-=0.6');
+  var bearArm = $(".bArm"),
+      bearStar = $(".bw13"),
+      bearTwinkle = new TimelineMax({paused: true, repeat: -1, delay: 1.7, repeatDelay: 0}),
+      bearWave = new TimelineMax({paused: true, repeat: -1, delay: 1.7, repeatDelay: 0.8});
+      TweenMax.set(bearArm, {transformOrigin: '95% 92%'});
+      bearTwinkle
+      .staggerTo(bearStar, 0.6, {opacity: 0, ease: Power0.easeNone}, 0.062)
+      .staggerTo(bearStar, 0.6, {opacity: 1, ease: Power0.easeNone}, 0.062, '-=0.9');
+      bearWave
+      .to(bearArm, 0.2, {rotation: -7, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: 7, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: 4, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: -6, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: 6, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: -7, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: 4, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: 6, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: -5, ease:Power1.easeInOut})
+      .to(bearArm, 0.2, {rotation: 0, ease:Power1.easeInOut})
+      .to(bearArm, 1, {x: 420, ease:Power1.easeInOut}, '+=0.6')
+      .to(bearArm, 0.6, {rotation: -22, ease:Power1.easeInOut}, '-=1')
+      .to(bearArm, 1.2, {x: 0, ease:Power0.easeNone}, '+=1.7')
+      .to(bearArm, 0.6, {rotation: 0, ease:Power0.easeNone}, '-=0.6');
+
 
 
 
@@ -310,10 +309,10 @@ var scrollCirc = $(".scroll-circ"),
         if(Math.abs(lastScrollTop - st) <= delta)
             return;
         if (st > lastScrollTop && st > navbarHeight && $(window).width() > 992){
-                TweenMax.to(topMenu, 0.3, {y: -120, ease:Power2.easeOut});
+                TweenMax.to(topMenu, .27, {y: -120, ease:Power2.easeOut});
         } else {
             if(st + $(window).height() < $(document).height() && $(window).width() > 992) {
-                TweenMax.to(topMenu, 0.3, {y: 0, ease:Power2.easeOut});
+                TweenMax.to(topMenu, .27, {y: 0, ease:Power2.easeOut});
             }
         }
         lastScrollTop = st;
@@ -364,51 +363,51 @@ var scrollCirc = $(".scroll-circ"),
 
   ScrollOut({
     targets: '.g-wrap',
-    threshold: 0.5,
+    threshold: 0.2,
     onShown: function(el) {
      if($(el).hasClass("bb8")) {
        bbEight.play();
        blobOne.play();
-       // console.log("bb8 >");
+       console.log("bb8 >");
      }
      else if($(el).hasClass("tf")) {
        triggerFinger.play();
        blobTwo.play();
-       // console.log("tf >");
+       console.log("tf >");
      }
      else if($(el).hasClass("lamp")) {
        lamp.play();
        blobThree.play();
-       // console.log("lamp >");
+       console.log("lamp >");
      }
      else if($(el).hasClass("bwave")) {
        blobOne.play();
        bearTwinkle.play();
        bearWave.play();
-       // console.log("bwave >");
+       console.log("bwave >");
      }
     },
     onHidden: function(el) {
       if( $(el).hasClass("bb8") ) {
         bbEight.pause();
         blobOne.pause();
-        // console.log("bb8 <");
+        console.log("bb8 <");
       }
       else if($(el).hasClass("tf")) {
         triggerFinger.pause();
         blobTwo.pause();
-        // console.log("tf <");
+        console.log("tf <");
       }
       else if($(el).hasClass("lamp")) {
         lamp.pause();
         blobThree.pause();
-        // console.log("lamp <");
+        console.log("lamp <");
       }
       else if($(el).hasClass("bwave")) {
         blobOne.pause();
         bearTwinkle.pause();
         bearWave.pause();
-        // console.log("bwave <");
+        console.log("bwave <");
       }
     }
   });

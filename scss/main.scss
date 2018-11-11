@@ -1828,13 +1828,19 @@ footer, .bottom-cta {
   min-height: 100%;
   transform: translate(1%, -64%);
 }
-.partsplus > .video-holder video {
+.partsplus > .video-holder video, .daytanner > .video-holder video {
   top: 0%;
   left: 50%;
   min-width: 100.5%;
   max-width: 100.5%;
   min-height: 100%;
   transform: translate(-50%, 0%);
+}
+.tecno > .video-holder video {
+  top: 0%;
+  left: 62%;
+  min-height: 100%;
+  transform: translate(-50%, -1%);
 }
 video::-webkit-media-controls {display: none;}
 video::-webkit-media-controls {display: none !important;}
