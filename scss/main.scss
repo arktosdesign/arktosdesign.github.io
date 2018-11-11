@@ -1668,7 +1668,7 @@ section.featured-work {
       background-size: cover;
       background-position: center center;
       // height: calc(480px + 2vw + 2vh);
-      height: 505px;
+      height: 535px;
       animation-delay: 1000ms;
     }
     &.daytanner {
@@ -1676,14 +1676,14 @@ section.featured-work {
       background-size: cover;
       background-position: center center;
       height: calc(360px + 2vw + 2vh);
-      height: 366px;
+      height: 396px;
     }
     &.partsplus {
       background: url('../img/partsplus-feature.jpg');
       background-size: cover;
       background-position: center center;
       height: calc(720px + 2vw + 2vh);
-      height: 690px;
+      height: 720px;
       animation-delay: 1280ms;
     }
     &.tecno {
@@ -1691,7 +1691,7 @@ section.featured-work {
       background-size: cover;
       background-position: left top;
       // height: calc(470px + 2vw + 2vh);
-      height: 508px;
+      height: 538px;
       animation-delay: 1440ms;
     }
     &:last-child {margin-bottom: 0px;}
