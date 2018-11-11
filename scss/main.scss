@@ -175,17 +175,14 @@ body.no-p {
       animation: fadeInUp 480ms ease-out both;
       animation-delay: 100ms;
   }
-  &[data-scroll="in"] .lzl {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-    transition:
-    opacity 720ms cubic-bezier(0.215, 0.610, 0.355, 1.000),
-    transform 630ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
-  &[data-scroll="in"] .wiper {
-    transform: scaleX(0);
-    transition: transform 730ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-  }
+  // &[data-scroll="in"] .lzl {
+  //   transform: translateX(-50%) scale(1);
+  //   opacity: 1;
+  //   transition:
+  //   opacity 720ms cubic-bezier(0.215, 0.610, 0.355, 1.000),
+  //   transform 630ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  // }
+
 }
 
 
@@ -876,7 +873,7 @@ a.t-button:hover > span {
 
 main {
   position: relative;
-  margin: 0 auto 460px auto;
+  margin: 0 auto 540px auto;
   width: 100%;
   // height: 100%;
   padding: 0;
@@ -887,15 +884,15 @@ main:after {
   content: '';
   display: block;
   position: absolute;
-  bottom: -50px;
+  bottom: -52px;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 105px;
   backface-visibility: hidden;
-  background: url('../img/sine2.svg');
-  background-size: cover;
+  background: url('../img/bg-mission-top2.svg');
+  background-size: auto 105px;
   background-position: center center;
-  // background-position: no-repeat;
+  background-repeat: repeat-x;
 }
 main h1 {
   color: #161617;
@@ -1003,14 +1000,12 @@ section.mission {
       background-size: 1440px auto;
       background-repeat: no-repeat;
       background-position: center center;
-      background-origin: content-box;
     }
     &.tp {
       background: url('../img/mission-bg-2.svg');
       background-size: 1440px auto;
       background-repeat: no-repeat;
       background-position: center center;
-      background-origin: content-box;
     }
   }
   .container {
@@ -1034,29 +1029,6 @@ section.mission {
         }
       }
   }
-  .siney-bg {
-  display: block;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 105px;
-  backface-visibility: hidden;
-  pointer-events: none;
-  &.top {
-    top: -5px;
-    background: url('../img/bg-mission-top.svg');
-    background-size: cover;
-    background-position: center center;
-    // background-repeat: no-repeat;
-  }
-  &.bottom {
-    bottom: -5px;
-    background: url('../img/bg-mission-bottom.svg');
-    background-size: cover;
-    background-position: center center;
-    // background-repeat: no-repeat;
-  }
-}
   &:before, &:after {
     content: '';
     display: block;
@@ -1069,17 +1041,17 @@ section.mission {
   }
   &:before {
     top: -25px;
-    background: url('../img/bg-mission-top.svg');
-    background-size: cover;
+    background: url('../img/bg-mission-top2.svg');
+    background-size: auto 105px;
     background-position: center center;
-    // background-repeat: no-repeat;
+    background-repeat: repeat-x;
   }
   &:after {
     bottom: -25px;
-    background: url('../img/bg-mission-bottom.svg');
-    background-size: cover;
+    background: url('../img/bg-mission-bottom2.svg');
+    background-size: auto 105px;
     background-position: center center;
-    // background-repeat: no-repeat;
+    background-repeat: repeat-x;
   }
 }
 
@@ -1183,7 +1155,9 @@ section.mission {
     width: 100%;
     height: 100%;
     .blob {
-      fill:url(#grad);
+      fill: url(#grad);
+      backface-visibility: hidden;
+      transform: translateX(1px);
     }
   }
 }
@@ -1201,15 +1175,61 @@ footer {
   left: 0;
   margin: 0 auto;
   overflow: hidden;
-  padding: 382px 0 84px 0;
-  height: 760px;
+  padding: 262px 0 48px 0;
+  height: 660px;
   width: 100%;
   max-width: 100%;
   backface-visibility: hidden;
   background-color: #161617;
   z-index: 0;
+  .footer-logo {
+    display: inline-block;
+    margin: 0 0 4px 0;
+    width: 208px;
+  }
+  a.btt {
+    display: inline-block;
+    margin: 108px 0 0 0;
+    // margin: 30px 0 0 0;
+    span {
+      color: #FFFFFF;
+      font-size: 1.24em;
+      letter-spacing: -0.018em;
+      font-weight: 600;
+      i {
+        display: inline-block;
+        margin-left: 12px;
+        font-size: 0.98em;
+        color: #EB5C59;
+      }
+    }
+  }
+  .sine-gap {
+    display: block;
+    margin: 44px 0 48px 0;
+    width: 100%;
+    max-width: 354px;
+    height: 11px;
+    opacity: 0.75;
+    path {
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+    }
+  }
+
+  span.copyright {
+    display: block;
+    margin: 74px 0 0 0;
+    color: #FFFFFF;
+    opacity: 0.75;
+    font-size: 0.82em;
+    font-weight: 400;
+  }
   .button-holder {
-    margin: 0;
+    margin: 18px 0;
+    a.a-button {margin: 0 0;}
   }
   .button {
     .char {
@@ -1234,6 +1254,7 @@ footer {
     transform: translateY(0px);
     transition: opacity 600ms cubic-bezier(0.190, 1.000, 0.220, 1.000), transform 600ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
   }
+
 }
 footer .right-bg {
   position: absolute;
@@ -1241,19 +1262,19 @@ footer .right-bg {
   right: 0;
   width: 50%;
   height: 100%;
-  background: lighten(#161616, 6%);
+  background: lighten(#161616, 5%);
 }
 
 ul.links {
   position: relative;
-  margin: 48px 0 0 0;
+  margin: 0 0;
   padding: 0;
   list-style: none;
   list-style-type: none;
 }
 ul.links li {
   display: inline-block;
-  margin: 0 2px;
+  margin: 0 3px;
   list-style: none;
 }
 ul.links li:first-child {
@@ -1500,27 +1521,26 @@ a.sl:hover {
   height: 428px;
   display: block;
   overflow: hidden;
-
 }
 .img-container.ft-partsplus {
   height: 540px;
 }
 .img-container .lzl {
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  backface-visibility: hidden;
-  transform: translateX(-80%) scale(1);
+  position: relative;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  will-change: opacity, transform;
+  transform-origin: 50% 50%;
+  transform: scale(1);
+  display: block;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 220ms cubic-bezier(0.540, 0.160, 0.150, 0.860);
 }
 .wiper {
   position: absolute;
   top: 0;
-  right: -1%;
-  width: 101%;
+  right: -2%;
+  width: 104%;
   transform: scaleX(1);
   transform-origin: 100% 0%;
   height: 100%;
@@ -1551,6 +1571,17 @@ section.featured-work {
     }
 }
 .col.work-tile {
+  .scale-wrap {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    backface-visibility: hidden;
+    transform: translateX(-80%) scale(1);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    will-change: opacity, transform;
+  }
   h3 {color: #161617; margin: 28px 0 0 0; font-weight: 600;}
   p { margin: 8px 0 0 0;}
   h3, p {opacity: 1; transition: opacity 220ms ease-in-out;}
@@ -1575,7 +1606,7 @@ section.featured-work {
   cursor: pointer;
 }
 .col.work-tile:hover {
-  .lzl {transform: translateX(-50%) scale(1.07); transition: transform 528ms cubic-bezier(0.540, 0.160, 0.150, 0.860);}
+  .lzl {transform: scale(1.07); transition: transform 728ms cubic-bezier(0.540, 0.160, 0.150, 0.860);}
   h3, p {opacity: 0.7;}
   .sine-link {
     path {
@@ -1584,7 +1615,7 @@ section.featured-work {
   }
 }
 .col.work-tile:active {
-  .lzl {transform: translateX(-50%) scale(1); transition: transform 120ms ease-out; transition-delay: 0ms;}
+  .lzl {transform: translate(0%, 0%) scale(1); transition: transform 120ms ease-out; transition-delay: 0ms;}
 }
 .col.staggered {
    margin-top: -112px;
@@ -1675,12 +1706,13 @@ section.featured-work {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#161617', endColorstr='#161617', GradientType=0 );
       .caption {
         position: absolute;
-        bottom: -40px;
+        bottom: 0px;
         left: 0;
         width: 100%;
         padding: 34px 42px;
+        transform: translateY(40px);
         backface-visibility: hidden;
-        transition: bottom 240ms 0ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        transition: transform 440ms 0ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
         h2 {
           color: #FFFFFF;
           font-weight: 600;
@@ -1704,16 +1736,16 @@ section.featured-work {
           margin: 0 0;
         }
       }
-      &:hover .caption {
-        bottom: 0px;
-        transition: bottom 300ms 220ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        h5 {
-          opacity: 1;
-          transition: opacity 320ms 260ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        }
+
+    }
+    &:hover .caption {
+      transform: translateY(0px);
+      transition: transform 300ms 90ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      h5 {
+        opacity: 1;
+        transition: opacity 360ms 150ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
       }
     }
-
   }
   .bottom-cta {
     margin: 0 0;
@@ -1776,12 +1808,12 @@ footer, .bottom-cta {
   backface-visibility: hidden;
   visibility: hidden;
 }
-.video-in {
-  visibility: visible;
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 840ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 820ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
-}
+// .video-in {
+//   visibility: visible;
+//   opacity: 1;
+//   transform: scale(1);
+//   transition: opacity 840ms cubic-bezier(0.230, 1.000, 0.320, 1.000), transform 820ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+// }
 
 .video-holder video {
   position: absolute;
@@ -1851,17 +1883,15 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       opacity: 1;
       transform: translateY(0px);
     }
-    &[data-scroll="out"] .wiper {
-      transform: scaleX(0);
-    }
-    &[data-scroll="out"] .lzl {
-      transform: translateX(-50%) scale(1);
-      opacity: 1;
-    }
+    // &[data-scroll="out"] .lzl {
+    //   transform: translateX(-50%) scale(1);
+    //   opacity: 1;
+    // }
   }
   .fd, .fp {
     opacity: 0;
   }
+  .wiper {transform: scaleX(0) !important;}
   .faded {opacity: 1;}
   .grid {margin: 0 0;}
   .col {margin: 0 0 28px 0;}
@@ -1916,6 +1946,7 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
   }
 
   .top-menu {
+    transform: translateY(0%) !important;
     transition: top 120ms ease-out, box-shadow 90ms linear;
   }
   .top-menu .container {
@@ -1985,10 +2016,10 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
       max-width: 490px !important;
     }
     &:before {
-      background-position: -25px center !important;
+      background-position: 20% center !important;
     }
     &:after {
-      background-position: -285px center !important;
+      background-position: 80% center !important;
     }
 
   }
@@ -2001,7 +2032,11 @@ svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
     left: auto;
     height: auto;
     margin-bottom: -19px;
-    padding: 84px 0;
+    padding: 108px 0 38px 0;
+    .c-5 {display: none;}
+    .footer-logo {
+      width: 198px;
+    }
   }
   .footer-sine {
     bottom: calc(-5px + -1.4vw);
