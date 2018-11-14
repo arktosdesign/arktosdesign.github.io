@@ -329,7 +329,7 @@ var scrollCirc = $(".scroll-circ"),
 var krk = $(".dk26"),
     krkLoop = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
     krkLoop
-    .to(krk, 0.28, {scale:0.88, transformOrigin: '45% 50%', ease: Elastic.easeOut.config(0.6, 0.3)});
+    .to(krk, 0.32, {scale:0.88, transformOrigin: '45% 50%', ease: Elastic.easeOut.config(0.6, 0.3)});
 
 
 
