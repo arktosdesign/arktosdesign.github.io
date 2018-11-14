@@ -325,6 +325,19 @@ var scrollCirc = $(".scroll-circ"),
       .to(blobThreePath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease})
       .to(blobThreePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease});
 
+
+var krk = $(".dk26"),
+    krkLoop = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
+    krkLoop
+    .to(krk, 0.3, {scale:0.88, transformOrigin: '45% 50%', ease: Elastic.easeOut.config(0.6, 0.3)});
+
+
+
+
+    //HOME FUNCTIONS
+    krkLoop.play();
+
+
   var tfKnob = $(".tf-knob"),
       tfFader = $(".tf-fader"),
       triggerFinger = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
