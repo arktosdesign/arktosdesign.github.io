@@ -2192,7 +2192,8 @@ video::-webkit-media-controls-overlay-play-button {display: none;}
 .faded {opacity: 1 !important;}
 .clear {display: block; height: 128px;}
 .clear-form {display: block; height: 188px;}
-svg, svg *, path, rect, circle {backface-visibility: hidden !important;}
+
+svg, svg *, path, rect, circle {backface-visibility: hidden;}
 
 a, a.button,
 a.a-button,
