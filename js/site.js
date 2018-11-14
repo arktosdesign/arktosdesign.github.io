@@ -57,6 +57,12 @@ $(function(){
       targets: '.g-wrap',
       threshold: 0.2,
       onShown: function(el) {
+      if ($(el).hasClass("dk")) {
+        krkLoop.play();
+        dkFlicker.play();
+        dkScreen.play();
+        console.log("dk >");
+      }
        if($(el).hasClass("bb8")) {
          bbEight.timeScale(1.3).play();
          blobOne.play();
@@ -80,7 +86,13 @@ $(function(){
        }
       },
       onHidden: function(el) {
-        if( $(el).hasClass("bb8") ) {
+        if ($(el).hasClass("dk")) {
+          krkLoop.pause();
+          dkFlicker.pause();
+          dkScreen.pause();
+          console.log("dk <");
+        }
+        else if($(el).hasClass("bb8")) {
           bbEight.pause();
           blobOne.pause();
           console.log("bb8 <");
@@ -326,6 +338,8 @@ var scrollCirc = $(".scroll-circ"),
       .to(blobThreePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease});
 
 
+
+
 var dkScreenEle = $(".screen-elements"),
     dkScreenPath = $(".screen-elements path"),
     dkFlicker = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0}),
@@ -345,10 +359,11 @@ var krk = $(".dk26"),
     krkLoop
     .to(krk, 0.33, {scale:0.89, transformOrigin: '50% 50%', ease: Elastic.easeOut.config(0.6, 0.3)});
 
-    //HOME FUNCTIONS
-    krkLoop.play();
-    dkFlicker.play();
-    dkScreen.play();
+
+
+
+
+
 
 
   var tfKnob = $(".tf-knob"),
@@ -538,6 +553,9 @@ var krk = $(".dk26"),
     $(".btn-1, .for-header svg").addClass("fiu");
     if($("main").hasClass("home")) {
       blobOne.play();
+      krkLoop.play();
+      dkFlicker.play();
+      dkScreen.play();
     }
     else if($("main").hasClass("about")) {
       bbEight.timeScale(1.3).play();
@@ -563,7 +581,12 @@ var krk = $(".dk26"),
   landingAnims();
   menuReset();
 
-  window.addEventListener('scroll', onScroll, false);
+  // window.addEventListener('scroll', onScroll, false);
+  $(window).on('scroll', function() {
+  onScroll();
+});
+
+
   $(function(){
       if($("div").hasClass("jarallax")) {
         $('.jarallax').jarallax();

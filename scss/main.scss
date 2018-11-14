@@ -1451,6 +1451,7 @@ a.sl:hover {
 .dk92,.dk95{fill-rule:evenodd;clip-rule:evenodd;fill:#394d70}
 .dk95{fill:#161617}
 // .dk26 {display: none;}
+.screen-elements path {visibility: hidden; opacity: 0}
 
 // BB8
 .bb8-main {
@@ -1674,12 +1675,12 @@ a.sl:hover {
 }
 .wiper {
   position: absolute;
-  top: 0;
+  top: -2%;
   right: -2%;
   width: 104%;
   transform: scaleX(1);
   transform-origin: 100% 0%;
-  height: 100%;
+  height: 104%;
   background: #FFFFFF;
 }
 
