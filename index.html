@@ -24,7 +24,7 @@
   <link rel="manifest" href="favicons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#EB5C59">
+  <meta name="theme-color" content="#161617">
 
 </head>
 <body>
@@ -97,7 +97,7 @@
 
     <div class="mob-menu">
       <nav role="navigation" class="mob-nav">
-        <ul>
+        <ul class="mob-main">
           <li class="active">
             <a href="/" class="link">
               <span>Home</span>
@@ -125,6 +125,20 @@
             <path d="M0,7c41.3,0,41.3,20,82.7,20C124,27,124,7,165.3,7c41.3,0,41.3,20,82.7,20c41.3,0,41.3-20,82.7-20C372,7,372,27,413.3,27c41.3,0,41.3-20,82.7-20c41.3,0,41.3,20,82.7,20C620,27,620,7,661.3,7c41.3,0,41.3,20,82.7,20c41.3,0,41.3-20,82.7-20C868,7,868,27,909.3,27c41.3,0,41.3-20,82.7-20" shape-rendering="auto"/>
           </svg>
         </div>
+        <ul class="mob-links">
+          <li>
+            <a href="#"><i class="ion-md-mail"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ion-logo-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ion-logo-codepen"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ion-logo-github"></i></a>
+          </li>
+        </ul>
     </div>
 
 <main class="home">
@@ -145,11 +159,6 @@
           <div class="item c-tx pr">
             <h1 class="fd" data-splitting="words">Hi, I'm Tommy</h1>
             <p class="fp" data-splitting="words">A <strong>Web/UI</strong> Designer and developer living in <strong>Bristol</strong>, UK. I love creating unique online experiences for everyone. This is my portfolio website, feel free to look around!</p>
-            <!-- <div class="button-holder">
-              <a href="./work.html" class="t-button btn-1 attract">
-                <span class="button-span">Explore my work</span><i class="ion-ios-arrow-forward"></i>
-              </a>
-            </div> -->
             <div class="button-holder">
               <a href="./work.html" class="button btn-1">
                 <div class="s-inner">
@@ -185,13 +194,14 @@
   </header>
 
   <section class="mission" id="sectionTwo">
-    <div class="mis-bg bh rellax" data-rellax-speed="-6"></div>
-    <div class="mis-bg tp rellax" data-rellax-speed="-3"></div>
-      <div class="container">
-        <aside>
-          <h4>I have designed and made websites for big companies such as <strong>Ford</strong>, <strong>Vauxhall</strong>, <strong>Opel</strong>, <strong>Nissan</strong> and <strong>Mopar</strong>. I am always seeking an opportunity to venture out and expand my knowledge in different design sectors!</h4>
-        </aside>
+    <div class="container">
+      <div data-jarallax data-speed="0.8" class="jarallax mission-plx">
+          <img class="jarallax-img" src="/img/mission-bg-2.svg" alt="">
+          <aside>
+            <h4>I have designed and made websites for big companies such as <strong>Ford</strong>, <strong>Vauxhall</strong>, <strong>Opel</strong>, <strong>Nissan</strong> and <strong>Mopar</strong>. I am always seeking an opportunity to venture out and expand my knowledge in different design sectors!</h4>
+          </aside>
       </div>
+    </div>
   </section>
 
   <section>
@@ -625,11 +635,6 @@
           <div class="item c-tx ev pl">
             <h2 data-splitting="words">Driven by UI</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro vel veritatis illum pariatur, nesciunt minima cum iusto mollitia nulla voluptatum quod accusantium in, blanditiis itaque quis libero necessitatibus, non molestias!</p>
-            <!-- <div class="button-holder">
-              <a href="/about.html" class="t-button attract">
-                <span>About me</span><i class="ion-ios-arrow-forward"></i>
-              </a>
-            </div> -->
             <div class="button-holder">
               <a href="/" class="button">
                 <div class="s-inner">
@@ -974,11 +979,6 @@
             <div class="ev">
             <h2 data-splitting="words">Do you have a bright idea for your business?</h2>
             <h3>Get in touch and let's collaborate.</h3>
-            <!-- <div class="button-holder delay attract">
-              <a href="/" class="t-button">
-                <span>Contact me</span><i class="ion-ios-arrow-forward"></i>
-              </a>
-            </div> -->
             <div class="button-holder">
               <a href="/" class="button">
                 <div class="s-inner">
@@ -997,15 +997,12 @@
 
 
   <footer>
-    <div class="right-bg"></div>
     <div class="container footer-an">
       <div class="grid row">
-        <div class="col c-7">
-
+        <div class="col c-12">
           <a href="/" title="Arktos Design" class="footer-logo">
             <img src="img/footer-logo.svg" alt="" class="footer-logo">
           </a>
-
           <div class="button-holder">
             <a href="/" class="a-button">
               <div class="a-inner">
@@ -1013,7 +1010,6 @@
               </div>
             </a>
           </div>
-
           <ul class="links">
             <li>
               <a href="#" class="sl el">
@@ -1041,32 +1037,18 @@
               </a>
             </li>
           </ul>
-
-          <span class="copyright">&copy; 2018 Arktos Design</span>
-
-        </div>
-
-
-        <div class="col c-5">
-
-
-          <a href="#top" class="btt"><span>Back to Top <i class="ion-ios-arrow-up"></i></span></a>
           <svg preserveAspectRatio="none" class="sine-gap" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 388 10.5" style="enable-background:new 0 0 388 10.5;" xml:space="preserve">
             <path d="M388,1.3c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8c-9.7,0-9.7-8-19.4-8c-9.7,0-9.7,8-19.4,8s-9.7-8-19.4-8"/>
           </svg>
-          <div class="button-holder">
-            <a href="/" class="button">
-              <div class="s-inner">
-                <span data-splitting>Enquiries</span><i class="ion-ios-arrow-forward"></i>
-              </div>
-            </a>
-          </div>
-
-
+          <span class="copyright">&copy; 2018 Arktos Design</span>
+          <span class="btt" data-splitting>
+            Back to Top
+            <span class="icon-btt">
+              <i class="ion-ios-arrow-up ar-1"></i>
+              <i class="ion-ios-arrow-up ar-2"></i>
+            </span>
+          </span>
         </div>
-
-
-
       </div>
     </div>
   </footer>
@@ -1093,7 +1075,7 @@
 <script src="js/scrollout.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/81395/CustomEase.min.js"></script>
-<script src="js/rellax.min.js"></script>
+<script src="js/jarallax.js"></script>
 <script src="js/site-dist.js"></script>
 
 
