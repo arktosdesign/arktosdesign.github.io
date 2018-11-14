@@ -326,16 +326,29 @@ var scrollCirc = $(".scroll-circ"),
       .to(blobThreePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease});
 
 
+var dkScreenEle = $(".screen-elements"),
+    dkScreenPath = $(".screen-elements path"),
+    dkFlicker = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0}),
+    dkScreen = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 2});
+
+    dkFlicker
+    .to(dkScreenEle, 0.06, {opacity: 0.8, ease:"linear"});
+
+    TweenMax.set(dkScreenPath, {autoAlpha: 0, transformOrigin: '0% 50%'});
+
+    dkScreen
+    .staggerTo(dkScreenPath, 1.2, {autoAlpha: 1, ease:Power0.easeInOut}, 0.1);
+
+
 var krk = $(".dk26"),
     krkLoop = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
     krkLoop
-    .to(krk, 0.32, {scale:0.88, transformOrigin: '45% 50%', ease: Elastic.easeOut.config(0.6, 0.3)});
-
-
-
+    .to(krk, 0.33, {scale:0.89, transformOrigin: '50% 50%', ease: Elastic.easeOut.config(0.6, 0.3)});
 
     //HOME FUNCTIONS
     krkLoop.play();
+    dkFlicker.play();
+    dkScreen.play();
 
 
   var tfKnob = $(".tf-knob"),
