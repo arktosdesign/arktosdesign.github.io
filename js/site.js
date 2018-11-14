@@ -463,8 +463,8 @@ var scrollCirc = $(".scroll-circ"),
   }, 50);
   function hasScrolled() {
     if ($(window).scrollTop() > pastNav) {
-        TweenMax.to(topMenu, .2, {boxShadow: '0px 1px 6px rgba(0,0,0,0.12)', ease: Power0.easeNone});
-        TweenMax.to(scrollDownEle, 0.2, {autoAlpha: 0, ease:Power0.easeIn});
+        TweenMax.to(topMenu, .18, {boxShadow: '0px 1px 6px rgba(0,0,0,0.12)', ease: Power0.easeNone});
+        TweenMax.to(scrollDownEle, 0.18, {autoAlpha: 0, ease:Power0.easeIn});
     }
     else {
         TweenMax.to(topMenu, .2, {boxShadow: '0px 1px 6px rgba(0,0,0,0)', ease: Power0.easeNone});
@@ -474,11 +474,11 @@ var scrollCirc = $(".scroll-circ"),
       if(Math.abs(lastScrollTop - st) <= delta)
           return;
       if (st > lastScrollTop && st > navbarHeight && $(window).width() > 992){
-              TweenMax.to(topMenu, .5, {yPercent: -108, ease:Power2.easeOut});
+              TweenMax.to(topMenu, .36, {yPercent: -108, ease:Power2.easeOut});
       }
       else {
           if(st + $(window).height() < $(document).height() && $(window).width() > 992) {
-              TweenMax.to(topMenu, .5, {yPercent: 0, ease:Power2.easeOut});
+              TweenMax.to(topMenu, .36, {yPercent: 0, ease:Power2.easeOut});
           }
       }
       lastScrollTop = st;
