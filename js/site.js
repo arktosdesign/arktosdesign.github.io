@@ -503,28 +503,32 @@ var krk = $(".dk26"),
       }
   }, 50);
   function hasScrolled() {
+
     if ($(window).scrollTop() > pastNav) {
-        TweenMax.to(topMenu, .18, {boxShadow: '0px 1px 6px rgba(0,0,0,0.12)', ease: Power0.easeNone});
+        // TweenMax.to(topMenu, .18, {boxShadow: '0px 1px 6px rgba(0,0,0,0.12)', ease: Power0.easeNone});
         TweenMax.to(scrollDownEle, 0.18, {autoAlpha: 0, ease:Power0.easeIn});
     }
     else {
-        TweenMax.to(topMenu, .2, {boxShadow: '0px 1px 6px rgba(0,0,0,0)', ease: Power0.easeNone});
+        // TweenMax.to(topMenu, .2, {boxShadow: '0px 1px 6px rgba(0,0,0,0)', ease: Power0.easeNone});
         TweenMax.to(scrollDownEle, .2, {autoAlpha: 1, ease:Power0.easeOut});
     }
+
     var st = $(this).scrollTop();
       if(Math.abs(lastScrollTop - st) <= delta)
           return;
-      if (st > lastScrollTop && st > navbarHeight && $(window).width() > 992){
-              TweenMax.to(topMenu, .36, {yPercent: -108, ease:Power2.easeOut});
-      }
-      else {
-          if(st + $(window).height() < $(document).height() && $(window).width() > 992) {
-              TweenMax.to(topMenu, .36, {yPercent: 0, ease:Power2.easeOut});
-          }
-      }
+      // if (st > lastScrollTop && st > navbarHeight && $(window).width() > 992){
+      //         TweenMax.to(topMenu, .36, {yPercent: -108, ease:Power2.easeOut});
+      // }
+      // else {
+      //     if(st + $(window).height() < $(document).height() && $(window).width() > 992) {
+      //         TweenMax.to(topMenu, .36, {yPercent: 0, ease:Power2.easeOut});
+      //     }
+      // }
       lastScrollTop = st;
   }
+
   function onScroll() {
+    console.log("HELLO");
     didScroll = true;
     var sideCtas = $(".left-cta, .right-cta");
     if($(window).scrollTop() + $(window).height() > $(document).height() - 420) {
@@ -582,16 +586,16 @@ var krk = $(".dk26"),
   menuReset();
 
   // window.addEventListener('scroll', onScroll, false);
-  $(window).on('scroll', function() {
-  onScroll();
-});
+  // $(window).on('scroll', function() {onScroll();});
 
+   window.addEventListener('scroll', _.throttle(onScroll, 250), false);
 
-  $(function(){
-      if($("div").hasClass("jarallax")) {
+  //
+  // $(function(){
+      // if($("div").hasClass("jarallax")) {
         $('.jarallax').jarallax();
-      }
-  });
+  //     }
+  // });
 
 };
 }(jQuery));
