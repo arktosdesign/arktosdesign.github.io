@@ -587,9 +587,8 @@ var krk = $(".dk26"),
 
   // window.addEventListener('scroll', onScroll, false);
   // $(window).on('scroll', function() {onScroll();});
-
    // window.addEventListener('scroll', _.throttle(onScroll, 250), false);
-   window.addEventListener('scroll', _.throttle(onScroll, 1000, { leading: true, trailing: true}));
+   window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}));
 
   //
   // $(function(){
