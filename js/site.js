@@ -342,7 +342,7 @@ var dkScreenEle = $(".screen-elements"),
     TweenMax.set(dkScreenPath, {autoAlpha: 0, transformOrigin: '0% 50%'});
 
     dkScreen
-    .staggerTo(dkScreenPath, 1.2, {autoAlpha: 1, ease:Power0.easeInOut}, 0.1);
+    .staggerTo(dkScreenPath, 0.9, {autoAlpha: 1, ease:Power1.easeIn}, 0.56);
 
 
 var krk = $(".dk26"),
