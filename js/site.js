@@ -485,6 +485,7 @@ var bb8Head = $(".bb8-head"),
       hideShowOffset = 6;
 
   function onScroll() {
+    console.log("scrolling");
     var pastNav = 1;
     var scrollDownEle = $(".scroll-down");
     var sideCtas = $(".left-cta, .right-cta");
@@ -580,7 +581,7 @@ var bb8Head = $(".bb8-head"),
   });
 
 
-window.addEventListener('scroll', _.throttle(onScroll, 250, { leading: true, trailing: true}));
+window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}));
 
 
 };
