@@ -441,7 +441,7 @@ a.t-button:hover > span {
 }
 .top-menu {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 112px;
@@ -451,9 +451,20 @@ a.t-button:hover > span {
   z-index: 99998;
   text-align: center;
   backface-visibility: hidden;
-  // transition: box-shadow 90ms linear;
   box-shadow: 0px 1px 6px rgba(0,0,0,0);
-  transform: translateZ(0);
+  transform: translateY(0px);
+  will-change: transform, box-shadow;
+  transition: transform 180ms ease-out, box-shadow 60ms linear;
+}
+.top-menu.invisible {
+  transform: translateY(-120px);
+}
+.top-menu.detached {
+  position: fixed;
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.12);
+}
+.top-menu.expanded {
+  position: fixed;
 }
 
 .top-menu .container {
@@ -1011,6 +1022,20 @@ section.mission {
   background-position: left bottom;
   background-size: 100%;
   backface-visibility: hidden;
+
+  .plx-bg {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 150%;
+    background: url('../img/mission-bg-2.svg');
+    background-size: 1440px auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+
   .container {
     height: 100%;
     padding: 0px 0px;
@@ -1057,25 +1082,7 @@ section.mission {
     background-repeat: no-repeat;
   }
 }
-.jarallax {
-    position: relative;
-    z-index: 0;
-}
-.jarallax > .jarallax-img {
-    position: absolute;
-    object-fit: cover;
-    font-family: 'object-fit: cover;';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-.jarallax-img {
-  left: calc(50% - 720px) !important;
-  width: 1440px !important;
 
-}
 
 .grid {
 	clear: both;
@@ -2244,7 +2251,7 @@ span.btt {
   .clear-form {display: block; height: 88px;}
   .success-form {top: 64%;}
   span.btt {display: none !important;}
-  .jarallax {transform: translate3d(0, 0, 0) !important;}
+  .rellax {transform: translate3d(0, 0, 0) !important;}
   .scale-wrap {transform: translateX(-50%) !important; opacity: 1 !important;}
   .wiper {transform: scaleX(0) !important;}
   .faded {opacity: 1;}
@@ -2300,9 +2307,14 @@ span.btt {
     padding-bottom: 0;
   }
 
-  .top-menu {
-    transform: translateY(0%) !important;
+  .top-menu, .top-menu.invisible, .top-menu.detached, .top-menu.expanded {
+    position: absolute !important;
+    transform: translateY(0px) !important;
+    box-shadow: 0px 1px 6px rgba(0,0,0,0) !important;
   }
+
+
+
   .top-menu .container {
     padding: 0 0;
   }
