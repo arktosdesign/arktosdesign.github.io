@@ -246,22 +246,6 @@ $(function(){
       }, 200);
     });
 
-    var $carousel = $('.slider').flickity({
-      cellAlign: 'left',
-      contain: true,
-      draggable: true,
-      cellSelector: '.slide',
-      prevNextButtons: false,
-      pageDots: true,
-      wrapAround: true,
-      autoPlay: false
-    });
-    $('.slide-prev').on( 'click', function() {
-      $carousel.flickity('previous');
-    });
-    $('.slide-next').on( 'click', function() {
-      $carousel.flickity('next');
-    });
 
 
     $(function(){
