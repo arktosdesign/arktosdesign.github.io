@@ -215,7 +215,33 @@ $(function(){
       });
 
 
+      function isSiteOnline(url,callback) {
+          var timer = setTimeout(function(){
+              callback(false);
+          },5000)
+          var img = document.createElement("img");
+          img.onload = function() {
+              clearTimeout(timer);
+              callback(true);
+          }
+          img.onerror = function() {
+              clearTimeout(timer);
+              callback(false);
+          }
+          img.src = url+"/favicon.ico";
+      }
 
+    $(function(){
+      if ( $("main").hasClass("ind-pp") )
+    isSiteOnline("http://arktosdesign.github.io",function(found){
+      if(found) {
+          console.log("it exists");
+      }
+      else {
+          console.log("it doesn't exists");
+      }
+    })
+    });
 
     $(function(){
       navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;

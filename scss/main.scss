@@ -1013,6 +1013,7 @@ header {margin-top: 0px;}
     left: 50%;
     transform: translate(-50%, 0%) scale(1);
     height: 668px;
+    backface-visibility: hidden;
     vertical-align: baseline;
     overflow: hidden;
     background: url('/img/work-ind-hero.png');
@@ -1026,6 +1027,7 @@ header {margin-top: 0px;}
     bottom: 0px;
     left: 100px;
     width: calc(100% - 200px);
+    background-color: #000000;
     height: 592px;
     overflow: hidden;
     .pp {
@@ -1047,22 +1049,24 @@ section.work-ind-about {
   background-color: #161617;
   margin-top: 0px;
   height: auto;
+  padding-left: 98px;
+  padding-right: 98px;
   min-height: auto;
   max-height: auto;
   color: #FFFFFF;
   h2 {
     margin-bottom: 0px;
     color: #FFFFFF;
-    font-size: 1.98em;
+    font-size: 1.78em;
     max-width: 50%;
   }
   h4 {
-    font-size: 1.28em;
+    font-size: 1.18em;
     margin: 18px 0;
     color: #FFFFFF;
   }
   p {
-    font-size: 0.9em;
+    font-size: 0.86em;
     margin: 0 0;
     color: #FFFFFF;
     max-width: 58%;
@@ -1087,15 +1091,13 @@ section.work-ind-about {
     }
   }
 }
-  .c-4 h4, .c-2 h4 {
-     font-weight: 600;
-     margin-top: 82px;
-  }
 }
 
 
 @media screen and (max-width: 992px) {
   section.work-ind-about {
+    padding-left: 22px;
+    padding-right: 22px;
     h2 {
       font-size: 1.98em;
       max-width: 100%;
@@ -1113,9 +1115,6 @@ section.work-ind-about {
         color: #FFFFFF;
         line-height: 1.6;
       }
-    }
-    .c-4 h4, .c-2 h4 {
-       margin-top: 12px;
     }
   }
 }
