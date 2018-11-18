@@ -623,6 +623,6 @@ $(document).ready(function() {
   $('body').onPageLoad();
 });
 
-// $(window).on('beforeunload', function(){
-//   $(window).scrollTop(0);
-// });
+$(window).on('beforeunload', function(){
+  $(window).scrollTop(0);
+});
