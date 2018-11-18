@@ -1092,6 +1092,8 @@ section.work-ind-about {
   }
 }
 }
+.status-online,
+.status-offline {display: none;}
 
 
 @media screen and (max-width: 992px) {
@@ -2051,7 +2053,7 @@ section.featured-work {
   display: block;
   box-shadow: 0px 8px 28px rgba(0,0,0,0.18);
 }
-footer, .bottom-cta {
+footer, .bottom-cta, .work-ind-about {
   .a-button {
     .char {
       color: #FFFFFF;

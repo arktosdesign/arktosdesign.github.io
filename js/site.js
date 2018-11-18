@@ -233,14 +233,18 @@ $(function(){
 
     $(function(){
       if ( $("main").hasClass("ind-pp") )
-    isSiteOnline("http://arktosdesign.github.io",function(found){
+      setTimeout(function(){
+    isSiteOnline("https://arktosdesign.github.io",function(found){
       if(found) {
-          console.log("it exists");
+          $(".ind-pp").find(".status-online").show();
+          $(".ind-pp").find(".status-offline").hide();
       }
       else {
-          console.log("it doesn't exists");
+          $(".ind-pp").find(".status-online").hide();
+          $(".ind-pp").find(".status-offline").show();
       }
     })
+  }, 500);
     });
 
     $(function(){

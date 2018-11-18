@@ -1246,6 +1246,10 @@ section.work-ind-about {
         display: inline-block;
         vertical-align: middle; }
 
+.status-online,
+.status-offline {
+  display: none; }
+
 @media screen and (max-width: 992px) {
   section.work-ind-about {
     padding-left: 22px;
@@ -2779,16 +2783,16 @@ section.featured-work {
   -webkit-box-shadow: 0px 8px 28px rgba(0, 0, 0, 0.18);
   box-shadow: 0px 8px 28px rgba(0, 0, 0, 0.18); }
 
-footer .a-button .char, .bottom-cta .a-button .char {
+footer .a-button .char, .bottom-cta .a-button .char, .work-ind-about .a-button .char {
   color: #FFFFFF; }
 
-footer .a-button i, .bottom-cta .a-button i {
+footer .a-button i, .bottom-cta .a-button i, .work-ind-about .a-button i {
   color: #f5a91b !important;
   -webkit-transition: color 180ms ease-out;
   -o-transition: color 180ms ease-out;
   transition: color 180ms ease-out; }
 
-footer .a-button:hover i, .bottom-cta .a-button:hover i {
+footer .a-button:hover i, .bottom-cta .a-button:hover i, .work-ind-about .a-button:hover i {
   color: #FFFFFF !important;
   -webkit-transition: color 180ms 180ms ease-out;
   -o-transition: color 180ms 180ms ease-out;
