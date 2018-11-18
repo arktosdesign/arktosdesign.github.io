@@ -1105,20 +1105,36 @@ section.work-ind-about {
 .status-offline {display: none;}
 
 .work-ind-showcase {
+  height: auto !important;
+  min-height: calc(40vw + 128px) !important;
+  max-height: auto !important;
+  overflow-x: hidden !important;
   .item {
     position: relative;
     width: 90%;
-    height: calc(628px + 6vw + 2vh);
+    height: calc(40vw + 128px);
     margin: 0 0 48px 0;
-    background: #000;
+    clear: both;
+    &.right {
+      float: right;
+      img {
+        float: right;
+      }
+    }
     &:last-child {margin-bottom: 0;}
   }
-  .item.pp-1 {
-    background: url("../img/partsplus-feature.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+  .wiper {
+    height: 104%;
   }
+  .lzl {
+    img {
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.22);
+      display: block;
+      width: auto;
+      height: calc(40vw + 128px);
+    }
+  }
+
 
 }
 
@@ -1823,7 +1839,7 @@ a.sl:hover {
 .img-container.ft-partsplus {
   height: 540px;
 }
-.img-container .lzl {
+.lzl {
   position: relative;
   width: 100%;
   height: 100%;
