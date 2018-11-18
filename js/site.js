@@ -230,11 +230,10 @@ $(function(){
           }
           img.src = url+"/favicon.ico";
       }
-
     $(function(){
       if ( $("main").hasClass("ind-pp") )
       setTimeout(function(){
-    isSiteOnline("https://arktosdesign.github.io",function(found){
+    isSiteOnline("http://arktosdesign.github.io",function(found){
       if(found) {
           $(".ind-pp").find(".status-online").show();
           $(".ind-pp").find(".status-offline").hide();
@@ -244,8 +243,26 @@ $(function(){
           $(".ind-pp").find(".status-offline").show();
       }
     })
-  }, 500);
+      }, 200);
     });
+
+    var $carousel = $('.slider').flickity({
+      cellAlign: 'left',
+      contain: true,
+      draggable: true,
+      cellSelector: '.slide',
+      prevNextButtons: false,
+      pageDots: true,
+      wrapAround: true,
+      autoPlay: false
+    });
+    $('.slide-prev').on( 'click', function() {
+      $carousel.flickity('previous');
+    });
+    $('.slide-next').on( 'click', function() {
+      $carousel.flickity('next');
+    });
+
 
     $(function(){
       navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;

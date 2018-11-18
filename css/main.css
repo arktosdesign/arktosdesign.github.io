@@ -1208,7 +1208,7 @@ header {
 
 section.work-ind-about {
   background-color: #161617;
-  margin-top: 0px;
+  margin: 0 auto;
   height: auto;
   padding-left: 98px;
   padding-right: 98px;
@@ -1219,16 +1219,17 @@ section.work-ind-about {
     margin-bottom: 0px;
     color: #FFFFFF;
     font-size: 1.78em;
-    max-width: 50%; }
+    max-width: 300px; }
   section.work-ind-about h4 {
-    font-size: 1.18em;
+    font-size: 1.28em;
+    letter-spacing: -0.018em;
     margin: 18px 0;
     color: #FFFFFF; }
   section.work-ind-about p {
     font-size: 0.86em;
     margin: 0 0;
     color: #FFFFFF;
-    max-width: 58%; }
+    max-width: 340px; }
   section.work-ind-about ul {
     list-style: none;
     list-style-type: none;
@@ -1236,36 +1237,62 @@ section.work-ind-about {
     display: block; }
     section.work-ind-about ul li {
       color: #FFFFFF;
-      line-height: 1.6; }
+      line-height: 1.7; }
       section.work-ind-about ul li:before {
         content: '';
         margin-right: 12px;
         height: 2px;
-        background-color: #FFFFFF;
-        width: 12px;
+        background-color: #F5A91B;
+        width: 10px;
+        -webkit-transform: translateY(-1px);
+        -ms-transform: translateY(-1px);
+        transform: translateY(-1px);
         display: inline-block;
         vertical-align: middle; }
+  section.work-ind-about .button-holder {
+    margin: -6px 0 0 0;
+    height: 55px;
+    line-height: 55px; }
+    section.work-ind-about .button-holder .a-button {
+      margin: 0 0; }
 
 .status-online,
 .status-offline {
   display: none; }
 
+.work-ind-showcase .item {
+  position: relative;
+  width: 90%;
+  height: calc(628px + 4vw + 2vh);
+  margin: 0 0 48px 0;
+  background: #000; }
+  .work-ind-showcase .item:last-child {
+    margin-bottom: 0; }
+
+.work-ind-showcase .item.pp-1 {
+  background: url("../img/partsplus-feature.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
 @media screen and (max-width: 992px) {
   section.work-ind-about {
-    padding-left: 22px;
-    padding-right: 22px; }
+    padding-left: 0px;
+    padding-right: 0px; }
     section.work-ind-about h2 {
-      font-size: 1.98em;
+      font-size: 1.68em;
       max-width: 100%; }
     section.work-ind-about h4 {
-      font-size: 1.28em;
-      margin: 18px 0; }
+      font-size: 1.18em;
+      margin: 9px 0; }
     section.work-ind-about p {
       font-size: 0.9em;
       max-width: 100%; }
     section.work-ind-about ul li {
       color: #FFFFFF;
-      line-height: 1.6; } }
+      line-height: 1.6; }
+    section.work-ind-about .col {
+      margin: 12px 0; } }
 
 section {
   max-height: 1080px; }
@@ -2490,20 +2517,6 @@ a.sl:hover {
   transition: transform 220ms cubic-bezier(0.54, 0.16, 0.15, 0.86);
   transition: transform 220ms cubic-bezier(0.54, 0.16, 0.15, 0.86), -webkit-transform 220ms cubic-bezier(0.54, 0.16, 0.15, 0.86); }
 
-.wiper {
-  position: absolute;
-  top: -2%;
-  right: -2%;
-  width: 104%;
-  -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);
-  -webkit-transform-origin: 100% 0%;
-  -ms-transform-origin: 100% 0%;
-  transform-origin: 100% 0%;
-  height: 104%;
-  background: #FFFFFF; }
-
 .img-container.ft-frankandshove .lzl {
   background: url("../img/frankshove-feature.jpg");
   background-size: cover;
@@ -2524,19 +2537,6 @@ section.featured-work {
 
 .col.work-tile {
   overflow-x: hidden; }
-  .col.work-tile .scale-wrap {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translateX(-80%) scale(1);
-    -ms-transform: translateX(-80%) scale(1);
-    transform: translateX(-80%) scale(1);
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    will-change: opacity, transform; }
   .col.work-tile h3 {
     color: #161617;
     margin: 28px 0 0 0;
@@ -3032,6 +3032,34 @@ textarea:-webkit-autofill,
     font-size: calc(1.46em + 0.6vw);
     letter-spacing: -0.056em;
     font-weight: 400; }
+
+.wiper {
+  position: absolute;
+  top: -2%;
+  right: -2%;
+  width: 104%;
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: 100% 0%;
+  -ms-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  height: 104%;
+  background: #FFFFFF; }
+
+.scale-wrap {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-80%) scale(1);
+  -ms-transform: translateX(-80%) scale(1);
+  transform: translateX(-80%) scale(1);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  will-change: opacity, transform; }
 
 .white {
   color: #FFFFFF; }
