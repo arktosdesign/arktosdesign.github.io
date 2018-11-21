@@ -1180,10 +1180,23 @@ section.project-thumbs {
   max-height: auto !important;
   min-height: auto !important;
   padding: 48px 0 0 0;
-
+  .sine-link {
+    display: block;
+    margin: 28px auto 0 auto;
+    width: 100%;
+    max-width: 768px;
+    height: 3vw;
+    path {
+      fill: none;
+      stroke: #f5a91b;
+      // stroke: #EB5C59;
+      stroke-width: 6;
+      stroke-miterlimit: 10;
+}
+}
   h3 {
     font-size: calc(1.28em + 0.66vw);
-    margin: 88px 0 0 0;
+    margin: 48px 0 0 0;
     font-weight: 600;
     color: #161617;
   }
@@ -1204,7 +1217,6 @@ section.project-thumbs {
     padding-left: 2.8vw;
     text-align: left;
   }
-
 }
 
 
@@ -1235,6 +1247,26 @@ section.project-thumbs {
     }
     .col {
       margin: 12px 0;
+    }
+  }
+  section.project-thumbs {
+    .sine-link {
+      margin: 18px auto 28px auto;
+    }
+    h2 {
+      margin: 0 auto;
+    }
+    h3 {
+      margin: 0 0;
+    }
+    p {max-width: 100%; margin-left: auto; margin-right: auto;}
+    .prev-thumb {
+      padding-right: 0vw;
+      text-align: center;
+    }
+    .next-thumb {
+      padding-left: 0vw;
+      text-align: center;
     }
   }
 }
