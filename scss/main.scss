@@ -1108,7 +1108,7 @@ section.work-ind-about {
   height: auto !important;
   min-height: calc(37.8vw + 128px) !important;
   max-height: auto !important;
-  overflow-x: hidden !important;
+  overflow: hidden !important;
   .item {
     position: relative;
     width: 90%;
@@ -1125,11 +1125,11 @@ section.work-ind-about {
     &:last-child {margin-bottom: 0;}
   }
   .wiper {
-    height: 104%;
+    height: 106%;
   }
   .lzl {
     img {
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.22);
+      box-shadow: 0px 8px 26px rgba(0,0,0,0.16);
       display: block;
       width: auto;
       backface-visibility: hidden;
@@ -1175,26 +1175,62 @@ section.work-ind-about {
   }
 }
 
+section.project-thumbs {
+  height: auto !important;
+  max-height: auto !important;
+  min-height: auto !important;
+  padding: 48px 0 0 0;
+
+  h3 {
+    font-size: calc(1.28em + 0.66vw);
+    margin: 88px 0 0 0;
+    font-weight: 600;
+    color: #161617;
+  }
+  p {
+    margin: 12px 0 0 0;
+  }
+  .button-holder {
+    margin: 0 0;
+  }
+  .prev-thumb {
+    padding-right: 2.8vw;
+    text-align: right;
+    .a-inner {
+      i {margin-left: 0; margin-right: 1.2em;}
+    }
+  }
+  .next-thumb {
+    padding-left: 2.8vw;
+    text-align: left;
+  }
+
+}
+
+
+
 @media screen and (max-width: 992px) {
   section.work-ind-about {
+    padding: 24px 0 12px 0;
     padding-left: 0px;
     padding-right: 0px;
     h2 {
-      font-size: 1.68em;
+      font-size: 1.48em;
       max-width: 100%;
     }
     h4 {
-      font-size: 1.18em;
+      font-size: 1.08em;
       margin: 9px 0;
     }
     p {
-      font-size: 0.9em;
+      font-size: 0.86em;
       max-width: 100%;
     }
     ul {
       li {
+        font-size: 0.86em;
         color: #FFFFFF;
-        line-height: 1.6;
+        line-height: 1.65;
       }
     }
     .col {
@@ -1914,6 +1950,7 @@ section.featured-work {
   p { margin: 8px 0 0 0;}
   h3, p {opacity: 1; transition: opacity 220ms ease-in-out;}
   overflow-x: hidden;
+
   .sine-link {
     display: block;
     margin: 18px 0 0 0;
@@ -1937,9 +1974,7 @@ section.featured-work {
   .lzl {transform: scale(1.07); transition: transform 728ms cubic-bezier(0.540, 0.160, 0.150, 0.860);}
   h3, p {opacity: 0.7;}
   .sine-link {
-    path {
-      stroke-dashoffset: 0;
-    }
+    path {stroke-dashoffset: 0;}
   }
 }
 .col.work-tile:active {
@@ -2427,6 +2462,7 @@ video,
 .video-holder,
 .scroll-down svg,
 #sendMessage,
+.thumb,
 span.btt {
   cursor: url(../img/cursor-pointer.png), pointer;
 }

@@ -6,7 +6,7 @@ $(function(){
         scroll: true,
         debug: false,
         prefetch: true,
-        cacheLength: 4, // The number of pages to cache
+        cacheLength: 6, // The number of pages to cache
         onStart: {
           duration: 800,
           render: function ($container) {
