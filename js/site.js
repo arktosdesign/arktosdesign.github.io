@@ -50,6 +50,10 @@ $(function(){
            TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
            TweenMax.to(thisImage, 1.4, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
          }
+         if ($(el).hasClass("vi-1")) {
+           $("#video-1")[0].play();
+           console.log("video 1 playing");
+         }
        }
     });
 
@@ -129,6 +133,29 @@ $(function(){
         message: ""
       }
     });
+
+
+    var fsDkVid = $(".fs-dk-vid"),
+        fsMobVid = $(".fs-mob-vid");
+
+    TweenMax.set(fsMobVid, {autoAlpha: 0});
+    TweenMax.set(fsDkVid, {autoAlpha: 1});
+
+    $(".fs-desktop").click(function(){
+      $("#video-1")[0].play();
+      $("#video-2")[0].pause();
+      $(this).addClass('active-vid').siblings().removeClass('active-vid');
+      TweenMax.to(fsDkVid, 0.6, {autoAlpha: 1, ease:Power1.easeOut});
+      TweenMax.to(fsMobVid, 0.6, {autoAlpha: 0, ease:Power1.easeOut});
+    });
+    $(".fs-mobile").click(function(){
+      $("#video-2")[0].play();
+      $("#video-1")[0].pause();
+      $(this).addClass('active-vid').siblings().removeClass('active-vid');
+      TweenMax.to(fsMobVid, 0.6, {autoAlpha: 1, ease:Power1.easeOut});
+      TweenMax.to(fsDkVid, 0.6, {autoAlpha: 0, ease:Power1.easeOut});
+    });
+
 
     $("#sendMessage").on("click", function() {
       if($("#contactform").valid()) {
