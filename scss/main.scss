@@ -1205,11 +1205,11 @@ section.work-ind-about {
     right: auto;
     left: 0;
     margin-left: calc(22px + 4.8vw);
-    h4, h5 {
+    h4 {
       margin-right: 0px;
     }
   }
-  h5.fs-switcher {
+  h4.fs-switcher {
     text-align: left;
     margin: 28px 0;
     padding: 0 0 8px 0;
@@ -1217,6 +1217,7 @@ section.work-ind-about {
     font-size: calc(1.28em + 1.2vw) !important;
     transition: color 220ms ease-out, border 220ms ease-out;
     border-bottom: 4px solid #FFFFFF;
+    &:after {display: none !important;}
     &:hover {
       color: #666666;
       border-bottom: 4px solid #F1F1F1;
@@ -2508,7 +2509,7 @@ video:not(.fs-vid),
 .scroll-down svg,
 #sendMessage,
 .thumb,
-h5.fs-switcher,
+h4.fs-switcher,
 span.btt {
   cursor: url(../img/cursor-pointer.png), pointer;
 }

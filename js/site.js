@@ -52,7 +52,6 @@ $(function(){
          }
          if ($(el).hasClass("vi-1")) {
            $("#video-1")[0].play();
-           console.log("video 1 playing");
          }
        }
     });
