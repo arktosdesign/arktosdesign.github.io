@@ -175,10 +175,11 @@
         <div class="wrap">
 
           <div class="item c-il pr">
+
             <a href="/work/frank-and-shove.html" class="work-item-link">
-              <div class="work-item fands">
+              <div class="work-item fands lazy" data-bg="url(img/frankshove-feature.jpg)">
                 <div class="video-holder">
-                  <video id="video" controls="false" muted loop preload="none">
+                  <video id="video" controls="false" muted loop preload="none" class="lazy" data-src="/videos/fands.mp4">
                     <source src="/videos/fands.mp4" type="video/mp4">
                   </video>
                 </div>
@@ -193,9 +194,9 @@
             </a>
 
             <a href="" class="work-item-link">
-              <div class="work-item daytanner">
+              <div class="work-item daytanner lazy" data-bg="url(img/daytanner-cover.jpg)">
                 <div class="video-holder">
-                  <video id="video" controls="false" muted loop preload="none">
+                  <video id="video" controls="false" muted loop preload="none" class="lazy" data-src="/videos/day-tanner.mp4">
                     <source src="/videos/day-tanner.mp4" type="video/mp4">
                   </video>
                 </div>
@@ -224,9 +225,9 @@
 
           <div class="item c-tx pl rellax" data-rellax-speed="6" data-rellax-percentage="0.6">
             <a href="/work/ford-partsplus.html" class="work-item-link">
-              <div class="work-item partsplus" id="sectionTwo">
+              <div class="work-item partsplus lazy" data-bg="url(img/partsplus-feature.jpg)" id="sectionTwo">
                 <div class="video-holder">
-                  <video id="video" controls="false" muted loop preload="none">
+                  <video id="video" controls="false" muted loop preload="none" class="lazy" data-src="/videos/partsplus.mp4">
                     <source src="/videos/partsplus.mp4" type="video/mp4">
                   </video>
                 </div>
@@ -241,9 +242,9 @@
             </a>
 
             <a href="" class="work-item-link">
-              <div class="work-item tecno">
+              <div class="work-item tecno lazy" data-bg="url(img/tecno-cover.jpg)">
                 <div class="video-holder">
-                  <video id="video" controls="false" muted loop preload="none">
+                  <video id="video" controls="false" muted loop preload="none" class="lazy" data-src="/videos/tecno.mp4">
                     <source src="/videos/tecno.mp4" type="video/mp4">
                   </video>
                 </div>
@@ -355,6 +356,7 @@
 <script src="/js/jquery.smoothState.js"></script>
 <script src="/js/splitting.js"></script>
 <script src="/js/scrollout.js"></script>
+<script src="/js/lazyload.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/81395/CustomEase.min.js"></script>
 <script src="/js/jquery.validate.min.js"></script>

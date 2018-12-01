@@ -6,16 +6,16 @@ $(function(){
         scroll: true,
         debug: false,
         prefetch: true,
-        cacheLength: 6, // The number of pages to cache
+        cacheLength: 7, // The number of pages to cache
         onStart: {
-          duration: 800,
+          duration: 1200,
           render: function ($container) {
             $container.addClass('is-exiting');
             smoothState.restartCSSAnimations();
           },
         },
         onReady: {
-          duration: 400,
+          duration: 600,
           render: function ($container, $newContent) {
             $container.removeClass('is-exiting');
             $container.html($newContent);
@@ -33,7 +33,7 @@ $(function(){
 
 
 
-    Splitting();
+  Splitting();
 
     ScrollOut({
        targets: '.ev',
@@ -64,28 +64,28 @@ $(function(){
         krkLoop.play();
         dkFlicker.play();
         dkScreen.play();
-        console.log("dk >");
+        // console.log("dk >");
       }
        if($(el).hasClass("bb8")) {
          bbEight.timeScale(1.3).play();
          blobOne.play();
-         console.log("bb8 >");
+         // console.log("bb8 >");
        }
        else if($(el).hasClass("tf")) {
          triggerFinger.play();
          blobTwo.play();
-         console.log("tf >");
+         // console.log("tf >");
        }
        else if($(el).hasClass("lamp")) {
          lamp.play();
          blobThree.play();
-         console.log("lamp >");
+         // console.log("lamp >");
        }
        else if($(el).hasClass("bwave")) {
          blobOne.play();
          bearTwinkle.play();
          bearWave.play();
-         console.log("bwave >");
+         // console.log("bwave >");
        }
       },
       onHidden: function(el) {
@@ -93,31 +93,33 @@ $(function(){
           krkLoop.pause();
           dkFlicker.pause();
           dkScreen.pause();
-          console.log("dk <");
+          // console.log("dk <");
         }
         else if($(el).hasClass("bb8")) {
           bbEight.pause();
           blobOne.pause();
-          console.log("bb8 <");
+          // console.log("bb8 <");
         }
         else if($(el).hasClass("tf")) {
           triggerFinger.pause();
           blobTwo.pause();
-          console.log("tf <");
+          // console.log("tf <");
         }
         else if($(el).hasClass("lamp")) {
           lamp.pause();
           blobThree.pause();
-          console.log("lamp <");
+          // console.log("lamp <");
         }
         else if($(el).hasClass("bwave")) {
           blobOne.pause();
           bearTwinkle.pause();
           bearWave.pause();
-          console.log("bwave <");
+          // console.log("bwave <");
         }
       }
     });
+
+
 
 
     $("#contactform").validate({
@@ -542,7 +544,7 @@ var bb8Head = $(".bb8-head"),
       hideShowOffset = 6;
 
   function onScroll() {
-    console.log("scrolling");
+    // console.log("scrolling");
     var pastNav = 1;
     var scrollDownEle = $(".scroll-down");
     var sideCtas = $(".left-cta, .right-cta");
@@ -636,9 +638,14 @@ var bb8Head = $(".bb8-head"),
         var rellax = new Rellax('.rellax');
       }
   });
-
+  var myLazyLoad = new LazyLoad({
+      elements_selector: ".lazy"
+  });
 
 window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}));
+
+
+
 
 
 };
