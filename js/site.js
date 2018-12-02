@@ -34,7 +34,7 @@ $(function(){
 
 
 
-
+var videoOne = $("#video-1");
 
   Splitting();
 
@@ -54,7 +54,7 @@ $(function(){
            TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
          }
          if ($(el).hasClass("vi-1")) {
-           $("#video-1")[0].play();
+           videoOne[0].play();
          }
        }
     });
@@ -287,6 +287,21 @@ $(function(){
         else {
             $(".ind-dt").find(".status-online").hide();
             $(".ind-dt").find(".status-offline").show();
+        }
+      })
+      }, 200);
+    });
+    $(function(){
+      if ( $("main").hasClass("ind-tc") )
+      setTimeout(function(){
+      isSiteOnline("http://tecnodiagnostics.co.uk",function(found){
+        if(found) {
+            $(".ind-tc").find(".status-online").show();
+            $(".ind-tc").find(".status-offline").hide();
+        }
+        else {
+            $(".ind-tc").find(".status-online").hide();
+            $(".ind-tc").find(".status-offline").show();
         }
       })
       }, 200);
@@ -561,7 +576,7 @@ var bb8Head = $(".bb8-head"),
       hideShowOffset = 6;
 
   function onScroll() {
-    // console.log("scrolling");
+    console.log("scrolling");
     var pastNav = 1;
     var scrollDownEle = $(".scroll-down");
     var sideCtas = $(".left-cta, .right-cta");
@@ -660,10 +675,6 @@ var bb8Head = $(".bb8-head"),
   });
 
 window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}), {passive: true});
-// document.addEventListener('touchstart', onTouchStart, {passive: true});
-
-
-
 };
 }(jQuery));
 
