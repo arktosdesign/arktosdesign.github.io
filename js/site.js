@@ -33,6 +33,9 @@ $(function(){
 
 
 
+
+
+
   Splitting();
 
     ScrollOut({
@@ -47,8 +50,8 @@ $(function(){
          var thisWiper = $(el).find('.wiper');
          var thisImage = $(el).find('.scale-wrap');
          if (thisWiper.length !== 0) {
-           TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
            TweenMax.to(thisImage, 1.4, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
+           TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
          }
          if ($(el).hasClass("vi-1")) {
            $("#video-1")[0].play();
@@ -64,28 +67,28 @@ $(function(){
         krkLoop.play();
         dkFlicker.play();
         dkScreen.play();
-        // console.log("dk >");
+        console.log("dk >");
       }
        if($(el).hasClass("bb8")) {
          bbEight.timeScale(1.3).play();
          blobOne.play();
-         // console.log("bb8 >");
+         console.log("bb8 >");
        }
        else if($(el).hasClass("tf")) {
          triggerFinger.play();
          blobTwo.play();
-         // console.log("tf >");
+         console.log("tf >");
        }
        else if($(el).hasClass("lamp")) {
          lamp.play();
          blobThree.play();
-         // console.log("lamp >");
+         console.log("lamp >");
        }
        else if($(el).hasClass("bwave")) {
          blobOne.play();
          bearTwinkle.play();
          bearWave.play();
-         // console.log("bwave >");
+         console.log("bwave >");
        }
       },
       onHidden: function(el) {
@@ -93,28 +96,28 @@ $(function(){
           krkLoop.pause();
           dkFlicker.pause();
           dkScreen.pause();
-          // console.log("dk <");
+          console.log("dk <");
         }
         else if($(el).hasClass("bb8")) {
           bbEight.pause();
           blobOne.pause();
-          // console.log("bb8 <");
+          console.log("bb8 <");
         }
         else if($(el).hasClass("tf")) {
           triggerFinger.pause();
           blobTwo.pause();
-          // console.log("tf <");
+          console.log("tf <");
         }
         else if($(el).hasClass("lamp")) {
           lamp.pause();
           blobThree.pause();
-          // console.log("lamp <");
+          console.log("lamp <");
         }
         else if($(el).hasClass("bwave")) {
           blobOne.pause();
           bearTwinkle.pause();
           bearWave.pause();
-          // console.log("bwave <");
+          console.log("bwave <");
         }
       }
     });
@@ -656,9 +659,8 @@ var bb8Head = $(".bb8-head"),
       elements_selector: ".lazy"
   });
 
-window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}));
-
-
+window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}), {passive: true});
+// document.addEventListener('touchstart', onTouchStart, {passive: true});
 
 
 
