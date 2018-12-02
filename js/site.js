@@ -261,19 +261,33 @@ $(function(){
     $(function(){
       if ( $("main").hasClass("ind-pp") )
       setTimeout(function(){
-    isSiteOnline("http://arktosdesign.github.io",function(found){
-      if(found) {
-          $(".ind-pp").find(".status-online").show();
-          $(".ind-pp").find(".status-offline").hide();
-      }
-      else {
-          $(".ind-pp").find(".status-online").hide();
-          $(".ind-pp").find(".status-offline").show();
-      }
-    })
+      isSiteOnline("http://arktosdesign.github.io",function(found){
+        if(found) {
+            $(".ind-pp").find(".status-online").show();
+            $(".ind-pp").find(".status-offline").hide();
+        }
+        else {
+            $(".ind-pp").find(".status-online").hide();
+            $(".ind-pp").find(".status-offline").show();
+        }
+      })
       }, 200);
     });
-
+    $(function(){
+      if ( $("main").hasClass("ind-dt") )
+      setTimeout(function(){
+      isSiteOnline("http://daytanner.co.uk",function(found){
+        if(found) {
+            $(".ind-dt").find(".status-online").show();
+            $(".ind-dt").find(".status-offline").hide();
+        }
+        else {
+            $(".ind-dt").find(".status-online").hide();
+            $(".ind-dt").find(".status-offline").show();
+        }
+      })
+      }, 200);
+    });
 
 
     $(function(){

@@ -1044,9 +1044,18 @@ header {margin-top: 0px;}
       top: 0px;
       left: 0;
       width: 100%;
-      height: 540px;
+      height: 640px;
       background: url('../img/fs/work-ind.jpg');
-      background-position: center center;
+      background-position: center top;
+    }
+    .dt {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 980px;
+      background: url('../img/dt/work-ind.jpg');
+      background-position: center top;
     }
   }
 }
