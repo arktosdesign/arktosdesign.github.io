@@ -613,16 +613,9 @@ var bb8Head = $(".bb8-head"),
       }
     }
   });
-
-
     // window.addEventListener('scroll', _.throttle(onScroll, 350, { leading: true, trailing: true}));
     // window.addEventListener('scroll', _.debounce(onScroll, 200, { leading: true, trailing: true}));
-
     $(window).on('scroll', _.throttle(onScroll, 350, { leading: true, trailing: true}));
-
-
-
-
 };
 }(jQuery));
 
