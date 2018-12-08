@@ -456,6 +456,7 @@ var bb8Head = $(".bb8-head"),
       }
   });
 
+
   var myLazyLoad = new LazyLoad({
       elements_selector: ".lazy",
       threshold: 600,
@@ -463,6 +464,7 @@ var bb8Head = $(".bb8-head"),
         console.log('loadedimg');
       }
   });
+
 
   // var previousScroll = 0,
   //     menuOffset = 60,
@@ -474,7 +476,6 @@ var bb8Head = $(".bb8-head"),
     var pastNav = 1,
         scrollDownEle = $(".scroll-down"),
         sideCtas = $(".left-cta, .right-cta");
-
     if ($(window).scrollTop() > pastNav) {
         TweenMax.to(scrollDownEle, 0.18, {autoAlpha: 0, ease:Power0.easeIn});
         TweenMax.to(topMenu, 0.3, {boxShadow: '0px 1px 8px rgba(0,0,0,0.16)', ease:Power2.easeOut});
@@ -483,7 +484,6 @@ var bb8Head = $(".bb8-head"),
         TweenMax.to(scrollDownEle, .2, {autoAlpha: 1, ease:Power0.easeOut});
         TweenMax.to(topMenu, 0.3, {boxShadow: '0px 1px 8px rgba(0,0,0,0)', ease:Power2.easeOut});
     }
-
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 620) {
       TweenMax.to(sideCtas, 0.2, {autoAlpha: 0, ease:Power0.easeOut});
     }
@@ -516,6 +516,8 @@ var bb8Head = $(".bb8-head"),
     // }
 
   }
+
+
 
 
   Splitting();

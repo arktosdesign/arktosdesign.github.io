@@ -905,7 +905,8 @@ main:after {
   // backface-visibility: hidden;
   background: url('../img/bg-mission-top.svg');
   background-size: auto 105px;
-  background-position: center center;
+  // background-position: center center;
+  background-position: -94px center;
   background-repeat: repeat-x;
 }
 main h1 {
