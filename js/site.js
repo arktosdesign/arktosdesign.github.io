@@ -33,105 +33,6 @@ $(function(){
   $.fn.onPageLoad = function() {
 
 
-
-    Splitting();
-
-
-    var scaleWrap = $(".scale-wrap"),
-        wiper = $(".wiper");
-    TweenMax.set(scaleWrap, {autoAlpha: 0, x: '-80%', scale: 1});
-    TweenMax.to(wiper, {scaleX: 1.05, transformOrigin: '100% 0%'});
-
-
-    ScrollOut({
-       targets: '.ev',
-       threshold: 0.5,
-       once: true,
-       cssProps: {
-         viewportY: true,
-         visibleY: true
-       },
-       onShown: function(el) {
-         var thisWiper = $(el).find('.wiper');
-         var thisImage = $(el).find('.scale-wrap');
-         if (thisWiper.length !== 0) {
-           // TweenMax.to(thisImage, 1.4, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
-           // TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
-           TweenMax.to(thisWiper, 1.3, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
-           TweenMax.to(thisImage, 1.7, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
-         }
-         if ($(el).hasClass("vi-1")) {
-           videoOne[0].play();
-         }
-       }
-    });
-
-    ScrollOut({
-      targets: '.g-wrap',
-      threshold: 0.2,
-      onShown: function(el) {
-      if ($(el).hasClass("dk")) {
-        krkLoop.play();
-        dkFlicker.play();
-        dkScreen.play();
-        console.log("dk >");
-      }
-       if($(el).hasClass("bb8")) {
-         bbEight.timeScale(1.3).play();
-         blobOne.play();
-         console.log("bb8 >");
-       }
-       else if($(el).hasClass("tf")) {
-         triggerFinger.play();
-         blobTwo.play();
-         console.log("tf >");
-       }
-       else if($(el).hasClass("lamp")) {
-         lamp.play();
-         blobThree.play();
-         console.log("lamp >");
-       }
-       else if($(el).hasClass("bwave")) {
-         blobOne.play();
-         bearTwinkle.play();
-         bearWave.play();
-         console.log("bwave >");
-       }
-      },
-      onHidden: function(el) {
-        if ($(el).hasClass("dk")) {
-          krkLoop.pause();
-          dkFlicker.pause();
-          dkScreen.pause();
-          console.log("dk <");
-        }
-        else if($(el).hasClass("bb8")) {
-          bbEight.pause();
-          blobOne.pause();
-          console.log("bb8 <");
-        }
-        else if($(el).hasClass("tf")) {
-          triggerFinger.pause();
-          blobTwo.pause();
-          console.log("tf <");
-        }
-        else if($(el).hasClass("lamp")) {
-          lamp.pause();
-          blobThree.pause();
-          console.log("lamp <");
-        }
-        else if($(el).hasClass("bwave")) {
-          blobOne.pause();
-          bearTwinkle.pause();
-          bearWave.pause();
-          console.log("bwave <");
-        }
-      }
-    });
-
-
-var videoOne = $("#video-1");
-
 $(function() {
   'use strict';
   var $sineLine;
@@ -617,11 +518,105 @@ var bb8Head = $(".bb8-head"),
   }
 
 
+  Splitting();
+
+  var videoOne = $("#video-1");
+  var scaleWrap = $(".scale-wrap"),
+      wiper = $(".wiper");
+  TweenMax.set(scaleWrap, {autoAlpha: 0, x: '-80%', scale: 1});
+  TweenMax.to(wiper, {scaleX: 1.05, transformOrigin: '100% 0%'});
+
+  ScrollOut({
+     targets: '.ev',
+     threshold: 0.5,
+     once: true,
+     cssProps: {
+       viewportY: true,
+       visibleY: true
+     },
+     onShown: function(el) {
+       var thisWiper = $(el).find('.wiper');
+       var thisImage = $(el).find('.scale-wrap');
+       if (thisWiper.length !== 0) {
+         // TweenMax.to(thisImage, 1.4, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
+         // TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
+         TweenMax.to(thisWiper, 1.3, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
+         TweenMax.to(thisImage, 1.7, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
+       }
+       if ($(el).hasClass("vi-1")) {
+         videoOne[0].play();
+       }
+     }
+  });
+
+  ScrollOut({
+    targets: '.g-wrap',
+    threshold: 0.2,
+    onShown: function(el) {
+    if ($(el).hasClass("dk")) {
+      krkLoop.play();
+      dkFlicker.play();
+      dkScreen.play();
+      console.log("dk >");
+    }
+     if($(el).hasClass("bb8")) {
+       bbEight.timeScale(1.3).play();
+       blobOne.play();
+       console.log("bb8 >");
+     }
+     else if($(el).hasClass("tf")) {
+       triggerFinger.play();
+       blobTwo.play();
+       console.log("tf >");
+     }
+     else if($(el).hasClass("lamp")) {
+       lamp.play();
+       blobThree.play();
+       console.log("lamp >");
+     }
+     else if($(el).hasClass("bwave")) {
+       blobOne.play();
+       bearTwinkle.play();
+       bearWave.play();
+       console.log("bwave >");
+     }
+    },
+    onHidden: function(el) {
+      if ($(el).hasClass("dk")) {
+        krkLoop.pause();
+        dkFlicker.pause();
+        dkScreen.pause();
+        console.log("dk <");
+      }
+      else if($(el).hasClass("bb8")) {
+        bbEight.pause();
+        blobOne.pause();
+        console.log("bb8 <");
+      }
+      else if($(el).hasClass("tf")) {
+        triggerFinger.pause();
+        blobTwo.pause();
+        console.log("tf <");
+      }
+      else if($(el).hasClass("lamp")) {
+        lamp.pause();
+        blobThree.pause();
+        console.log("lamp <");
+      }
+      else if($(el).hasClass("bwave")) {
+        blobOne.pause();
+        bearTwinkle.pause();
+        bearWave.pause();
+        console.log("bwave <");
+      }
+    }
+  });
+
 
     // window.addEventListener('scroll', _.throttle(onScroll, 350, { leading: true, trailing: true}));
     // window.addEventListener('scroll', _.debounce(onScroll, 200, { leading: true, trailing: true}));
 
-    $(window).on('scroll', _.throttle(onScroll, 150, { leading: true, trailing: true}));
+    $(window).on('scroll', _.throttle(onScroll, 350, { leading: true, trailing: true}));
 
 
 
