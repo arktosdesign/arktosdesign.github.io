@@ -148,7 +148,7 @@ var topMenu = $(".top-menu");
         }
       });
       $("a").click(function(){
-        TweenMax.to(topMenu, 0.3, {boxShadow: '0px 1px 8px rgba(0,0,0,0)', ease:Power2.easeOut});
+        TweenMax.to(topMenu, 0.2, {boxShadow: '0px 1px 8px rgba(0,0,0,0)', ease:Power2.easeOut});
       });
       $(window).bind('hashchange', function () {
         if (location.hash == null || location.hash == "") {
@@ -238,33 +238,33 @@ var scrollCirc = $(".scroll-circ"),
     scrollDown.play();
 
 
-var ease = CustomEase.create("custom", "M0,0,C0.2,0,0.354,0.276,0.507,0.512,0.653,0.737,0.798,1,1,1");
+
 var blobOnePath = $(".blob-one"),
     blobOne = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: true, paused: true});
     blobOne
-    .to(blobOnePath, 4.5, { attr:{d: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}, ease: ease})
-    .to(blobOnePath, 4.5, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: ease})
-    .to(blobOnePath, 4.5, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: ease})
-    .to(blobOnePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease})
-    .to(blobOnePath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease});
+    .to(blobOnePath, 3.8, { attr:{d: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}, ease: Power1.easeInOut})
+    .to(blobOnePath, 3.8, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: Power1.easeInOut})
+    .to(blobOnePath, 3.8, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: Power1.easeInOut})
+    .to(blobOnePath, 3.8, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: Power1.easeInOut})
+    .to(blobOnePath, 3.8, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: Power1.easeInOut});
 
 var blobTwoPath = $(".blob-two"),
     blobTwo = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: true, paused: true});
     blobTwo
-    .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: ease})
-    .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}, ease: ease})
-    .to(blobTwoPath, 4.5, { attr:{d: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'}, ease: ease})
-    .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: ease})
-    .to(blobTwoPath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease});
+    .to(blobTwoPath, 3.8, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: Power1.easeInOut})
+    .to(blobTwoPath, 3.8, { attr:{d: 'M374.5,134c0,61-96.7,91-200.5,91S2.5,145.5,2.5,104C2.5,54,102.2,4,206,4S374.5,73,374.5,134z'}, ease: Power1.easeInOut})
+    .to(blobTwoPath, 3.8, { attr:{d: 'M372,85c0,61-89.2,136-193,136S0,152.5,0,111C0,61,75.2,0,179,0S372,24,372,85z'}, ease: Power1.easeInOut})
+    .to(blobTwoPath, 3.8, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: Power1.easeInOut})
+    .to(blobTwoPath, 3.8, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: Power1.easeInOut});
 
 var blobThreePath = $(".blob-three"),
     blobThree = new TimelineMax({repeat: -1, repeatDelay: 0, yoyo: true, paused: true});
     blobThree
-    .to(blobThreePath, 4.5, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: ease})
-    .to(blobThreePath, 4.5, { attr:{d: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'}, ease: ease})
-    .to(blobThreePath, 4.5, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: ease})
-    .to(blobThreePath, 4.5, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: ease})
-    .to(blobThreePath, 4.5, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: ease});
+    .to(blobThreePath, 3.8, { attr:{d: 'M374.5,104c0,61-131.7,121-235.5,121S2.5,133.5,2.5,92C2.5,42,80.2,4,184,4S374.5,43,374.5,104z'}, ease: Power1.easeInOut})
+    .to(blobThreePath, 3.8, { attr:{d: 'M374.5,93c0,61-136.7,132-240.5,132S2.5,168.5,2.5,127C2.5,77,94.2,4,198,4S374.5,32,374.5,93z'}, ease: Power1.easeInOut})
+    .to(blobThreePath, 3.8, { attr:{d: 'M374.5,108c0,61-104.7,117-208.5,117S2.5,146.5,2.5,105C2.5,55,121.2,4,225,4S374.5,47,374.5,108z'}, ease: Power1.easeInOut})
+    .to(blobThreePath, 3.8, { attr:{d: 'M374.5,121c0,61-115.7,104-219.5,104S2.5,138.5,2.5,97C2.5,47,50.2,4,154,4S374.5,60,374.5,121z'}, ease: Power1.easeInOut})
+    .to(blobThreePath, 3.8, { attr:{d: 'M374.5,124c0,61-74.7,101-178.5,101S2.5,131.5,2.5,90C2.5,40,84.2,4,188,4S374.5,63,374.5,124z'}, ease: Power1.easeInOut});
 
 
 var dkScreenEle = $(".screen-elements"),
@@ -456,33 +456,52 @@ var bb8Head = $(".bb8-head"),
       }
   });
 
+  var workHero = $('.work-ind-hero');
+  TweenMax.set(workHero, {autoAlpha: 0, y: '5%'});
 
   var myLazyLoad = new LazyLoad({
       elements_selector: ".lazy",
-      threshold: 600,
+      threshold: 300,
       callback_enter: function(el) {
         console.log('loadedimg');
+        if($("div").hasClass("work-ind-hero")) {
+          TweenMax.to(workHero, 0.77, {autoAlpha: 1, delay: 0.5, ease:Power3.easeOut, y: '0%'});
+        }
       }
   });
 
 
-  // var previousScroll = 0,
-  //     menuOffset = 60,
-  //     detachPoint = 1080,
-  //     hideShowOffset = 6;
+  var headroomMenu = document.querySelector(".top-menu");
+
+  var headroom  = new Headroom(headroomMenu, {
+    "offset": 220,
+    "tolerance": {
+      up: 0,
+      down: 0
+    },
+    "classes": {
+      "initial": "topmenu--fixed",
+      "pinned": "slideDown",
+      "unpinned": "slideUp",
+      "top": "top",
+      "notTop" : "not-top",
+    }
+  });
+
+  headroom.init();
 
   function onScroll() {
-    console.log("scrolling");
-    var pastNav = 1,
+    // console.log("scrolling");
+    var pastNav = 220,
         scrollDownEle = $(".scroll-down"),
         sideCtas = $(".left-cta, .right-cta");
     if ($(window).scrollTop() > pastNav) {
         TweenMax.to(scrollDownEle, 0.18, {autoAlpha: 0, ease:Power0.easeIn});
-        TweenMax.to(topMenu, 0.3, {boxShadow: '0px 1px 8px rgba(0,0,0,0.16)', ease:Power2.easeOut});
+        TweenMax.to(topMenu, 0.2, {boxShadow: '0px 1px 8px rgba(0,0,0,0.16)', ease:Power2.easeOut});
     }
     else {
         TweenMax.to(scrollDownEle, .2, {autoAlpha: 1, ease:Power0.easeOut});
-        TweenMax.to(topMenu, 0.3, {boxShadow: '0px 1px 8px rgba(0,0,0,0)', ease:Power2.easeOut});
+        TweenMax.to(topMenu, 0.2, {boxShadow: '0px 1px 8px rgba(0,0,0,0)', ease:Power2.easeOut});
     }
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 620) {
       TweenMax.to(sideCtas, 0.2, {autoAlpha: 0, ease:Power0.easeOut});
@@ -490,31 +509,9 @@ var bb8Head = $(".bb8-head"),
     else {
       TweenMax.to(sideCtas, 0.2, {autoAlpha: 1, ease:Power0.easeOut});
     }
-    // if (!topMenu.hasClass('expanded')) {
-    //   var currentScroll = $(this).scrollTop(),
-    //       scrollDifference = Math.abs(currentScroll - previousScroll);
-    //   if (currentScroll > menuOffset) {
-    //     if (currentScroll > detachPoint) {
-    //       if (!topMenu.hasClass('detached'))
-    //         topMenu.addClass('detached');
-    //     }
-    //     if (scrollDifference >= hideShowOffset) {
-    //       if (currentScroll > previousScroll) {
-    //         if (!topMenu.hasClass('invisible'))
-    //           topMenu.addClass('invisible');
-    //       } else {
-    //         if (topMenu.hasClass('invisible'))
-    //           topMenu.removeClass('invisible');
-    //       }
-    //     }
-    //   } else {
-    //     if (currentScroll <= 0){
-    //       topMenu.removeClass().addClass("top-menu");
-    //     }
-    //   }
-    //   previousScroll = currentScroll;
-    // }
-
+    if (window.pageYOffset === 0) {
+      headroomMenu.classList.remove('slideDown')
+    }
   }
 
 
@@ -530,7 +527,7 @@ var bb8Head = $(".bb8-head"),
 
   ScrollOut({
      targets: '.ev',
-     threshold: 0.5,
+     threshold: 0.25,
      once: true,
      cssProps: {
        viewportY: true,
@@ -553,7 +550,7 @@ var bb8Head = $(".bb8-head"),
 
   ScrollOut({
     targets: '.g-wrap',
-    threshold: 0.2,
+    threshold: 0.25,
     onShown: function(el) {
     if ($(el).hasClass("dk")) {
       krkLoop.play();
@@ -613,6 +610,11 @@ var bb8Head = $(".bb8-head"),
       }
     }
   });
+
+
+
+
+
     // window.addEventListener('scroll', _.throttle(onScroll, 350, { leading: true, trailing: true}));
     // window.addEventListener('scroll', _.debounce(onScroll, 200, { leading: true, trailing: true}));
     $(window).on('scroll', _.throttle(onScroll, 350, { leading: true, trailing: true}));
