@@ -45,6 +45,8 @@ $(function(){
         if($("div").hasClass("work-ind-hero")) {
           TweenMax.to(workHero, 0.77, {autoAlpha: 1, delay: 0.5, ease:Power3.easeOut, y: '0%'});
         }
+
+
       }
   });
 
@@ -115,8 +117,6 @@ $(function(){
        var thisWiper = $(el).find('.wiper');
        var thisImage = $(el).find('.scale-wrap');
        if (thisWiper.length !== 0) {
-         // TweenMax.to(thisImage, 1.4, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
-         // TweenMax.to(thisWiper, 1, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
          TweenMax.to(thisWiper, 1.3, {scaleX: 0, transformOrigin: '100% 0%', ease: Expo.easeInOut});
          TweenMax.to(thisImage, 1.7, {x: '-50%', autoAlpha: 1, ease: Expo.easeOut});
        }

@@ -2639,12 +2639,17 @@ span.btt {
     padding-bottom: 0;
   }
 
-  // .top-menu, .top-menu.invisible, .top-menu.detached, .top-menu.expanded {
-  //   position: absolute !important;
-  //   transform: translateY(0px) !important;
-  //   box-shadow: 0px 1px 6px rgba(0,0,0,0) !important;
-  // }
-
+  .topmenu--fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: none !important;
+    transform: translateY(0) !important;
+    &.top, &.not-top, &.slideDown.not-top, &.slideUp.not-top, &.slideUp.top {
+      transition: none;
+      transform: translateY(0);
+    }
+  }
 
 
   .top-menu .container {
