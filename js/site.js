@@ -430,6 +430,9 @@ var blobThreePath = $(".blob-three"),
 
 var dkScreenEle = $(".screen-elements"),
     dkScreenPath = $(".screen-elements path"),
+    dkEars = $(".dk-ears"),
+    dkEarOne = $(".ear-1"),
+    dkEarTwo = $(".ear-2"),
     dkFlicker = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0}),
     dkScreen = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 2});
 
@@ -437,9 +440,16 @@ var dkScreenEle = $(".screen-elements"),
     .to(dkScreenEle, 0.06, {opacity: 0.8, ease:"linear"});
 
     TweenMax.set(dkScreenPath, {autoAlpha: 0, transformOrigin: '0% 50%'});
+    TweenMax.set(dkEarOne, {rotation: '0', transformOrigin: '30% 74%'});
+    TweenMax.set(dkEarTwo, {rotation: '0', transformOrigin: '70% 74%'});
 
     dkScreen
-    .staggerTo(dkScreenPath, 0.9, {autoAlpha: 1, ease:Power1.easeIn}, 0.56);
+    .staggerTo(dkScreenPath, 0.9, {autoAlpha: 1, ease:Power1.easeIn}, 0.56)
+    .staggerTo(dkEars, 0.3, {rotation: '10', ease:Power1.easeIn}, 0.1, "-=6")
+    .staggerTo(dkEars, 0.3, {rotation: '-10', ease:Power1.easeIn}, 0.1, "-=6.3")
+    .staggerTo(dkEars, 0.3, {rotation: '10', ease:Power1.easeIn}, 0.1, "-=6.6")
+    .staggerTo(dkEars, 0.3, {rotation: '-10', ease:Power1.easeIn}, 0.1, "-=6.9")
+    .staggerTo(dkEars, 0.3, {rotation: '0', ease:Power1.easeIn}, 0.1, "-=7.2");
 
 
 var krk = $(".dk26"),
