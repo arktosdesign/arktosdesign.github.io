@@ -1045,7 +1045,7 @@ header {margin-top: 0px;}
     background-size: 100% auto;
     background-position: center top;
     background-repeat: no-repeat;
-    visibility: hidden;
+    // visibility: hidden;
   }
   .work-ind-inner {
     position: absolute;
@@ -1073,7 +1073,7 @@ header {margin-top: 0px;}
     }
     .dt {
       height: 980px;
-      // background: url('../img/dt/work-ind.jpg');
+      background: url('../img/dt/work-ind.jpg');
       background-position: center top;
     }
     .tc {

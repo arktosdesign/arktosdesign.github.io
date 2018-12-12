@@ -34,20 +34,18 @@ $(function(){
 
   Splitting();
 
-  var workHero = $('.work-ind-hero');
-  TweenMax.set(workHero, {autoAlpha: 0, y: '5%'});
+  // var workHero = $('.work-ind-hero');
+  // TweenMax.set(workHero, {autoAlpha: 0, y: '5%'});
 
   var myLazyLoad = new LazyLoad({
       elements_selector: ".lazy",
-      threshold: 300,
-      callback_enter: function(el) {
-        console.log('loadedimg');
-        if($("div").hasClass("work-ind-hero")) {
-          TweenMax.to(workHero, 0.77, {autoAlpha: 1, delay: 0.5, ease:Power3.easeOut, y: '0%'});
-        }
-
-
-      }
+      threshold: 300
+      // callback_enter: function(el) {
+      //   console.log('loadedimg');
+      //   if($("div").hasClass("work-ind-hero")) {
+      //     TweenMax.to(workHero, 0.77, {autoAlpha: 1, delay: 0.5, ease:Power3.easeOut, y: '0%'});
+      //
+      // }
   });
 
 
