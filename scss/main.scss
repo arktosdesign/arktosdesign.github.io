@@ -936,7 +936,8 @@ main:after {
   height: 105px;
   // backface-visibility: hidden;
   background: url('../img/bg-mission-top.svg');
-  background-size: auto 105px;
+  // background-size: auto 105px;
+  background-size: 519px 105px;
   // background-position: center center;
   background-position: -94px center;
   background-repeat: repeat-x;
@@ -1392,7 +1393,7 @@ section.mission {
     height: 105px;
     backface-visibility: hidden;
     pointer-events: none;
-    background-size: auto 105px;
+    background-size: 519px 105px;
     background-position: -94px center;
     // background-repeat: no-repeat;
     background-repeat: repeat-x;
