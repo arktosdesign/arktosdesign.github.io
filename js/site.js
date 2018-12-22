@@ -131,6 +131,7 @@ $(function(){
     if ($(el).hasClass("dk")) {
       krkLoop.play();
       dkFlicker.play();
+      dkEarW.play();
       dkScreen.play();
       console.log("dk >");
     }
@@ -160,6 +161,7 @@ $(function(){
       if ($(el).hasClass("dk")) {
         krkLoop.pause();
         dkFlicker.pause();
+        dkEarW.pause();
         dkScreen.pause();
         console.log("dk <");
       }
@@ -432,6 +434,7 @@ var dkScreenEle = $(".screen-elements"),
     dkEarOne = $(".ear-1"),
     dkEarTwo = $(".ear-2"),
     dkFlicker = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0}),
+    dkEarW = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
     dkScreen = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 2});
 
     dkFlicker
@@ -442,12 +445,12 @@ var dkScreenEle = $(".screen-elements"),
     TweenMax.set(dkEarTwo, {rotation: '0', transformOrigin: '70% 74%'});
 
     dkScreen
-    .staggerTo(dkScreenPath, 0.9, {autoAlpha: 1, ease:Power1.easeIn}, 0.56)
-    .staggerTo(dkEars, 0.3, {rotation: '10', ease:Power1.easeIn}, 0.1, "-=6")
-    .staggerTo(dkEars, 0.3, {rotation: '-10', ease:Power1.easeIn}, 0.1, "-=6.3")
-    .staggerTo(dkEars, 0.3, {rotation: '10', ease:Power1.easeIn}, 0.1, "-=6.6")
-    .staggerTo(dkEars, 0.3, {rotation: '-10', ease:Power1.easeIn}, 0.1, "-=6.9")
-    .staggerTo(dkEars, 0.3, {rotation: '0', ease:Power1.easeIn}, 0.1, "-=7.2");
+    .staggerTo(dkScreenPath, 0.9, {autoAlpha: 1, ease:Power1.easeIn}, 0.56);
+
+    dkEarW
+    .staggerTo(dkEars, 0.45, {rotation: '22', ease:Power1.easeIn}, 0.1)
+    .staggerTo(dkEars, 0.45, {rotation: '-22', ease:Power1.easeIn}, 0.1)
+    .staggerTo(dkEars, 0.45, {rotation: '0', ease:Power1.easeIn}, 0.1);
 
 
 var krk = $(".dk26"),
@@ -594,6 +597,7 @@ var bb8Head = $(".bb8-head"),
       krkLoop.play();
       dkFlicker.play();
       dkScreen.play();
+      dkEarW.play();
     }
     else if($("main").hasClass("about")) {
       bbEight.timeScale(1.3).play();
