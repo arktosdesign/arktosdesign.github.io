@@ -13,8 +13,6 @@ html, body {
 body.no-p {
   .logo, nav, .menu-toggle {pointer-events: none !important; cursor: default !important;}
 }
-
-
 *, *:before, *:after {
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
