@@ -41,12 +41,33 @@ $(function(){
       elements_selector: ".lazy",
       threshold: 300
       // callback_enter: function(el) {
-      //   console.log('loadedimg');
+      //   //console.log('loadedimg');
       //   if($("div").hasClass("work-ind-hero")) {
       //     TweenMax.to(workHero, 0.77, {autoAlpha: 1, delay: 0.5, ease:Power3.easeOut, y: '0%'});
       //
       // }
   });
+
+
+  var headroomMenu = document.querySelector(".top-menu");
+
+  var headroom  = new Headroom(headroomMenu, {
+    "offset": 220,
+    "tolerance": {
+      up: 0,
+      down: 0
+    },
+    "classes": {
+      "initial": "topmenu--fixed",
+      "pinned": "slideDown",
+      "unpinned": "slideUp",
+      "top": "top",
+      "notTop" : "not-top",
+    }
+  });
+
+
+  headroom.init();
 
   var videoOne = $("#video-1"),
       scaleWrap = $(".scale-wrap"),
@@ -84,28 +105,28 @@ $(function(){
       dkFlicker.play();
       dkEarW.play();
       dkScreen.play();
-      console.log("dk >");
+      //console.log("dk >");
     }
      if($(el).hasClass("bb8")) {
        bbEight.timeScale(1.3).play();
        blobOne.play();
-       console.log("bb8 >");
+       //console.log("bb8 >");
      }
      else if($(el).hasClass("tf")) {
        triggerFinger.play();
        blobTwo.play();
-       console.log("tf >");
+       //console.log("tf >");
      }
      else if($(el).hasClass("lamp")) {
        lamp.play();
        blobThree.play();
-       console.log("lamp >");
+       //console.log("lamp >");
      }
      else if($(el).hasClass("bwave")) {
        blobOne.play();
        bearTwinkle.play();
        bearWave.play();
-       console.log("bwave >");
+       //console.log("bwave >");
      }
     },
     onHidden: function(el) {
@@ -114,35 +135,31 @@ $(function(){
         dkFlicker.pause();
         dkEarW.pause();
         dkScreen.pause();
-        console.log("dk <");
+        //console.log("dk <");
       }
       else if($(el).hasClass("bb8")) {
         bbEight.pause();
         blobOne.pause();
-        console.log("bb8 <");
+        //console.log("bb8 <");
       }
       else if($(el).hasClass("tf")) {
         triggerFinger.pause();
         blobTwo.pause();
-        console.log("tf <");
+        //console.log("tf <");
       }
       else if($(el).hasClass("lamp")) {
         lamp.pause();
         blobThree.pause();
-        console.log("lamp <");
+        //console.log("lamp <");
       }
       else if($(el).hasClass("bwave")) {
         blobOne.pause();
         bearTwinkle.pause();
         bearWave.pause();
-        console.log("bwave <");
+        //console.log("bwave <");
       }
     }
   });
-
-
-
-
 
 
 $(function() {
@@ -387,7 +404,6 @@ var dkScreenEle = $(".screen-elements"),
     dkFlicker = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0}),
     dkEarW = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 0});
     dkScreen = new TimelineMax({paused: true, yoyo: true, repeat: -1, repeatDelay: 2});
-
     dkFlicker
     .to(dkScreenEle, 0.06, {opacity: 0.8, ease:"linear"});
 
@@ -571,31 +587,17 @@ var bb8Head = $(".bb8-head"),
     closeMenu();
   }
 
-  $(function(){
-      if($("div").hasClass("rellax")) {
-        var rellax = new Rellax('.rellax');
-      }
-  });
 
-  var headroomMenu = document.querySelector(".top-menu");
 
-  var headroom  = new Headroom(headroomMenu, {
-    "offset": 220,
-    "tolerance": {
-      up: 0,
-      down: 0
-    },
-    "classes": {
-      "initial": "topmenu--fixed",
-      "pinned": "slideDown",
-      "unpinned": "slideUp",
-      "top": "top",
-      "notTop" : "not-top",
+  function checkRellax() {
+    if($("div").hasClass("rellax")) {
+      var rellax = new Rellax('.rellax');
     }
-  });
+  }
+
 
   function onScroll() {
-    console.log("scrolling");
+    //console.log("scrolling");
     var pastNav = 220,
         scrollDownEle = $(".scroll-down"),
         sideCtas = $(".left-cta, .right-cta");
@@ -619,8 +621,8 @@ var bb8Head = $(".bb8-head"),
   }
 
     landingAnims();
+    checkRellax();
     menuReset();
-    headroom.init();
 
     window.addEventListener('scroll', _.throttle(onScroll, 300, { leading: true, trailing: true}));
 };
