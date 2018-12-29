@@ -39,7 +39,7 @@ $(function(){
 
   var myLazyLoad = new LazyLoad({
       elements_selector: ".lazy",
-      threshold: 300
+      // threshold: 300
       // callback_enter: function(el) {
       //   //console.log('loadedimg');
       //   if($("div").hasClass("work-ind-hero")) {
@@ -47,27 +47,6 @@ $(function(){
       //
       // }
   });
-
-
-  var headroomMenu = document.querySelector(".top-menu");
-
-  var headroom  = new Headroom(headroomMenu, {
-    "offset": 220,
-    "tolerance": {
-      up: 0,
-      down: 0
-    },
-    "classes": {
-      "initial": "topmenu--fixed",
-      "pinned": "slideDown",
-      "unpinned": "slideUp",
-      "top": "top",
-      "notTop" : "not-top",
-    }
-  });
-
-
-  headroom.init();
 
   var videoOne = $("#video-1"),
       scaleWrap = $(".scale-wrap"),
@@ -161,6 +140,22 @@ $(function(){
     }
   });
 
+  var headroomMenu = document.querySelector(".top-menu");
+  var headroom  = new Headroom(headroomMenu, {
+    "offset": 220,
+    "tolerance": {
+      up: 0,
+      down: 0
+    },
+    "classes": {
+      "initial": "topmenu--fixed",
+      "pinned": "slideDown",
+      "unpinned": "slideUp",
+      "top": "top",
+      "notTop" : "not-top",
+    }
+  });
+  headroom.init();
 
 $(function() {
   'use strict';
@@ -186,7 +181,6 @@ $(function() {
   });
 });
 
-var topMenu = $(".top-menu");
 
 
     $("#contactform").validate({
@@ -240,7 +234,7 @@ var topMenu = $(".top-menu");
     });
 
 
-
+var topMenu = $(".top-menu");
 
     //menu
       var menuToggle = $(".menu-toggle");

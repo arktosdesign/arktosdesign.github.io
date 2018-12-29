@@ -98,6 +98,7 @@ a, a:link, a:hover, a:visited {
     animation-duration: 430ms;
     animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
     animation-fill-mode: both;
+    animation-delay: 100ms;
   }
   &.is-exiting {
     cursor: progress;
@@ -106,6 +107,7 @@ a, a:link, a:hover, a:visited {
         animation-duration: 460ms;
         animation-direction: alternate-reverse;
         animation-timing-function: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+        animation-delay: 0ms;
       }
       .loader {
         visibility: visible;
@@ -168,15 +170,29 @@ a, a:link, a:hover, a:visited {
   .button-holder {transition-delay: 650ms;}
   .delay {transition-delay: 1200ms;}
 
-  &[data-scroll="out"] h3, &[data-scroll="out"] h4, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder {
+  &[data-scroll="out"] h3, &[data-scroll="out"] h4, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder, &[data-scroll="out"] .ks_item {
     opacity: 0;
     transform: translateY(25px);
   }
   &[data-scroll="in"] h4 {
-      // will-change: transform, opacity;
-      animation: fadeInUp 480ms ease-out both;
-      animation-delay: 100ms;
+    animation: fadeInUp 480ms ease-out both;
+    animation-delay: 100ms;
   }
+  &[data-scroll="in"] .ks_item {
+    animation: fadeInUp 480ms ease-out both;
+    animation-delay: 100ms;
+    h3 {animation: none !important; opacity: 1 !important; transform: translateY(0px) !important;}
+  }
+  &[data-scroll="in"] .ks_webdev {
+    animation-delay: 200ms;
+  }
+  &[data-scroll="in"] .ks_design {
+    animation-delay: 450ms;
+  }
+  &[data-scroll="in"] .ks_marketing {
+    animation-delay: 700ms;
+  }
+
 }
 
 .btn-1 {
@@ -1604,20 +1620,6 @@ footer {
 
       }
   }
-  .sine-gap {
-    display: block;
-    margin: 32px 0 0 0;
-    width: 100%;
-    max-width: 280px;
-    height: 10px;
-    path {
-      fill: none;
-      stroke: #F1F1F1;
-      stroke-width: 2;
-      stroke-miterlimit: 10;
-    }
-  }
-
   span.copyright {
     display: block;
     margin: 54px 0 0 0;
@@ -1975,6 +1977,20 @@ a.sl:hover {
 .uiu li {opacity: 1;}
 
 
+.sine-gap {
+  display: block;
+  margin: 32px 0 0 0;
+  width: 100%;
+  max-width: 280px;
+  height: 10px;
+  path {
+    fill: none;
+    stroke: #F1F1F1;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+  }
+}
+
 
 .img-container {
   position: relative;
@@ -2054,7 +2070,17 @@ section.featured-work {
    margin-top: -112px;
 }
 
-
+.key-skills {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  overflow: visible;
+  .container {
+    height: auto;
+    max-height: auto;
+    min-height: auto;
+  }
+}
 .work-reel {
   position: relative;
   width: 100%;
@@ -2473,42 +2499,41 @@ video::-webkit-media-controls-overlay-play-button {display: none;}
 
 .ks {
   position: relative;
-  margin: 88px auto 0 auto;
+  margin: 92px auto 0 auto;
   width: 100%;
   max-width: 100%;
+  .sine-gap {
+    margin: 0 auto 28px auto;
+    max-width: 260px;
+    height: 8px;
+    opacity: 0.75;
+    path {stroke-width: 3px;}
+  }
   .c-4 {
-    padding: 24px 12px;
-    border-radius: 13px;
-    background: #161617;
-
-    background: rgba(235,92,89,1);
-    background: -moz-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(235,92,89,1)), color-stop(100%, rgba(245,169,27,1)));
-    background: -webkit-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-    background: linear-gradient(45deg, rgba(235,92,89,1) 0%, rgba(245,169,27,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb5c59', endColorstr='#f5a91b', GradientType=1 );
-
-
+    padding: 24px 12px 48px 12px;
+    // border-radius: 13px;
+    border-radius: 3px;
     box-shadow: 0px 3px 16px rgba(0,0,0,0.16);
-    min-height: 300px;
+    min-height: 444px;
     h3 {
-      margin: 48px auto 24px auto;
+      margin: 54px auto 16px auto;
       color: #FFFFFF;
-      font-size: 1.68em;
+      font-size: 1.88em;
       font-weight: 600;
     }
     ul {
       list-style-type: none;
       list-style: none;
       display: block;
-      margin: 24px auto 0 auto;
+      margin: 22px auto 0 auto;
       text-align: center;
       li {
         display: block;
-        margin: 12px auto 0 auto;
+        margin: 10px auto 0 auto;
+        line-height: 1.4;
         color: #FFFFFF;
+        font-size: 1.12em;
+        letter-spacing: -0.028em;
         &:first-child {margin-top: 0}
         &:last-child {margin-bottom: 0}
       }
@@ -2516,14 +2541,14 @@ video::-webkit-media-controls-overlay-play-button {display: none;}
   }
   .ks--icon {
     position: absolute;
-    top: -46px;
+    top: -49px;
     left: 50%;
     margin: 0 auto;
     background: #FFFFFF;
     transform: translate(-50%, 0%);
-    width: 92px;
-    height: 92px;
-    border-radius: 98px;
+    width: 98px;
+    height: 98px;
+    border-radius: 84px;
     box-shadow: 0px 0px 12px rgba(0,0,0,0.22);
     img {
       position: absolute;
@@ -2532,11 +2557,44 @@ video::-webkit-media-controls-overlay-play-button {display: none;}
       transform: translate(-50%, -50%);
       width: auto;
       height: auto;
-      max-width: 56px;
-      max-height: 56px;
+      max-width: 60px;
+      max-height: 60px;
     }
   }
 }
+
+.ks_webdev {
+  background: rgba(101,43,115,1);
+  background: -moz-linear-gradient(45deg, rgba(101,43,115,1) 0%, rgba(198,66,110,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(101,43,115,1)), color-stop(100%, rgba(198,66,110,1)));
+  background: -webkit-linear-gradient(45deg, rgba(101,43,115,1) 0%, rgba(198,66,110,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(101,43,115,1) 0%, rgba(198,66,110,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(101,43,115,1) 0%, rgba(198,66,110,1) 100%);
+  background: linear-gradient(45deg, rgba(101,43,115,1) 0%, rgba(198,66,110,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#652b73', endColorstr='#c6426e', GradientType=1 );
+}
+.ks_design {
+  background: rgba(255,94,97,1);
+  background: -moz-linear-gradient(45deg, rgba(255,94,97,1) 0%, rgba(255,153,102,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,94,97,1)), color-stop(100%, rgba(255,153,102,1)));
+  background: -webkit-linear-gradient(45deg, rgba(255,94,97,1) 0%, rgba(255,153,102,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(255,94,97,1) 0%, rgba(255,153,102,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(255,94,97,1) 0%, rgba(255,153,102,1) 100%);
+  background: linear-gradient(45deg, rgba(255,94,97,1) 0%, rgba(255,153,102,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e61', endColorstr='#ff9966', GradientType=1 );
+}
+.ks_marketing {
+  background: rgba(52,147,230,1);
+  background: -moz-linear-gradient(45deg, rgba(52,147,230,1) 0%, rgba(236,110,173,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(52,147,230,1)), color-stop(100%, rgba(236,110,173,1)));
+  background: -webkit-linear-gradient(45deg, rgba(52,147,230,1) 0%, rgba(236,110,173,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(52,147,230,1) 0%, rgba(236,110,173,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(52,147,230,1) 0%, rgba(236,110,173,1) 100%);
+  background: linear-gradient(45deg, rgba(52,147,230,1) 0%, rgba(236,110,173,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3493e6', endColorstr='#ec6ead', GradientType=1 );
+}
+
+
 
 
 .wiper {
@@ -2644,6 +2702,11 @@ span.btt {
     &[data-scroll="out"] h3, &[data-scroll="out"] p, &[data-scroll="out"] .button-holder {
       opacity: 1;
       transform: translateY(0px);
+    }
+    &[data-scroll="out"] .ks_item, &[data-scroll="in"] .ks_item {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: translateY(0px) !important;
     }
   }
   .fd, .fp {
@@ -3010,6 +3073,20 @@ section.project-thumbs {
   .next-thumb {
     padding-left: 0vw;
     text-align: center;
+  }
+}
+
+.ks {
+  margin: 56px auto 0 auto;
+  .c-4 {
+    margin: 36px auto;
+    min-height: auto;
+    h3 {font-size: 1.48em;}
+    ul {
+      li {
+        font-size: 0.92em;
+      }
+    }
   }
 }
 
