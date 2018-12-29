@@ -1282,14 +1282,14 @@ section.work-ind-about {
   max-height: auto;
   color: #FFFFFF; }
   section.work-ind-about h2 {
-    margin-bottom: 0px;
+    margin-bottom: 32px;
     color: #FFFFFF;
     font-size: 1.78em;
     max-width: 300px; }
   section.work-ind-about h4 {
     font-size: 1.108em;
     letter-spacing: -0.022em;
-    margin: 18px 0;
+    margin: 18px 0 9px 0;
     color: #FFFFFF; }
   section.work-ind-about a.link {
     margin: 12px 0 0 0;
@@ -1310,11 +1310,18 @@ section.work-ind-about {
       vertical-align: middle;
       font-size: 0.92em;
       margin-left: 12px; }
+  section.work-ind-about .sine-gap {
+    margin: 24px 0;
+    max-width: 360px;
+    height: 12px; }
+    section.work-ind-about .sine-gap path {
+      stroke: #F5A91B; }
   section.work-ind-about p {
-    font-size: 0.86em;
-    margin: 0 0;
+    font-size: 0.96em;
+    line-height: 1.6;
+    margin: 12px 0 0 0;
     color: #FFFFFF;
-    max-width: 340px; }
+    max-width: 360px; }
   section.work-ind-about ul {
     list-style: none;
     list-style-type: none;
@@ -1325,10 +1332,10 @@ section.work-ind-about {
       line-height: 1.7; }
       section.work-ind-about ul li:before {
         content: '';
-        margin-right: 12px;
+        margin-right: 8px;
         height: 2px;
         background-color: #F5A91B;
-        width: 10px;
+        width: 8px;
         -webkit-transform: translateY(-1px);
         -ms-transform: translateY(-1px);
         transform: translateY(-1px);

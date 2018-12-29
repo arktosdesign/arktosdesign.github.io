@@ -1114,7 +1114,7 @@ section.work-ind-about {
   max-height: auto;
   color: #FFFFFF;
   h2 {
-    margin-bottom: 0px;
+    margin-bottom: 32px;
     color: #FFFFFF;
     font-size: 1.78em;
     max-width: 300px;
@@ -1122,7 +1122,7 @@ section.work-ind-about {
   h4 {
     font-size: 1.108em;
     letter-spacing: -0.022em;
-    margin: 18px 0;
+    margin: 18px 0 9px 0;
     color: #FFFFFF;
   }
   a.link {
@@ -1147,11 +1147,18 @@ section.work-ind-about {
       margin-left: 12px;
     }
   }
+  .sine-gap {
+    margin: 24px 0;
+    max-width: 360px;
+    height: 12px;
+    path {stroke: #F5A91B;}
+  }
   p {
-    font-size: 0.86em;
-    margin: 0 0;
+    font-size: 0.96em;
+    line-height: 1.6;
+    margin: 12px 0 0 0;
     color: #FFFFFF;
-    max-width: 340px;
+    max-width: 360px;
   }
   ul {
     list-style: none;
@@ -1163,10 +1170,10 @@ section.work-ind-about {
     line-height: 1.7;
     &:before {
       content: '';
-      margin-right: 12px;
+      margin-right: 8px;
       height: 2px;
       background-color: #F5A91B;
-      width: 10px;
+      width: 8px;
       transform: translateY(-1px);
       display: inline-block;
       vertical-align: middle;
