@@ -3341,6 +3341,10 @@ textarea:-webkit-autofill,
   display: block;
   height: 188px; }
 
+svg, path, rect, circle, polygon, ellipse {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
 a, a.button,
 a.a-button,
 .work-tile,
