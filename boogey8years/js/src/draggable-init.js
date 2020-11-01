@@ -181,7 +181,7 @@ $(document).ready(function(){
   }, '+=0.1') 
   .to($lightningRect, {
     yPercent: 200,
-    duration: 0.8,
+    duration: 1,
     ease: "power4.inOut"
   }, '-=0.04')
 
@@ -248,6 +248,8 @@ $(document).ready(function(){
     },
     ondrop: function (event) {
       lightningStrikeAnim.restart();
+      theChildArmsPickUp.delay(0.6).timeScale(1.15).restart(1);
+      // theChildArmsPickUp.delay(0.2).timeScale(1.15).restart();
       theChildBlinkAnim.restart()
       setTimeout(function(){
         theChildNormalFace();
@@ -330,6 +332,7 @@ $(document).ready(function(){
       gsap.to($heartSvgs, {autoAlpha: 0, ease: "power4.out", duration: 1})
       var draggableElement = event.relatedTarget
       var dropzoneElement = event.target
+      theChildArmsPickUp.delay(0.2).timeScale(1.1).restart(1);
       theChildNormalFace();      
       theChildBlinkAnim.restart();
       setTimeout(function(){
@@ -404,14 +407,30 @@ $(document).ready(function(){
     });
 
     var $startScreen = $(".start-screen");
+    var $startScreenRect = $("#heart--clippath");
     var $startBtn = $("#start-btn");
+    var startAnim = gsap.timeline({paused: true, repeat: 0})
+    startAnim
+    .to($startBtn, {      
+      autoAlpha: 0,
+      scale: 0.7,
+      transformOrigin: '50% 50%',
+      ease: "power3.out",
+      duration: 0.2
+    }, '+=0.3')
+    .to($startScreenRect, {
+      scale: 0,
+      ease: "power4.inOut",
+      transformOrigin: '50% 50%',
+      duration: 0.6,      
+    }, '+=0.4')
+    .to($startScreen, {
+      autoAlpha: 0,
+      duration: 0.05,
+      ease: "none"
+    }, '-=0.04')
     $startBtn.click(function(){
-      gsap.to($startScreen, {
-        yPercent: 150,
-        ease: "power3.inOut",
-        duration: 0.8,
-        delay: 0.4
-      })
+      startAnim.restart();
     });
 
 });
