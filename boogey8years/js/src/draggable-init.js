@@ -173,17 +173,29 @@ $(document).ready(function(){
   
 
   lightningStrikeAnim = gsap.timeline({paused: true, repeat: 0})
-  lightningStrikeAnim
+  lightningStrikeAnim  
   .to($heartShape, {
     autoAlpha: 0,
     duration: 0.08,
     ease: "power4.out"
   }, '+=0.1') 
+  .to($heartSvg, {
+    scale: 4,
+    transformOrigin: '65% 80%',
+    ease: "power3.out",
+    duration: 0.2
+  })
   .to($lightningRect, {
     yPercent: 200,
     duration: 1,
     ease: "power4.inOut"
   }, '-=0.04')
+  .to($heartSvg, {
+    scale: 1,
+    transformOrigin: '65% 80%',
+    ease: "power3.out",
+    duration: 0.2
+  })
 
   lightningStrikeAnim.eventCallback("onComplete", function() {
     var $heartZone = $(".heart");
@@ -235,15 +247,15 @@ $(document).ready(function(){
     },
     ondropdeactivate: function (event) {
       theChildBlinkAnim.restart();
-      gsap.to($heartSvgs, {scale: 1, ease: "power4.out", duration: 0.3})
-      gsap.to($heartColour1, {fill: '#ebb402', ease: "power2.in", duration: 0.1})
+      gsap.to($heartSvgs, {scale: 1, ease: "power4.out", duration: 0.3})      
+      gsap.to($heartColour1, {fill: '#ebb402', ease: "power2.out", duration: 0.2})
       theChildHeadAnim.pause();
       theChildBodyWobble.timeScale(1.1).restart();
       gsap.to($theChildHead, {rotation: 0, duration: 0.2, ease: "power2.out"})
       var draggableElement = event.relatedTarget
-      var dropzoneElement = event.target               
+      var dropzoneElement = event.target
       draggableElement.classList.remove('the-child--is-dragging')
-      dropzoneElement.classList.remove('dragging')      
+      dropzoneElement.classList.remove('dragging')
     },
     ondrop: function (event) {
       lightningStrikeAnim.restart();
