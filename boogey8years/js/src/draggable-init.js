@@ -204,18 +204,17 @@ $(document).ready(function(){
   interact('.js-dropzone').dropzone({
     accept: '#the-child',
     overlap: 0.05,
-    ondropactivate: function (event) {
-      gsap.to($heartSvgs, {scale: 1.35, ease: "power4.out", duration: 0.3})
-      gsap.to($heartColour1, {fill: '#ebb402', ease: "power2.out", duration: 0.2})
+    ondropactivate: function (event) {      
+      gsap.to($heartSvgs, {scale: 1.35, ease: "power4.out", duration: 0.3})      
       theChildHeadAnim.play();
       theChildBodyWobble.restart();
       theChildWobble.restart();
       event.relatedTarget.classList.add('the-child--is-dragging')
-      event.target.classList.add('dragging');
+      event.target.classList.add('dragging');      
     },
     ondragenter: function (event) {
-      gsap.to($heartSvgs, {scale: 1.7, ease: "power4.out", duration: 0.6})
-      gsap.to($heartColour1, {fill: '#D0527F', ease: "power2.out", duration: 0.4})
+      gsap.to($heartColour1, {fill: '#D0527F', ease: "power2.out", duration: 0.2})
+      gsap.to($heartSvgs, {scale: 1.7, ease: "power4.out", duration: 0.6})      
       theChildHappyFace();
       theChildBlinkAnim.restart();
       theChildArmsPickUp.restart();
@@ -227,7 +226,7 @@ $(document).ready(function(){
       draggableElement.classList.add('the-child--is-here')
     },
     ondragleave: function (event) {
-      gsap.to($heartColour1, {fill: '#ebb402', ease: "power2.out", duration: 0.2})
+      gsap.to($heartColour1, {fill: '#D0527F', ease: "power2.out", duration: 0.2})
       gsap.to($heartSvgs, {scale: 1.35, ease: "power4.out", duration: 0.3})
       theChildNormalFace();
       theChildBlinkAnim.restart();

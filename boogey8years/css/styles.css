@@ -175,6 +175,9 @@ h2 {
 .h2 {
   fill: rgba(255, 255, 255, 0.25); }
 
+.dragging .h0 {
+  fill: #D0527F !important; }
+
 #the-child {
   position: fixed;
   bottom: 5%;
