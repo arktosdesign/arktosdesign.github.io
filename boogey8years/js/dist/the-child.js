@@ -438,7 +438,7 @@
       scale: 0,
       ease: "power4.inOut",
       transformOrigin: '50% 50%',
-      duration: 0.6,      
+      duration: 1,      
     }, '+=0.4')
     .to($startScreen, {
       autoAlpha: 0,
