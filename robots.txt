@@ -2,5 +2,3 @@ User-Agent: *
 Disallow: 
 Allow: /
 Allow: /m
-
-Sitemap: https://soulinmind.design/sitemap.xml
