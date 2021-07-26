@@ -2,6 +2,7 @@ const dom = {
   shadow: document.querySelector('.grogu__shadow'),
   earLeft: document.querySelector('.grogu__ear-left'),
   earRight: document.querySelector('.grogu__ear-right'),
+  headBack: document.querySelector('.grogu__head-back'),
   head: document.querySelector('.grogu__head'),
   mouth: document.querySelector('.grogu__mouth'),
   eyesClosed: document.querySelector('.grogu__eyes-closed'),
@@ -90,7 +91,7 @@ function animateFace() {
   gsap.to(dom.shadow, {
     xPercent: (x / 30) * -1
   });
-  gsap.to([dom.earLeft, dom.earRight], {
+  gsap.to([dom.earLeft, dom.earRight, dom.headBack], {
     yPercent: (y / 25) * -1,
     xPercent: (x / 50) * -1
   });
