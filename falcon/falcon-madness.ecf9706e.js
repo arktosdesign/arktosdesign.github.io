@@ -492,9 +492,7 @@ window.onload = function () {
   function tiltFalcon(e) {
     if (gameIsRunning) {
       var x = -e.accelerationIncludingGravity.x * 2;
-      var y = e.accelerationIncludingGravity.y; // var y = e.rotationRate.alpha / 10;
-      // x = oneDecimal(x);  y = oneDecimal(y);
-
+      var y = e.accelerationIncludingGravity.y * 1.25;
       var windowWidth = window.innerWidth;
       var windowHeight = window.innerHeight;
       var position = {
@@ -505,15 +503,10 @@ window.onload = function () {
       _all.gsap.to('#falcon', {
         x: position.x,
         y: position.y,
-        ease: "power2.out"
+        duration: 0.5,
+        ease: "power3.out"
       });
     }
-  }
-
-  function oneDecimal(n) {
-    var number = n;
-    var rounded = Math.round(number * 10) / 10;
-    return rounded;
   }
 
   function toPercentage(x, n) {
