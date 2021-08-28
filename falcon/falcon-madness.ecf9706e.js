@@ -491,8 +491,8 @@ window.onload = function () {
 
   function tiltFalcon(e) {
     if (gameIsRunning) {
-      var x = e.rotationRate.beta / 3;
-      var y = e.rotationRate.alpha / 3;
+      var x = e.rotationRate.beta / 6;
+      var y = e.rotationRate.alpha / 6;
       x = oneDecimal(x);
       y = oneDecimal(y);
       var windowWidth = window.innerWidth;
@@ -505,7 +505,7 @@ window.onload = function () {
       _all.gsap.to('#falcon', {
         x: position.x,
         y: position.y,
-        ease: "power1.out"
+        ease: "power2.out"
       });
     }
   }
