@@ -8,7 +8,7 @@ html, body {
   background-color: #FFFFFF;
   font-family: 'Karla', sans-serif;
   user-select: none;
-  cursor: url(../img/cursor-auto.png),auto;
+  cursor: url(../img/cursor-auto.png), auto;
 }
 body.no-p {
   .logo, nav, .menu-toggle {pointer-events: none !important; cursor: default !important;}
