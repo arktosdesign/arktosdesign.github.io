@@ -437,6 +437,7 @@ window.onload = function () {
   var gameWindow = document.getElementById("game"),
       falcon = document.getElementById("falcon"),
       falconHeight = falcon.getBoundingClientRect().height,
+      falconWidth = falcon.getBoundingClientRect().width,
       gameWindowSize = gameWindow.getBoundingClientRect(),
       gameWindowHeight = gameWindowSize.height,
       gameWindowWidth = gameWindowSize.width,
@@ -491,7 +492,7 @@ window.onload = function () {
   function tiltFalcon(e) {
     if (gameIsRunning) {
       var x = e.rotationRate.gamma;
-      var y = e.rotationRate.delta;
+      var y = e.rotationRate.beta;
 
       _all.gsap.to('#falcon', {
         x: x,
@@ -538,10 +539,14 @@ window.onload = function () {
       if (ammo !== 0) {
         clearRafInterval(increaseLaserCount);
         increaseLaserCount = setRafInterval(addAmmo, laserTickRate);
-        var laserPositionX = e.clientX - gameWindowLeft,
-            laserPositionY = e.clientY - gameWindowTop - falconHeight / 1.5,
+        var falconPosition = falcon.getBoundingClientRect();
+        var laserPositionX = falconPosition.left - gameWindowLeft + falconWidth / 2,
+            laserPositionY = falconPosition.top - gameWindowTop + falconHeight / 1.5,
             laserDiv = document.createElement('div'),
-            laserSpeed = e.clientY / Math.pow(gameWindowHeight, 1.25);
+            laserSpeed = laserPositionY / Math.pow(gameWindowHeight, 1.25); // var laserPositionX = e.clientX - gameWindowLeft,
+        //     laserPositionY = e.clientY - gameWindowTop - (falconHeight / 1.5),
+        //     laserDiv = document.createElement('div'),
+        //     laserSpeed = e.clientY / Math.pow(gameWindowHeight, 1.25);
 
         _all.gsap.set(laserDiv, {
           attr: {
