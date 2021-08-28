@@ -465,6 +465,8 @@ window.onload = function () {
       gameWindowWidth = gameWindowSize.width,
       gameWindowLeft = gameWindowSize.left,
       gameWindowTop = gameWindowSize.top,
+      splashScreen = document.getElementById('splash'),
+      splashTitle = document.getElementById('splashTitle'),
       startGameBtn = document.getElementById("start-game"); // Responsive / resize
 
   function calculateGameDimensions() {
@@ -477,7 +479,24 @@ window.onload = function () {
 
   window.addEventListener("resize", calculateGameDimensions); // Master game switch
 
-  var gameIsRunning = false; // Falcon  
+  var gameIsRunning = false; // Falcon
+
+  function falconBoom() {
+    disableFalconControls();
+
+    _all.gsap.killTweensOf(falcon);
+
+    _all.gsap.set(falcon, {
+      backgroundPositionX: '100%'
+    });
+
+    _all.gsap.to(falcon, {
+      autoAlpha: 0,
+      scale: 1.2,
+      duration: 2,
+      ease: "power1.in"
+    });
+  }
 
   _all.gsap.set(falcon, {
     xPercent: -50,
@@ -487,6 +506,14 @@ window.onload = function () {
   var enterFalconDelay = 0.5;
 
   function enterFalcon(e) {
+    _all.gsap.killTweensOf(falcon);
+
+    _all.gsap.set(falcon, {
+      autoAlpha: 1,
+      backgroundPositionX: 0,
+      scale: 1
+    });
+
     _all.gsap.fromTo(falcon, {
       y: gameWindowHeight + falconHeight
     }, {
@@ -515,8 +542,8 @@ window.onload = function () {
     if (gameIsRunning) {
       var x = -e.accelerationIncludingGravity.x * 2.5;
       var y = (e.accelerationIncludingGravity.y - 2) * 1.25;
-      var windowWidth = window.innerWidth;
-      var windowHeight = window.innerHeight;
+      var windowWidth = window.innerWidth - falconWidth / 2;
+      var windowHeight = window.innerHeight - falconHeight / 2;
       var position = {
         'x': windowWidth / (100 / toPercentage(x, 1)),
         'y': windowHeight / (100 / toPercentage(y, 1))
@@ -541,6 +568,14 @@ window.onload = function () {
     gameWindow.addEventListener("contextmenu", fireLaser);
 
     _all.gsap.delayedCall(1, enterObjects);
+  }
+
+  function disableFalconControls(e) {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      window.removeEventListener("devicemotion", tiltFalcon, true);
+    } else {
+      gameWindow.removeEventListener("mousemove", moveFalcon);
+    }
   }
 
   function enterObjects() {
@@ -696,9 +731,13 @@ window.onload = function () {
     });
   }
 
-  var explodeShot = new _howler.Howl({
-    src: ['explode.mp3'],
-    volume: 0.6
+  var falconExplodeShot = new _howler.Howl({
+    src: ['falcon-explode.mp3'],
+    volume: 0.8
+  });
+  var objectExplodeShot = new _howler.Howl({
+    src: ['object-explode-1.mp3'],
+    volume: 0.15
   });
 
   function checkHits(element) {
@@ -708,14 +747,14 @@ window.onload = function () {
     if (laser.length) {
       if (_all.Draggable.hitTest(laser, selectObject, "0%")) {
         selectObject.remove();
-        explodeShot.play();
+        objectExplodeShot.play();
         replenishObjects();
         addHitToScore();
       }
     }
 
     if (_all.Draggable.hitTest(falcon, selectObject, "15%")) {
-      explodeShot.play();
+      falconExplodeShot.play();
       gameOver();
     }
   } // Backgrounds
@@ -783,7 +822,7 @@ window.onload = function () {
       backgroundPositionY: 0
     });
 
-    startGameBtn.style.display = 'none';
+    splashScreen.style.display = 'none';
     document.querySelectorAll('.object').forEach(e => e.remove());
     gameProgress = 0;
     gameProgressTicker = setRafInterval(gameProgressCounter, 100);
@@ -801,6 +840,8 @@ window.onload = function () {
     gameIsRunning = false;
     vibration(300);
     highScoreCheck();
+    splashScreen.style.display = 'block';
+    splashTitle.textContent = 'Game over';
     startGameBtn.textContent = 'Try again?';
     startGameBtn.style.display = 'block';
     clearTimers();
@@ -809,8 +850,7 @@ window.onload = function () {
 
     _all.gsap.killTweensOf(gameWindow);
 
-    _all.gsap.killTweensOf(falcon);
-
+    falconBoom();
     gameWindow.classList.remove("game-is-running");
   }
 
