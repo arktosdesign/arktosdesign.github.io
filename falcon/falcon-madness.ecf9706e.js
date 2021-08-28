@@ -421,16 +421,6 @@ var _all = require("gsap/all");
 // https://codepen.io/osublake/pen/ajKRWz
 _all.gsap.registerPlugin(_all.Draggable);
 
-window.addEventListener('devicemotion', event => {
-  var x = event.rotationRate.gamma;
-  var y = event.rotationRate.delta;
-
-  _all.gsap.to('#falcon', {
-    x: x,
-    y: y
-  });
-});
-
 window.onload = function () {
   // Randomize function
   function R(min, max) {
@@ -498,8 +488,25 @@ window.onload = function () {
     }
   }
 
+  function tiltFalcon(e) {
+    if (gameIsRunning) {
+      var x = e.rotationRate.gamma;
+      var y = e.rotationRate.delta;
+
+      _all.gsap.to('#falcon', {
+        x: x,
+        y: y
+      });
+    }
+  }
+
   function enableFalconControls(e) {
-    gameWindow.addEventListener("mousemove", moveFalcon);
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      window.addEventListener("devicemotion", tiltFalcon, true);
+    } else {
+      gameWindow.addEventListener("mousemove", moveFalcon);
+    }
+
     gameWindow.addEventListener("click", fireLaser);
     gameWindow.addEventListener("contextmenu", fireLaser);
 
@@ -681,7 +688,8 @@ window.onload = function () {
     });
     backgroundScroll.to(gameWindow, {
       backgroundPositionY: `${gameWindowSize.height}px`,
-      duration: 2.5,
+      // duration: 2.5,
+      duration: gameWindowSize.height / 300,
       ease: "none"
     });
   }
