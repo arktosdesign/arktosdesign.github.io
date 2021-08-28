@@ -491,12 +491,14 @@ window.onload = function () {
 
   function tiltFalcon(e) {
     if (gameIsRunning) {
-      var x = e.rotationRate.beta;
-      var y = e.rotationRate.alpha;
+      var position = {
+        'x': window.innerWidth / (100 / e.rotationRate.beta),
+        'y': window.innerHeight / (100 / e.rotationRate.alpha)
+      };
 
       _all.gsap.to('#falcon', {
-        x: x + gameWindowLeft,
-        y: y + gameWindowTop,
+        x: position.x,
+        y: position.y,
         ease: "power1.out"
       });
     }
