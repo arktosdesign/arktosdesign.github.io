@@ -495,8 +495,8 @@ window.onload = function () {
       var y = e.rotationRate.alpha;
 
       _all.gsap.to('#falcon', {
-        x: x - gameWindowLeft,
-        y: y - gameWindowTop,
+        x: x + gameWindowLeft,
+        y: y + gameWindowTop,
         ease: "power1.out"
       });
     }
