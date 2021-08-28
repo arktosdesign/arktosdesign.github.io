@@ -712,11 +712,12 @@ window.onload = function () {
         replenishObjects();
         addHitToScore();
       }
-    } // if (Draggable.hitTest(falcon, selectObject, "15%")) {
-    //   explodeShot.play();
-    //   gameOver();
-    // }
+    }
 
+    if (_all.Draggable.hitTest(falcon, selectObject, "15%")) {
+      explodeShot.play();
+      gameOver();
+    }
   } // Backgrounds
 
 
