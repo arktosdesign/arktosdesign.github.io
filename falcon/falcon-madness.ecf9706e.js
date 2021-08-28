@@ -431,6 +431,25 @@ window.onload = function () {
 
   function random(array) {
     return array[Math.floor(Math.random() * array.length)];
+  } // Number functions
+
+
+  function oneDecimal(n) {
+    var number = n;
+    var rounded = Math.round(number * 10) / 10;
+    return rounded;
+  }
+
+  function toPercentage(x, n) {
+    var p = 0;
+
+    if (n) {
+      p = (x + 10) / 20 * 100;
+    } else {
+      p = (x + 10) / 20;
+    }
+
+    return oneDecimal(p);
   } // Top level variables
 
 
@@ -506,24 +525,6 @@ window.onload = function () {
         ease: "power1.out"
       });
     }
-  }
-
-  function oneDecimal(n) {
-    var number = n;
-    var rounded = Math.round(number * 10) / 10;
-    return rounded;
-  }
-
-  function toPercentage(x, n) {
-    var p = 0;
-
-    if (n) {
-      p = (x + 10) / 20 * 100;
-    } else {
-      p = (x + 10) / 20;
-    }
-
-    return oneDecimal(p);
   }
 
   function enableFalconControls(e) {
@@ -615,7 +616,7 @@ window.onload = function () {
   } // Objects
 
 
-  var objects = 6,
+  var objects = 8,
       objectTypes = ["tie"];
 
   function createObjects() {
@@ -687,28 +688,6 @@ window.onload = function () {
     if (_all.Draggable.hitTest(falcon, selectObject, "15%")) {
       gameOver();
     }
-  } // Game scores
-
-
-  var gameProgress = 0,
-      gameRate = 100,
-      hitScore = 50,
-      score = document.getElementById("score"),
-      gameProgressTicker = null;
-
-  function gameProgressCounter() {
-    gameProgress++;
-    updateScoreText(gameProgress);
-  }
-
-  function updateScoreText(num) {
-    score.textContent = num.toFixed(0).toString();
-  }
-
-  updateScoreText(gameProgress);
-
-  function addHitToScore() {
-    gameProgress = gameProgress + hitScore;
   } // Backgrounds
 
 
@@ -719,10 +698,45 @@ window.onload = function () {
     backgroundScroll.to(gameWindow, {
       backgroundPositionY: `${gameWindowSize.height}px`,
       // duration: 2.5,
-      duration: gameWindowSize.height / 300,
+      duration: gameWindowSize.height / 200,
       ease: "none"
     });
+  } // Game scores
+
+
+  var gameProgress = 0,
+      gameRate = 100,
+      hitScore = 50,
+      score = document.getElementById("score"),
+      highScore = document.getElementById("highScore"),
+      gameProgressTicker = null;
+
+  function highScoreCheck() {
+    var highScoreStore = localStorage.getItem("falcon-madness-highscore");
+
+    if (highScoreStore === null || gameProgress > highScoreStore) {
+      localStorage.setItem("falcon-madness-highscore", gameProgress);
+      updateScoreText(highScore, gameProgress);
+    } else if (highScoreStore !== null) {
+      highScore.textContent = highScoreStore;
+    }
   }
+
+  function gameProgressCounter() {
+    gameProgress++;
+    updateScoreText(score, gameProgress);
+  }
+
+  function updateScoreText(el, num) {
+    el.textContent = num.toFixed(0).toString();
+  }
+
+  function addHitToScore() {
+    gameProgress = gameProgress + hitScore;
+  }
+
+  updateScoreText(score, gameProgress);
+  highScoreCheck();
 
   function clearTimers() {
     clearRafInterval(increaseLaserCount);
@@ -750,6 +764,7 @@ window.onload = function () {
 
   function gameOver() {
     gameIsRunning = false;
+    highScoreCheck();
     startGameBtn.textContent = 'Try again?';
     startGameBtn.style.display = 'block';
     clearTimers();
@@ -763,7 +778,7 @@ window.onload = function () {
     gameWindow.classList.remove("game-is-running");
   }
 
-  startGameBtn.addEventListener("click", startGame);
+  startGameBtn.addEventListener("click", startGame); // Rotation checks
 
   function rotateToggle() {
     var rotate = document.getElementById('rotation');
