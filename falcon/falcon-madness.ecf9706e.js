@@ -498,8 +498,8 @@ window.onload = function () {
       var windowWidth = window.innerWidth;
       var windowHeight = window.innerHeight;
       var position = {
-        'x': windowWidth / (100 / toPercentage(x, 1)),
-        'y': windowHeight / (100 / toPercentage(y, 1))
+        'x': windowWidth / (100 / toPercentage(x, 3)),
+        'y': windowHeight / (100 / toPercentage(y, 3))
       };
 
       _all.gsap.to('#falcon', {
@@ -512,7 +512,7 @@ window.onload = function () {
 
   function oneDecimal(n) {
     var number = n;
-    var rounded = Math.round(number * 10) / 30;
+    var rounded = Math.round(number * 10) / 10;
     return rounded;
   }
 
