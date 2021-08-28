@@ -765,8 +765,7 @@ window.onload = function () {
 
   startGameBtn.addEventListener("click", startGame);
 
-  function rotateCheck() {
-    var rotate = document.getElementById('rotation');
+  function rotateToggle() {
     var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
 
     if (orientation === "landscape-primary") {
@@ -776,8 +775,16 @@ window.onload = function () {
     }
   }
 
+  function rotateCheck() {
+    var rotate = document.getElementById('rotation');
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      window.addEventListener('orientationchange', rotateToggle);
+    }
+  }
+
+  rotateToggle();
   rotateCheck();
-  window.addEventListener('orientationchange', rotateCheck);
 };
 },{"gsap/all":"259484b50535d81d8adf51bd2d0f54a1","./node_modules/raf-interval/raf-interval.js":"eac5484687cdb9d994e8863b7b70b540"}],"259484b50535d81d8adf51bd2d0f54a1":[function(require,module,exports) {
 "use strict";
