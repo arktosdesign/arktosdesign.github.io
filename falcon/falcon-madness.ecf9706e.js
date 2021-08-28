@@ -491,8 +491,8 @@ window.onload = function () {
 
   function tiltFalcon(e) {
     if (gameIsRunning) {
-      var x = e.acceleration.x;
-      var y = e.acceleration.y;
+      var x = e.accelerationIncludingGravity.x;
+      var y = e.accelerationIncludingGravity.y;
       x = oneDecimal(x);
       y = oneDecimal(y);
       var windowWidth = window.innerWidth;
