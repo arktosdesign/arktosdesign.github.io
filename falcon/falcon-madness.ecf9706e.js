@@ -491,8 +491,8 @@ window.onload = function () {
 
   function tiltFalcon(e) {
     if (gameIsRunning) {
-      var x = e.rotationRate.gamma;
-      var y = e.rotationRate.beta;
+      var x = e.rotationRate.beta;
+      var y = e.rotationRate.alpha;
 
       _all.gsap.to('#falcon', {
         x: x,
