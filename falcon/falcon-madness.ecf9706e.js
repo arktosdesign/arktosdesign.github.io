@@ -492,8 +492,9 @@ window.onload = function () {
   function tiltFalcon(e) {
     if (gameIsRunning) {
       var x = e.rotationRate.beta;
-      var y = e.rotationRate.alpha; // x = oneDecimal(x);  y = oneDecimal(y);
-
+      var y = e.rotationRate.alpha;
+      x = oneDecimal(x);
+      y = oneDecimal(y);
       var windowWidth = window.innerWidth;
       var windowHeight = window.innerHeight;
       var position = {
@@ -511,7 +512,7 @@ window.onload = function () {
 
   function oneDecimal(n) {
     var number = n;
-    var rounded = Math.round(number * 10) / 10;
+    var rounded = Math.round(number * 10) / 100;
     return rounded;
   }
 
