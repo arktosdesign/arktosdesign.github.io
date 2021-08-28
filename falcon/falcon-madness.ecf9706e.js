@@ -512,7 +512,7 @@ window.onload = function () {
 
   function oneDecimal(n) {
     var number = n;
-    var rounded = Math.round(number * 10) / 100;
+    var rounded = Math.round(number * 10) / 30;
     return rounded;
   }
 
