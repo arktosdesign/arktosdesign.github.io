@@ -491,9 +491,15 @@ window.onload = function () {
 
   function tiltFalcon(e) {
     if (gameIsRunning) {
+      var x = e.rotationRate.beta;
+      var y = e.rotationRate.alpha;
+      x = oneDecimal(x);
+      y = oneDecimal(y);
+      var windowWidth = window.innerWidth;
+      var windowHeight = window.innerHeight;
       var position = {
-        'x': window.innerWidth / e.rotationRate.beta,
-        'y': window.innerHeight / e.rotationRate.alpha
+        'x': windowWidth / (100 / toPercentage(x, 1)),
+        'y': windowHeight / (100 / toPercentage(y, 1))
       };
 
       _all.gsap.to('#falcon', {
@@ -502,6 +508,24 @@ window.onload = function () {
         ease: "power1.out"
       });
     }
+  }
+
+  function oneDecimal(n) {
+    var number = n;
+    var rounded = Math.round(number * 10) / 10;
+    return rounded;
+  }
+
+  function toPercentage(x, n) {
+    var p = 0;
+
+    if (n) {
+      p = (x + 10) / 20 * 100;
+    } else {
+      p = (x + 10) / 20;
+    }
+
+    return oneDecimal(p);
   }
 
   function enableFalconControls(e) {
