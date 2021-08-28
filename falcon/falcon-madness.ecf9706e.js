@@ -424,13 +424,7 @@ var _howler = require("howler");
 _all.gsap.registerPlugin(_all.Draggable);
 
 window.onload = function () {
-  // Randomize function
-  function R(min, max) {
-    return min + Math.random() * (max - min);
-  }
-
-  ; // Shuffle function
-
+  // Shuffle function
   function random(array) {
     return array[Math.floor(Math.random() * array.length)];
   } // Number functions
@@ -452,6 +446,13 @@ window.onload = function () {
     }
 
     return oneDecimal(p);
+  } // Vibration
+
+
+  function vibration(time) {
+    if ("vibrate" in navigator) {
+      window.navigator.vibrate(time);
+    }
   } // Top level variables
 
 
@@ -574,10 +575,7 @@ window.onload = function () {
         var laserPositionX = falconPosition.left - gameWindowLeft + falconWidth / 2,
             laserPositionY = falconPosition.top - gameWindowTop + falconHeight / 1.5,
             laserDiv = document.createElement('div'),
-            laserSpeed = laserPositionY / Math.pow(gameWindowHeight, 1.25); // var laserPositionX = e.clientX - gameWindowLeft,
-        //     laserPositionY = e.clientY - gameWindowTop - (falconHeight / 1.5),
-        //     laserDiv = document.createElement('div'),
-        //     laserSpeed = e.clientY / Math.pow(gameWindowHeight, 1.25);
+            laserSpeed = laserPositionY / Math.pow(gameWindowHeight, 1.25);
 
         _all.gsap.set(laserDiv, {
           attr: {
@@ -599,6 +597,7 @@ window.onload = function () {
 
         gameWindow.appendChild(laserDiv);
         laserShot.play();
+        vibration(10);
       }
 
       if (ammo <= lasers && ammo > 0) {
@@ -622,24 +621,39 @@ window.onload = function () {
   } // Objects
 
 
-  var objects = 8,
-      objectTypes = ["tie"];
+  var objects = 12,
+      objectRate = null,
+      objectStartingSpeed = 520,
+      objectSpeed = objectStartingSpeed,
+      objectEndingSpeed = 175,
+      objectTickRate = 500,
+      objectTypes = ["tie", "tie-bomber", "asteroid-sm", "asteroid-md", "asteroid-lg"];
+
+  function objectRateCounter() {
+    objectSpeed--;
+
+    if (objectSpeed <= objectEndingSpeed) {
+      clearRafInterval(objectRate);
+    }
+  }
 
   function createObjects() {
     for (var i = 0; i < objects; i++) {
       var objectDiv = document.createElement('div');
-      setNewObject(objectDiv);
+      objectDiv.className = `object object--${random(objectTypes)}`;
       gameWindow.appendChild(objectDiv);
+      setNewObject(objectDiv);
     }
   }
 
-  function setNewObject(ele) {
-    _all.gsap.set(ele, {
-      attr: {
-        class: `object object--${random(objectTypes)}`
-      },
-      x: R(0, gameWindowWidth),
-      y: R(-40, -100)
+  function setNewObject(element) {
+    var objectDim = element.getBoundingClientRect();
+
+    _all.gsap.set(element, {
+      x: _all.gsap.utils.random(objectDim.width, gameWindowWidth - objectDim.width),
+      y: 0 - objectDim.height,
+      yPercent: -50,
+      autoAlpha: 0
     });
   }
 
@@ -648,38 +662,43 @@ window.onload = function () {
       var objectDiv = document.getElementsByClassName("object")[i];
       fallingObject(objectDiv, i);
     }
-  } // Make an speed increase interval making the objects faster
-
+  }
 
   function replenishObjects() {
     var objectDivs = document.querySelectorAll('.object');
 
     if (objectDivs.length < objects) {
       var objectDiv = document.createElement('div');
+      objectDiv.className = `object object--${random(objectTypes)}`;
       gameWindow.appendChild(objectDiv);
       setNewObject(objectDiv);
-      fallingObject(objectDiv, R(1, 2));
+      fallingObject(objectDiv, _all.gsap.utils.random(1, 2));
     }
   }
 
   function fallingObject(element, delay) {
-    var objectTL = new _all.gsap.timeline();
+    var objectTL = new _all.gsap.timeline(),
+        objectDim = element.getBoundingClientRect(),
+        duration = objectSpeed / 200;
     objectTL.set(element, {
       autoAlpha: 1
     }).to(element, {
-      y: gameWindowHeight + 350,
+      y: gameWindowHeight + objectDim.height,
       ease: "none",
       onUpdate: checkHits,
       onUpdateParams: [element],
-      duration: R(2, 4),
-      delay: delay * 1.5,
-      repeat: -1,
-      repeatDelay: R(1, 2)
+      onComplete: () => {
+        element.remove();
+        replenishObjects();
+      },
+      duration: _all.gsap.utils.random(duration, duration * 1.2),
+      delay: delay * 1.5
     });
   }
 
   var explodeShot = new _howler.Howl({
-    src: ['explode.mp3']
+    src: ['explode.mp3'],
+    volume: 0.6
   });
 
   function checkHits(element) {
@@ -688,36 +707,36 @@ window.onload = function () {
 
     if (laser.length) {
       if (_all.Draggable.hitTest(laser, selectObject, "0%")) {
-        // Try and disble instead of remove
         selectObject.remove();
         explodeShot.play();
         replenishObjects();
         addHitToScore();
       }
-    }
+    } // if (Draggable.hitTest(falcon, selectObject, "15%")) {
+    //   explodeShot.play();
+    //   gameOver();
+    // }
 
-    if (_all.Draggable.hitTest(falcon, selectObject, "15%")) {
-      explodeShot.play();
-      gameOver();
-    }
   } // Backgrounds
 
 
   function backgroundScroller() {
-    var backgroundScroll = new _all.gsap.timeline({
-      repeat: -1
+    var backgroundDuration = objectSpeed / 175;
+
+    _all.gsap.set(gameWindow, {
+      backgroundPositionY: '0px'
     });
-    backgroundScroll.to(gameWindow, {
+
+    _all.gsap.to(gameWindow, {
       backgroundPositionY: `${gameWindowSize.height}px`,
-      // duration: 2.5,
-      duration: gameWindowSize.height / 200,
-      ease: "none"
+      duration: backgroundDuration,
+      ease: "none",
+      onComplete: backgroundScroller
     });
   } // Game scores
 
 
   var gameProgress = 0,
-      gameRate = 100,
       hitScore = 50,
       score = document.getElementById("score"),
       highScore = document.getElementById("highScore"),
@@ -753,6 +772,7 @@ window.onload = function () {
   function clearTimers() {
     clearRafInterval(increaseLaserCount);
     clearRafInterval(gameProgressTicker);
+    clearRafInterval(objectRate);
   }
 
   function startGame() {
@@ -765,7 +785,9 @@ window.onload = function () {
     startGameBtn.style.display = 'none';
     document.querySelectorAll('.object').forEach(e => e.remove());
     gameProgress = 0;
-    gameProgressTicker = setRafInterval(gameProgressCounter, gameRate);
+    gameProgressTicker = setRafInterval(gameProgressCounter, 100);
+    objectSpeed = objectStartingSpeed;
+    objectRate = setRafInterval(objectRateCounter, objectTickRate);
     ammo = lasers;
     updateLaserCount();
     enterFalcon();
@@ -776,6 +798,7 @@ window.onload = function () {
 
   function gameOver() {
     gameIsRunning = false;
+    vibration(300);
     highScoreCheck();
     startGameBtn.textContent = 'Try again?';
     startGameBtn.style.display = 'block';
