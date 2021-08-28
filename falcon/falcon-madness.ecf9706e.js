@@ -498,8 +498,8 @@ window.onload = function () {
       var windowWidth = window.innerWidth;
       var windowHeight = window.innerHeight;
       var position = {
-        'x': windowWidth / (1000 / toPercentage(x, 1)),
-        'y': windowHeight / (1000 / toPercentage(y, 1))
+        'x': windowWidth / (100 / toPercentage(x, 1)),
+        'y': windowHeight / (100 / toPercentage(y, 1))
       };
 
       _all.gsap.to('#falcon', {
