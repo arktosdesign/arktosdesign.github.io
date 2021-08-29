@@ -5,7 +5,7 @@ self.addEventListener('install', function(event) {
         [
           'index.html',
           'styles.4201f784.css',
-          'falcon-madness.976106f8.js',
+          'falcon-madness.db26bb0a.js',
           'falcon-explode.mp3',
           'laser.mp3',
           'object-explode-1.mp3',

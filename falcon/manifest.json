@@ -1,6 +1,7 @@
 {
   "name": "Falcon Madness",
   "short_name": "FalconMadness",
+  "orientation": "any",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
