@@ -1,9 +1,9 @@
 {
   "name": "Falcon Madness",
-  "short_name": "FM",
+  "short_name": "FalconMadness",
   "start_url": "index.html",
-  "display": "fullscreen",
-  "background_color": "#07080d",
+  "display": "standalone",
+  "background_color": "#ffffff",
   "description": "Pew pew",
   "theme_color": "#07080d",
   "icons": [
