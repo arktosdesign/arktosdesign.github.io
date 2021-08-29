@@ -540,10 +540,13 @@ window.onload = function () {
 
   function tiltFalcon(e) {
     if (gameIsRunning) {
-      var x = -e.accelerationIncludingGravity.x * 2.5;
+      // var x = -e.accelerationIncludingGravity.x * 2.5;
+      var x = -e.accelerationIncludingGravity.x;
       var y = (e.accelerationIncludingGravity.y - 2) * 1.25;
-      var windowWidth = window.innerWidth - falconWidth / 2;
-      var windowHeight = window.innerHeight - falconHeight / 2;
+      x = oneDecimal(x);
+      y = oneDecimal(y);
+      var windowWidth = window.innerWidth;
+      var windowHeight = window.innerHeight;
       var position = {
         'x': windowWidth / (100 / toPercentage(x, 1)),
         'y': windowHeight / (100 / toPercentage(y, 1))
