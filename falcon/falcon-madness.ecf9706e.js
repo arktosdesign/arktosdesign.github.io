@@ -541,8 +541,10 @@ window.onload = function () {
   function tiltFalcon(e) {
     if (gameIsRunning) {
       // var x = -e.accelerationIncludingGravity.x * 2.5;
-      var x = -e.accelerationIncludingGravity.x * 1.33;
-      var y = (e.accelerationIncludingGravity.y - 2) * 1.25;
+      // var x = -e.accelerationIncludingGravity.x * 1.33;
+      var x = -e.gamma; // var y = (e.accelerationIncludingGravity.y - 2) * 1.25;
+
+      var y = e.beta;
       x = oneDecimal(x);
       y = oneDecimal(y);
       var windowWidth = window.innerWidth;
@@ -562,7 +564,7 @@ window.onload = function () {
 
   function enableFalconControls(e) {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      window.addEventListener("devicemotion", tiltFalcon, true);
+      window.addEventListener("deviceorientation", tiltFalcon, true);
     } else {
       gameWindow.addEventListener("mousemove", moveFalcon);
     }
