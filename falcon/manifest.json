@@ -1,0 +1,22 @@
+{
+  "name": "Falcon Madness",
+  "short_name": "FM",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#07080d",
+  "description": "Pew pew",
+  "theme_color": "#07080d",
+  "icons": [
+    {
+      "src": "manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
